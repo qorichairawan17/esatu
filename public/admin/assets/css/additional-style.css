@@ -1,0 +1,477 @@
+.scrolling-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 1rem;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.scrolling-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+.card-shortcut {
+    display: inline-flex !important;
+    flex-direction: column;
+    min-width: 150px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    vertical-align: top;
+    transition: transform 0.3s ease;
+}
+
+.card-shortcut:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-shortcut .card-body {
+    text-align: center;
+}
+
+.card-shortcut i {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-payment {
+    transition: transform 0.3s ease;
+}
+
+.card-payment:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(47, 85, 212, 0.2);
+}
+
+@media (min-width: 768px) {
+    .w-md-auto {
+        width: auto !important;
+    }
+}
+
+/* Testimoni Modal */
+/* Komponen rating bintang (tanpa library tambahan) */
+.rating {
+    direction: rtl; /* agar selector saudara (~) bekerja dari kanan ke kiri */
+    unicode-bidi: bidi-override; /* memastikan urutan visual */
+    display: inline-flex;
+    gap: 0.25rem;
+}
+.rating input {
+    display: none; /* sembunyikan input radio */
+}
+.rating label {
+    font-size: 1.75rem;
+    cursor: pointer;
+    line-height: 1;
+    user-select: none;
+}
+.rating label::before {
+    content: "☆"; /* bintang kosong */
+}
+/* Hover: isi bintang yang dihover dan semua di kiri (secara visual) */
+.rating label:hover::before,
+.rating label:hover ~ label::before {
+    content: "★";
+}
+/* Saat dipilih (checked), isi bintang tsb dan semua di kiri (secara visual) */
+.rating input:checked ~ label::before {
+    content: "★";
+}
+
+/* Warna bintang */
+.rating label::before {
+    color: #adb5bd;
+} /* abu untuk kosong */
+.rating label:hover::before,
+.rating label:hover ~ label::before,
+.rating input:checked ~ label::before {
+    color: #ffc107;
+} /* kuning untuk terisi */
+
+/* Bantuan fokus keyboard */
+.rating input:focus-visible + label {
+    outline: 2px solid #0d6efd;
+    outline-offset: 3px;
+    border-radius: 0.25rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Global DataTable Styling
+   Consistent style for all DataTable pages using the DataTables plugin.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── DataTable Wrapper Controls ──────────────────────────────── */
+.dataTables_wrapper {
+    padding: 16px 20px;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 12px;
+}
+
+.dataTables_wrapper .dataTables_length label,
+.dataTables_wrapper .dataTables_filter label {
+    font-size: 13px;
+    color: #5a6577;
+    font-weight: 500;
+}
+
+.dataTables_wrapper .dataTables_length select,
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 13px;
+    color: #3c4858;
+    background: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dataTables_wrapper .dataTables_length select:focus,
+.dataTables_wrapper .dataTables_filter input:focus {
+    border-color: #2f55d4;
+    box-shadow: 0 0 0 3px rgba(47, 85, 212, 0.1);
+    outline: none;
+}
+
+.dataTables_wrapper .dataTables_info {
+    font-size: 13px;
+    color: #667085;
+    padding-top: 14px;
+}
+
+/* ── Pagination ──────────────────────────────────────────────── */
+.dataTables_wrapper .dataTables_paginate {
+    padding-top: 14px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    border-radius: 8px !important;
+    margin: 0 2px;
+    padding: 6px 12px !important;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: #2f55d4 !important;
+    color: #fff !important;
+    border-color: #2f55d4 !important;
+    box-shadow: 0 2px 6px rgba(47, 85, 212, 0.25);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled) {
+    background: #f0f4ff !important;
+    color: #2f55d4 !important;
+    border-color: #d0d5dd !important;
+}
+
+/* ── Table Styling ───────────────────────────────────────────── */
+table.dataTable {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    font-size: 14px;
+    margin-bottom: 0 !important;
+}
+
+table.dataTable thead th {
+    background: #f4f6f9;
+    color: #3c4858;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 12px 16px;
+    border-bottom: 2px solid #dee2e8;
+    white-space: nowrap;
+}
+
+table.dataTable tbody td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #eef0f3;
+    vertical-align: middle;
+    color: #3c4858;
+}
+
+table.dataTable tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+table.dataTable tbody tr:hover {
+    background-color: #f0f4ff !important;
+}
+
+table.dataTable tbody tr.selected {
+    background-color: #e8f0fe !important;
+}
+
+table.dataTable tbody tr.selected > * {
+    box-shadow: inset 0 0 0 9999px #e8f0fe !important;
+    color: #3c4858 !important;
+}
+
+table.dataTable tbody tr.selected:hover {
+    background-color: #dce6f9 !important;
+}
+
+table.dataTable tbody tr.selected:hover > * {
+    box-shadow: inset 0 0 0 9999px #dce6f9 !important;
+}
+
+table.dataTable tbody tr.selected a {
+    color: #2f55d4;
+}
+
+table.dataTable tbody tr.selected .text-muted {
+    color: #6c757d !important;
+}
+
+/* ── Sorting Icons ───────────────────────────────────────────── */
+table.dataTable thead th.sorting::after,
+table.dataTable thead th.sorting_asc::after,
+table.dataTable thead th.sorting_desc::after {
+    opacity: 0.5;
+}
+
+table.dataTable thead th.sorting:hover::after {
+    opacity: 1;
+}
+
+table.dataTable thead th.sorting_asc::after,
+table.dataTable thead th.sorting_desc::after {
+    color: #2f55d4;
+    opacity: 1;
+}
+
+/* ── Empty / Processing ──────────────────────────────────────── */
+table.dataTable tbody .dataTables_empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.dataTables_processing {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border: none !important;
+    border-radius: 10px;
+    padding: 18px 24px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    font-weight: 600;
+    font-size: 13px;
+    color: #2f55d4 !important;
+    z-index: 100;
+}
+
+/* ── Toggle (▼) Expand Button ────────────────────────────────── */
+.dt-expand-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    border: 1px solid #d0d5dd;
+    background: #ffffff;
+    color: #667085;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    line-height: 1;
+}
+
+.dt-expand-btn:hover {
+    background: #f0f4ff;
+    border-color: #2f55d4;
+    color: #2f55d4;
+}
+
+.dt-expand-btn .arrow-icon {
+    transition: transform 0.25s ease;
+    display: inline-block;
+}
+
+tr.shown .dt-expand-btn {
+    background: #2f55d4;
+    border-color: #2f55d4;
+    color: #ffffff;
+}
+
+tr.shown .dt-expand-btn .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* ── Child Row (Expanded Details) ────────────────────────────── */
+tr.child-row > td {
+    padding: 0 !important;
+    border-bottom: 2px solid #2f55d4;
+    background-color: #f8faff !important;
+}
+
+.dt-child-detail {
+    padding: 16px 20px 16px 52px;
+    animation: dtSlideDown 0.25s ease-out;
+}
+
+@keyframes dtSlideDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.dt-child-detail dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 16px;
+    margin: 0;
+    font-size: 13px;
+}
+
+.dt-child-detail dt {
+    font-weight: 700;
+    color: #3c4858;
+    white-space: nowrap;
+}
+
+.dt-child-detail dd {
+    margin: 0;
+    color: #5a6577;
+    word-break: break-word;
+}
+
+/* ── Action Buttons ──────────────────────────────────────────── */
+.dt-action-group {
+    display: flex;
+    gap: 5px;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.dt-action-group .btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.dt-action-group .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    table.dataTable {
+        font-size: 12.5px;
+    }
+
+    table.dataTable thead th {
+        padding: 10px 8px;
+        font-size: 11.5px;
+    }
+
+    table.dataTable tbody td {
+        padding: 10px 8px;
+    }
+
+    .dt-expand-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .dt-child-detail {
+        padding: 12px 16px;
+    }
+
+    .dt-child-detail dl {
+        grid-template-columns: 100px 1fr;
+        gap: 8px 12px;
+    }
+
+    .dt-child-detail .dt-action-group {
+        display: inline-flex;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .dt-child-detail .dt-action-group .btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .dataTables_wrapper {
+        padding: 12px 10px;
+    }
+
+    .dataTables_wrapper .dataTables_length,
+    .dataTables_wrapper .dataTables_filter {
+        text-align: left !important;
+        float: none !important;
+        width: 100%;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-top: 6px;
+    }
+
+    .dataTables_wrapper .dataTables_info,
+    .dataTables_wrapper .dataTables_paginate {
+        text-align: center !important;
+        float: none !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 5px 10px !important;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    table.dataTable {
+        font-size: 12px;
+    }
+
+    table.dataTable thead th {
+        padding: 8px 6px;
+        font-size: 10.5px;
+    }
+
+    table.dataTable tbody td {
+        padding: 8px 6px;
+    }
+
+    .dt-child-detail dl {
+        grid-template-columns: 1fr;
+        gap: 4px 0;
+    }
+
+    .dt-child-detail dt {
+        margin-top: 6px;
+        color: #667085;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+    }
+
+    .dt-child-detail dd {
+        font-size: 13px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #eef0f3;
+    }
+
+    .dt-child-detail dd:last-child {
+        border-bottom: none;
+    }
+}

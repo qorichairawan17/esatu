@@ -1,0 +1,813 @@
+/* Monitoring & Evaluasi dashboard */
+
+.monev-dashboard {
+    --monev-ink: #111827;
+    --monev-muted: #64748b;
+    --monev-line: #e2e8f0;
+    --monev-soft: #f8fafc;
+    --monev-panel: #ffffff;
+    --monev-blue: #2563eb;
+    --monev-green: #2f9e44;
+    --monev-red: #e03131;
+    --monev-amber: #f59f00;
+    --monev-teal: #14b8a6;
+    --monev-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+    color: var(--monev-ink);
+}
+
+.monev-dashboard .layout-specing {
+    padding-bottom: 1.5rem;
+}
+
+.monev-command {
+    align-items: center;
+    background: var(--monev-panel);
+    border: 1px solid var(--monev-line);
+    border-radius: 8px;
+    box-shadow: var(--monev-shadow);
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 1.25rem;
+}
+
+.monev-eyebrow,
+.monev-panel-kicker {
+    color: var(--monev-muted);
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.2;
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+}
+
+.monev-command-title,
+.monev-panel-title {
+    color: var(--monev-ink);
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.monev-command-title {
+    font-size: 1.45rem;
+}
+
+.monev-command-copy,
+.monev-muted {
+    color: var(--monev-muted);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin: 0.35rem 0 0;
+}
+
+.monev-command-metrics {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(3, minmax(118px, 1fr));
+    min-width: min(520px, 100%);
+}
+
+.monev-command-metric {
+    background: var(--monev-soft);
+    border: 1px solid var(--monev-line);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+}
+
+.monev-command-metric span,
+.monev-payment-summary span {
+    color: var(--monev-muted);
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.monev-command-metric strong,
+.monev-payment-summary strong {
+    color: var(--monev-ink);
+    display: block;
+    font-size: 1.18rem;
+    font-weight: 850;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.monev-stats-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: 1rem;
+}
+
+.monev-stat-card,
+.monev-panel {
+    background: var(--monev-panel);
+    border: 1px solid var(--monev-line);
+    border-radius: 8px;
+    box-shadow: var(--monev-shadow);
+}
+
+.monev-stat-card {
+    --accent: var(--monev-blue);
+    --accent-soft: #eff6ff;
+    min-width: 0;
+    padding: 1.15rem;
+}
+
+.monev-stat-card.is-success {
+    --accent: var(--monev-green);
+    --accent-soft: #edf9f0;
+}
+
+.monev-stat-card.is-danger {
+    --accent: var(--monev-red);
+    --accent-soft: #fff1f2;
+}
+
+.monev-stat-card.is-warning {
+    --accent: var(--monev-amber);
+    --accent-soft: #fff7e6;
+}
+
+.monev-stat-top {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.95rem;
+}
+
+.monev-stat-icon {
+    align-items: center;
+    background: var(--accent-soft);
+    border-radius: 8px;
+    color: var(--accent);
+    display: inline-flex;
+    font-size: 1.2rem;
+    height: 38px;
+    justify-content: center;
+    width: 38px;
+}
+
+.monev-stat-percent,
+.monev-soft-badge,
+.monev-trend {
+    align-items: center;
+    background: var(--monev-soft);
+    border: 1px solid var(--monev-line);
+    border-radius: 8px;
+    color: var(--monev-muted);
+    display: inline-flex;
+    font-size: 0.78rem;
+    font-weight: 800;
+    gap: 0.25rem;
+    line-height: 1;
+    padding: 0.45rem 0.6rem;
+    white-space: nowrap;
+}
+
+.monev-stat-value {
+    color: var(--monev-ink);
+    font-size: 1.85rem;
+    font-weight: 850;
+    line-height: 1;
+    margin-bottom: 0.35rem;
+}
+
+.monev-stat-label {
+    color: var(--monev-ink);
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.monev-stat-note {
+    color: var(--monev-muted);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    margin: 0.35rem 0 0.9rem;
+    min-height: 2.35em;
+}
+
+.monev-meter,
+.monev-payment-track {
+    background: #edf2f7;
+    border-radius: 8px;
+    height: 7px;
+    overflow: hidden;
+}
+
+.monev-meter span,
+.monev-payment-track span {
+    background: var(--accent, var(--monev-blue));
+    border-radius: inherit;
+    display: block;
+    height: 100%;
+    min-width: 4px;
+    transition: width 0.3s ease;
+}
+
+.monev-panel {
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.monev-panel-header {
+    align-items: center;
+    border-bottom: 1px solid var(--monev-line);
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    min-height: 76px;
+    padding: 1rem 1.15rem;
+}
+
+.monev-panel-body {
+    padding: 1.15rem;
+}
+
+.monev-trend.is-up {
+    background: #edf9f0;
+    border-color: #c8efd1;
+    color: var(--monev-green);
+}
+
+.monev-trend.is-down {
+    background: #fff1f2;
+    border-color: #ffd5da;
+    color: var(--monev-red);
+}
+
+.monev-trend.is-stable {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.monev-large-number {
+    color: var(--monev-ink);
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-weight: 850;
+    line-height: 1;
+}
+
+.monev-split-metrics,
+.monev-payment-summary {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.monev-split-metrics div,
+.monev-payment-summary div {
+    background: transparent;
+    border-left: 3px solid var(--monev-blue);
+    border-radius: 0;
+    min-width: 0;
+    padding: 0.15rem 0 0.15rem 0.85rem;
+}
+
+.monev-split-metrics div:nth-child(2),
+.monev-payment-summary div:nth-child(2) {
+    border-left-color: var(--monev-amber);
+}
+
+.monev-payment-summary div:nth-child(3) {
+    border-left-color: var(--monev-teal);
+}
+
+.monev-split-metrics span {
+    color: var(--monev-muted);
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.monev-split-metrics strong {
+    color: var(--monev-ink);
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 850;
+    margin-top: 0.25rem;
+}
+
+.monev-legend {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.monev-legend span {
+    align-items: center;
+    color: var(--monev-muted);
+    display: inline-flex;
+    font-size: 0.8rem;
+    font-weight: 800;
+    gap: 0.35rem;
+}
+
+.monev-legend i {
+    border-radius: 4px;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+}
+
+.monev-legend .is-current {
+    background: var(--monev-blue);
+}
+
+.monev-legend .is-previous {
+    background: #94a3b8;
+}
+
+.monev-scroll {
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+.monev-scroll.is-compact {
+    max-height: 306px;
+}
+
+.monev-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.monev-scroll::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 8px;
+}
+
+.monev-comparison-row {
+    align-items: center;
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: 44px minmax(0, 1fr) minmax(0, 1fr);
+    padding: 0.45rem 0;
+}
+
+.monev-comparison-label {
+    color: var(--monev-muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.monev-comparison-track {
+    background: #edf2f7;
+    border-radius: 8px;
+    height: 28px;
+    overflow: hidden;
+}
+
+.monev-comparison-bar {
+    align-items: center;
+    border-radius: inherit;
+    color: #ffffff;
+    display: flex;
+    font-size: 0.76rem;
+    font-weight: 800;
+    height: 100%;
+    min-width: 3px;
+    padding-left: 0.6rem;
+    white-space: nowrap;
+}
+
+.monev-comparison-bar.is-current {
+    background: var(--monev-blue);
+}
+
+.monev-comparison-bar.is-previous {
+    background: #94a3b8;
+}
+
+.monev-filter-bar {
+    align-items: end;
+    background: var(--monev-soft);
+    border-bottom: 1px solid var(--monev-line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1rem 1.15rem;
+}
+
+.monev-field {
+    display: grid;
+    gap: 0.35rem;
+    margin: 0;
+}
+
+.monev-field span {
+    color: var(--monev-muted);
+    font-size: 0.76rem;
+    font-weight: 800;
+}
+
+.monev-input {
+    background: #ffffff;
+    border: 1px solid var(--monev-line);
+    border-radius: 8px;
+    color: var(--monev-ink);
+    font: inherit;
+    font-size: 0.88rem;
+    min-height: 40px;
+    min-width: 146px;
+    outline: none;
+    padding: 0.5rem 0.75rem;
+}
+
+.monev-input:focus {
+    border-color: var(--monev-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.monev-filter-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.monev-btn {
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid var(--monev-line);
+    border-radius: 8px;
+    color: var(--monev-ink);
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-size: 0.86rem;
+    font-weight: 800;
+    gap: 0.35rem;
+    min-height: 40px;
+    padding: 0.55rem 0.85rem;
+}
+
+.monev-btn.is-primary {
+    background: var(--monev-blue);
+    border-color: var(--monev-blue);
+    color: #ffffff;
+}
+
+.monev-btn:hover {
+    filter: brightness(0.97);
+}
+
+.monev-chart-shell {
+    height: 348px;
+    position: relative;
+}
+
+.monev-donut {
+    min-height: 286px;
+}
+
+.monev-loading {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.76);
+    display: flex;
+    inset: 0;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+}
+
+.monev-spinner {
+    animation: monev-spin 0.8s linear infinite;
+    border: 3px solid #dbe3ef;
+    border-radius: 50%;
+    border-top-color: var(--monev-blue);
+    height: 36px;
+    width: 36px;
+}
+
+@keyframes monev-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.monev-payment-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-bottom: 1rem;
+}
+
+.monev-payment-summary small {
+    color: var(--monev-muted);
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 0.2rem;
+}
+
+.monev-payment-list {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.monev-payment-row {
+    align-items: center;
+    border: 1px solid var(--monev-line);
+    border-radius: 8px;
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: 36px minmax(0, 1fr) auto;
+    padding: 0.8rem;
+}
+
+.monev-payment-main {
+    min-width: 0;
+}
+
+.monev-payment-title {
+    align-items: center;
+    display: flex;
+    gap: 0.65rem;
+    justify-content: space-between;
+    margin-bottom: 0.45rem;
+    min-width: 0;
+}
+
+.monev-payment-title strong {
+    color: var(--monev-ink);
+    font-size: 0.92rem;
+    overflow-wrap: anywhere;
+}
+
+.monev-payment-title span,
+.monev-payment-percent {
+    color: var(--monev-muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.monev-rank-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.monev-rank-table th {
+    background: var(--monev-soft);
+    border-bottom: 1px solid var(--monev-line);
+    color: var(--monev-muted);
+    font-size: 0.74rem;
+    font-weight: 850;
+    padding: 0.75rem 1rem;
+    text-transform: uppercase;
+}
+
+.monev-rank-table td {
+    border-bottom: 1px solid #edf2f7;
+    color: var(--monev-ink);
+    font-size: 0.9rem;
+    padding: 0.85rem 1rem;
+    vertical-align: middle;
+}
+
+.monev-rank-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.monev-rank-table td strong {
+    display: block;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.monev-rank-table td strong + span {
+    color: var(--monev-muted);
+    display: block;
+    font-size: 0.78rem;
+    margin-top: 0.1rem;
+}
+
+.monev-rank-badge {
+    align-items: center;
+    background: #eef4ff;
+    border: 1px solid #d8e5ff;
+    border-radius: 8px;
+    color: var(--monev-blue);
+    display: inline-flex;
+    font-size: 0.8rem;
+    font-weight: 850;
+    height: 32px;
+    justify-content: center;
+    min-width: 32px;
+    padding: 0 0.4rem;
+}
+
+.monev-table-count {
+    color: var(--monev-blue);
+    font-weight: 850;
+}
+
+.monev-empty {
+    align-items: center;
+    color: var(--monev-muted);
+    display: grid;
+    gap: 0.55rem;
+    justify-items: center;
+    min-height: 196px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.monev-empty.is-small {
+    border: 1px dashed var(--monev-line);
+    border-radius: 8px;
+    min-height: 126px;
+}
+
+.monev-empty i {
+    color: #94a3b8;
+    font-size: 2rem;
+}
+
+.monev-empty p {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.monev-testimonial {
+    align-items: flex-start;
+    border-bottom: 1px solid var(--monev-line);
+    display: flex;
+    gap: 0.9rem;
+    padding: 1rem 1.15rem;
+}
+
+.monev-testimonial:last-child {
+    border-bottom: 0;
+}
+
+.monev-testimonial-avatar {
+    align-items: center;
+    background: #eef4ff;
+    border: 1px solid #d8e5ff;
+    border-radius: 8px;
+    color: var(--monev-blue);
+    display: inline-flex;
+    flex: 0 0 42px;
+    font-weight: 850;
+    height: 42px;
+    justify-content: center;
+    object-fit: cover;
+    width: 42px;
+}
+
+img.monev-testimonial-avatar {
+    display: block;
+}
+
+.monev-testimonial-body {
+    min-width: 0;
+    width: 100%;
+}
+
+.monev-testimonial-head {
+    align-items: center;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: space-between;
+}
+
+.monev-testimonial-head strong {
+    color: var(--monev-ink);
+    font-size: 0.94rem;
+    font-weight: 850;
+    overflow-wrap: anywhere;
+}
+
+.monev-testimonial-head span {
+    color: var(--monev-muted);
+    flex: 0 0 auto;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.monev-stars {
+    color: #cbd5e1;
+    font-size: 0.86rem;
+    margin: 0.15rem 0 0.35rem;
+}
+
+.monev-stars .is-filled {
+    color: #f59f00;
+}
+
+.monev-testimonial p {
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.monev-dashboard :where(
+    .monev-command-title,
+    .monev-panel-title,
+    .monev-command-metric strong,
+    .monev-stat-value,
+    .monev-stat-label,
+    .monev-large-number,
+    .monev-split-metrics strong,
+    .monev-payment-summary strong,
+    .monev-payment-title strong,
+    .monev-rank-table td strong,
+    .monev-table-count,
+    .monev-testimonial-head strong
+) {
+    font-weight: 600;
+}
+
+.monev-dashboard :where(
+    .monev-eyebrow,
+    .monev-panel-kicker,
+    .monev-command-metric span,
+    .monev-payment-summary span,
+    .monev-stat-percent,
+    .monev-soft-badge,
+    .monev-trend,
+    .monev-stat-icon,
+    .monev-split-metrics span,
+    .monev-legend span,
+    .monev-comparison-label,
+    .monev-comparison-bar,
+    .monev-field span,
+    .monev-btn,
+    .monev-payment-title span,
+    .monev-payment-percent,
+    .monev-rank-table th,
+    .monev-rank-badge
+) {
+    font-weight: 700;
+}
+
+@media (max-width: 1199.98px) {
+    .monev-command {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .monev-command-metrics,
+    .monev-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        min-width: 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .monev-command,
+    .monev-panel-header,
+    .monev-filter-bar,
+    .monev-testimonial-head {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .monev-command-metrics,
+    .monev-stats-grid,
+    .monev-split-metrics,
+    .monev-payment-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .monev-filter-actions,
+    .monev-field,
+    .monev-input,
+    .monev-btn {
+        width: 100%;
+    }
+
+    .monev-btn {
+        justify-content: center;
+    }
+
+    .monev-comparison-row {
+        grid-template-columns: 38px minmax(0, 1fr);
+    }
+
+    .monev-comparison-track:last-child {
+        grid-column: 2;
+    }
+
+    .monev-payment-row {
+        align-items: start;
+        grid-template-columns: 34px minmax(0, 1fr);
+    }
+
+    .monev-payment-percent {
+        grid-column: 2;
+    }
+
+    .monev-testimonial {
+        padding: 0.95rem;
+    }
+}

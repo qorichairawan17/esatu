@@ -1,0 +1,182 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use App\Enum\RoleEnum;
+use App\Helpers\StringHelper;
+use App\Http\Controllers\Controller;
+use App\Models\Profile\ProfileModel;
+use App\Models\User;
+use App\Services\AuditTrailService;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
+use Laravel\Socialite\Facades\Socialite;
+use Laravel\Socialite\Two\InvalidStateException;
+
+class GoogleAuthController extends Controller
+{
+    /**
+     * Redirect the user to the Google authentication page.
+     * The action ('login' or 'register') is passed via query string.
+     */
+    public function redirect(Request $request): RedirectResponse
+    {
+        $action = $request->query('action', 'login');
+        session(['google_auth_action' => $action]);
+
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function callback()
+    {
+        try {
+            $googleUser = Socialite::driver('google')->user();
+            $action = session()->pull('google_auth_action', 'login');
+
+            $user = User::where('email', $googleUser->getEmail())->first();
+
+            if ($action === 'register') {
+                return $this->handleRegistrationCallback($googleUser, $user);
+            }
+
+            // Handle 'link' action
+            if ($action === 'link') {
+                return $this->handleLinkCallback($googleUser);
+            }
+
+            // Default action is 'login'
+            return $this->handleLoginCallback($googleUser, $user);
+        } catch (InvalidStateException $e) {
+            Log::warning('Google Socialite InvalidStateException: '.$e->getMessage());
+
+            return redirect()->route('app.signin')->with('error', 'Sesi otentikasi tidak valid. Silakan coba lagi.');
+        } catch (\Exception $e) {
+            Log::error('Google Socialite callback error: '.$e->getMessage(), ['trace' => $e->getTraceAsString()]);
+
+            return redirect()->route('app.signin')->with('error', 'Terjadi kesalahan saat otentikasi dengan Google.');
+        }
+    }
+
+    /**
+     * Handle the callback for a registration attempt via Google.
+     *
+     * @param  \Laravel\Socialite\Contracts\User  $googleUser
+     */
+    private function handleRegistrationCallback($googleUser, ?User $existingUser): RedirectResponse
+    {
+        if ($existingUser) {
+            return redirect()->route('app.signup')->with('error', 'Email Google Kamu sudah terdaftar! Silakan login.');
+        }
+
+        $newUser = DB::transaction(function () use ($googleUser) {
+            $splitName = StringHelper::splitName($googleUser->getName());
+            $profile = ProfileModel::create([
+                'nama_depan' => $splitName['first_name'],
+                'nama_belakang' => $splitName['last_name'],
+            ]);
+
+            return User::create([
+                'name' => $googleUser->getName(),
+                'email' => $googleUser->getEmail(),
+                'email_verified_at' => now(),
+                'password' => Hash::make(Str::random(8)), // Create a random password
+                'role' => RoleEnum::User->value,
+                'block' => '0',
+                'google_id' => $googleUser->getId(),
+                'avatar' => $googleUser->getAvatar(),
+                'profile_id' => $profile->id,
+                'profile_status' => '0',
+            ]);
+        });
+
+        Auth::login($newUser);
+
+        return redirect()->intended('/dashboard/panel-pengguna');
+    }
+
+    /**
+     * Handle the callback for a login attempt via Google.
+     *
+     * @param  \Laravel\Socialite\Contracts\User  $googleUser
+     */
+    private function handleLoginCallback($googleUser, ?User $user): RedirectResponse
+    {
+        if (! $user) {
+            return redirect()->route('app.signin')->with('error', 'Akun dengan email Google tersebut tidak terdaftar');
+        }
+        if ($user->google_id == null) {
+            return redirect()->route('app.signin')->with('error', 'Akun Kamu belum terhubung dengan Google');
+        }
+
+        // Update google_id and avatar if they are missing, then log in.
+        $user->update([
+            'google_id' => $googleUser->getId(),
+            'avatar' => $googleUser->getAvatar(),
+        ]);
+
+        Auth::login($user);
+        $intended = match ($user->role) {
+            RoleEnum::Superadmin->value, RoleEnum::Administrator->value => '/dashboard/panel-administrator',
+            default => '/dashboard/panel-pengguna'
+        };
+        AuditTrailService::record('telah login ke sistem aplikasi melalui Google', [], $user);
+
+        return redirect()->intended($intended);
+    }
+
+    /**
+     * Handle the callback for a link account attempt via Google.
+     *
+     * @param  \Laravel\Socialite\Contracts\User  $googleUser
+     */
+    private function handleLinkCallback($googleUser): RedirectResponse
+    {
+        try {
+            /** @var \App\Models\User $user */
+            $user = Auth::user();
+
+            if (! $user) {
+                return redirect()->route('app.signin')->with('error', 'Kamu harus login untuk menautkan akun.');
+            }
+
+            // Check if another user has already linked this Google ID.
+            $existingUser = User::where('google_id', $googleUser->getId())->where('id', '!=', $user->id)->first();
+            if ($existingUser) {
+                return redirect()->route('profile.index')->with('error', 'Akun Google ini sudah terhubung dengan pengguna lain.');
+            }
+
+            // Update the user's profile with Google info.
+            $user->update([
+                'google_id' => $googleUser->getId(),
+                'avatar' => $user->avatar ?? $googleUser->getAvatar(), // Only update avatar if it's not set
+            ]);
+
+            AuditTrailService::record('telah menautkan akun dengan Google');
+
+            return redirect()->route('profile.index')->with('success', 'Akun Google berhasil ditautkan!');
+        } catch (\Exception $e) {
+            Log::error('Google Socialite linking error: '.$e->getMessage(), ['user_id' => Auth::id(), 'trace' => $e->getTraceAsString()]);
+
+            return redirect()->route('profile.index')->with('error', 'Terjadi kesalahan saat mencoba menautkan akun Google Kamu.');
+        }
+    }
+
+    /**
+     * Unlink the user's Google account.
+     */
+    public function unlink(): RedirectResponse
+    {
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+        $user->update(['google_id' => null]);
+
+        AuditTrailService::record('telah memutuskan tautan akun Google');
+
+        return redirect()->route('profile.index')->with('success', 'Tautan akun Google berhasil diputuskan.');
+    }
+}

@@ -1,0 +1,72 @@
+<?php
+
+namespace App\Http\Controllers\Pengaturan;
+
+use App\DataTables\TestimoniDataTable;
+use App\Http\Controllers\Controller;
+use App\Models\Pengaturan\AplikasiModel;
+use App\Services\TestimoniService;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+
+class TestimoniController extends Controller
+{
+    protected $infoApp;
+
+    public function __construct(protected TestimoniService $testimoniService)
+    {
+        $this->infoApp = Cache::remember('infoApp', 60, function () {
+            return AplikasiModel::first();
+        });
+    }
+
+    private function breadCumb($parameters)
+    {
+        $breadCumb = [
+            ['title' => 'Pengaturan', 'url' => $parameters['url'], 'active' => $parameters['active'], 'aria' => $parameters['aria']],
+        ];
+
+        return $breadCumb;
+    }
+
+    public function index(TestimoniDataTable $dataTable)
+    {
+        $breadCumb = $this->breadCumb(['url' => route('administrator.index'), 'active' => '', 'aria' => '']);
+        $breadCumb[] = ['title' => 'Testimoni', 'url' => 'javascript:void(0);', 'active' => 'active', 'aria' => 'aria-current="page"'];
+
+        $data = [
+            'title' => 'Testimoni - '.config('app.name'),
+            'pageTitle' => 'Testimoni',
+            'breadCumb' => $breadCumb,
+            'infoApp' => $this->infoApp,
+        ];
+
+        return $dataTable->render('admin.pengaturan.testimoni', $data);
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'rating' => 'required|integer|min:1|max:5',
+            'pesan' => 'required|string|max:500',
+        ]);
+
+        return $this->testimoniService->store($validated);
+    }
+
+    public function edit(Request $request)
+    {
+        return $this->testimoniService->edit($request);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'rating' => 'required|integer|min:1|max:5',
+            'pesan' => 'required|string|max:500',
+            'publish' => 'nullable|boolean',
+        ]);
+
+        return $this->testimoniService->update($validated, $id);
+    }
+}

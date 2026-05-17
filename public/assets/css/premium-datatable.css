@@ -1,0 +1,468 @@
+/* ═══════════════════════════════════════════════════════════════
+   Premium DataTable – Light Theme with Child Row Expansion
+   Reusable across all DataTable pages.
+   Usage: add class "dt-premium" to the <table> element.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Card ────────────────────────────────────────────────────── */
+.dt-card {
+    border: 1px solid #e8ecf1;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.3s ease;
+    background: #ffffff;
+}
+
+.dt-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.dt-card .card-header {
+    background: #f8f9fb;
+    border-bottom: 1px solid #e8ecf1;
+    padding: 1rem 1.25rem;
+}
+
+.dt-card .card-body {
+    padding: 0;
+}
+
+/* ── Table ────────────────────────────────────────────────────── */
+.dt-premium {
+    border-collapse: collapse;
+    width: 100% !important;
+    font-size: 13.5px;
+    font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    margin-bottom: 0 !important;
+}
+
+/* Header */
+.dt-premium thead th {
+    background: #f4f6f9;
+    color: #3c4858;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 14px 16px;
+    border-top: none;
+    border-bottom: 2px solid #dee2e8;
+    border-right: 1px solid #e8ecf1;
+    white-space: nowrap;
+}
+
+.dt-premium thead th:last-child {
+    border-right: none;
+}
+
+/* Body */
+.dt-premium tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eef0f3;
+    border-right: 1px solid #f0f2f5;
+    vertical-align: middle;
+    color: #3c4858;
+    line-height: 1.55;
+}
+
+.dt-premium tbody td:last-child {
+    border-right: none;
+}
+
+.dt-premium tbody tr {
+    transition: background-color 0.15s ease;
+    background-color: #ffffff;
+}
+
+.dt-premium tbody tr:nth-child(4n + 1),
+.dt-premium tbody tr:nth-child(4n + 2) {
+    background-color: #ffffff;
+}
+
+.dt-premium tbody tr:nth-child(4n + 3),
+.dt-premium tbody tr:nth-child(4n) {
+    background-color: #fafbfc;
+}
+
+.dt-premium tbody tr:hover {
+    background-color: #eef3ff !important;
+}
+
+.dt-premium tbody tr.selected {
+    background-color: #e8f0fe !important;
+}
+
+.dt-premium tbody tr.selected > * {
+    box-shadow: inset 0 0 0 9999px #e8f0fe !important;
+    color: #3c4858 !important;
+}
+
+.dt-premium tbody tr.selected:hover {
+    background-color: #dce6f9 !important;
+}
+
+.dt-premium tbody tr.selected:hover > * {
+    box-shadow: inset 0 0 0 9999px #dce6f9 !important;
+}
+
+.dt-premium tbody tr.selected a {
+    color: #2f55d4;
+}
+
+.dt-premium tbody tr.selected .text-muted {
+    color: #6c757d !important;
+}
+
+
+/* ── Toggle (▼) Button Column ────────────────────────────────── */
+.dt-expand-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    border: 1px solid #d0d5dd;
+    background: #ffffff;
+    color: #667085;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    line-height: 1;
+}
+
+.dt-expand-btn:hover {
+    background: #f0f4ff;
+    border-color: #2f55d4;
+    color: #2f55d4;
+}
+
+.dt-expand-btn .arrow-icon {
+    transition: transform 0.25s ease;
+    display: inline-block;
+}
+
+tr.shown .dt-expand-btn {
+    background: #2f55d4;
+    border-color: #2f55d4;
+    color: #ffffff;
+}
+
+tr.shown .dt-expand-btn .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* ── Child Row (Expanded Details) ────────────────────────────── */
+tr.child-row > td {
+    padding: 0 !important;
+    border-bottom: 2px solid #2f55d4;
+    background-color: #f8faff !important;
+}
+
+.dt-child-detail {
+    padding: 16px 20px 16px 52px;
+    animation: dtSlideDown 0.25s ease-out;
+}
+
+@keyframes dtSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dt-child-detail dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 16px;
+    margin: 0;
+    font-size: 13px;
+}
+
+.dt-child-detail dt {
+    font-weight: 700;
+    color: #3c4858;
+    white-space: nowrap;
+}
+
+.dt-child-detail dd {
+    margin: 0;
+    color: #5a6577;
+    word-break: break-word;
+}
+
+/* ── Status Badge ────────────────────────────────────────────── */
+.dt-premium .badge {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+}
+
+/* ── Action Buttons ──────────────────────────────────────────── */
+.dt-premium .dt-action-group {
+    display: flex;
+    gap: 5px;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.dt-premium .dt-action-group .btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.dt-premium .dt-action-group .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* ── DataTables Controls ─────────────────────────────────────── */
+.dataTables_wrapper {
+    padding: 16px 20px;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 12px;
+}
+
+.dataTables_wrapper .dataTables_length label,
+.dataTables_wrapper .dataTables_filter label {
+    font-size: 13px;
+    color: #5a6577;
+    font-weight: 500;
+}
+
+.dataTables_wrapper .dataTables_length select,
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 13px;
+    color: #3c4858;
+    background: #ffffff;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.dataTables_wrapper .dataTables_length select:focus,
+.dataTables_wrapper .dataTables_filter input:focus {
+    border-color: #2f55d4;
+    box-shadow: 0 0 0 3px rgba(47, 85, 212, 0.1);
+    outline: none;
+}
+
+.dataTables_wrapper .dataTables_info {
+    font-size: 13px;
+    color: #667085;
+    padding-top: 14px;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    padding-top: 14px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    border-radius: 8px !important;
+    margin: 0 2px;
+    padding: 6px 12px !important;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: #2f55d4 !important;
+    color: #fff !important;
+    border-color: #2f55d4 !important;
+    box-shadow: 0 2px 6px rgba(47, 85, 212, 0.25);
+}
+
+.dataTables_wrapper
+    .dataTables_paginate
+    .paginate_button:hover:not(.current):not(.disabled) {
+    background: #f0f4ff !important;
+    color: #2f55d4 !important;
+    border-color: #d0d5dd !important;
+}
+
+/* ── Empty / Processing ──────────────────────────────────────── */
+.dt-premium tbody .dataTables_empty {
+    text-align: center;
+    padding: 48px 20px;
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.dataTables_processing {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border: none !important;
+    border-radius: 10px;
+    padding: 18px 24px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    font-weight: 600;
+    font-size: 13px;
+    color: #2f55d4 !important;
+    z-index: 100;
+}
+
+/* ── Sorting icons ───────────────────────────────────────────── */
+.dt-premium thead th.sorting::after,
+.dt-premium thead th.sorting_asc::after,
+.dt-premium thead th.sorting_desc::after {
+    color: #667085;
+    opacity: 0.6;
+}
+
+.dt-premium thead th.sorting:hover::after {
+    opacity: 1;
+}
+
+.dt-premium thead th.sorting_asc::after,
+.dt-premium thead th.sorting_desc::after {
+    color: #2f55d4;
+    opacity: 1;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .dt-premium {
+        font-size: 12.5px;
+    }
+
+    .dt-premium thead th {
+        padding: 10px 8px;
+        font-size: 11px;
+    }
+
+    .dt-premium tbody td {
+        padding: 10px 8px;
+    }
+
+    /* Larger tap target on mobile */
+    .dt-expand-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .dt-child-detail {
+        padding: 12px 16px;
+    }
+
+    .dt-child-detail dl {
+        grid-template-columns: 100px 1fr;
+        gap: 8px 12px;
+    }
+
+    /* Action buttons inside child row on mobile */
+    .dt-child-detail .dt-action-group {
+        display: inline-flex;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .dt-child-detail .dt-action-group .btn {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 7px;
+        font-size: 14px;
+    }
+
+    .dataTables_wrapper {
+        padding: 12px 10px;
+    }
+
+    .dataTables_wrapper .dataTables_length,
+    .dataTables_wrapper .dataTables_filter {
+        text-align: left !important;
+        float: none !important;
+        width: 100%;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-top: 6px;
+    }
+
+    .dataTables_wrapper .dataTables_info,
+    .dataTables_wrapper .dataTables_paginate {
+        text-align: center !important;
+        float: none !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 5px 10px !important;
+        font-size: 12px;
+    }
+
+    /* Card header responsive */
+    .dt-card .card-header {
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dt-premium {
+        font-size: 12px;
+    }
+
+    .dt-premium thead th {
+        padding: 8px 6px;
+        font-size: 10.5px;
+    }
+
+    .dt-premium tbody td {
+        padding: 8px 6px;
+    }
+
+    .dt-child-detail dl {
+        grid-template-columns: 1fr;
+        gap: 4px 0;
+    }
+
+    .dt-child-detail dt {
+        margin-top: 6px;
+        color: #667085;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+    }
+
+    .dt-child-detail dd {
+        font-size: 13px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #eef0f3;
+    }
+
+    .dt-child-detail dd:last-child {
+        border-bottom: none;
+    }
+}

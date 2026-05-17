@@ -1,0 +1,125 @@
+.nav-custom-pills {
+    background-color: #f1f3f5;
+    padding: 0.35rem;
+    border-radius: 50rem;
+    display: inline-flex;
+}
+
+.nav-custom-pills .nav-item {
+    margin: 0;
+}
+
+.nav-custom-pills .nav-link {
+    border-radius: 50rem;
+    color: #6c757d;
+    font-weight: 500;
+    padding: 0.6rem 1.75rem;
+    transition: all 0.3s ease;
+    border: none;
+    background: transparent;
+}
+
+.nav-custom-pills .nav-link.active {
+    background-color: #fff !important;
+    color: #0d6efd !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.info-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #a1a5b7;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    display: block;
+}
+
+.info-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #3f4254;
+    display: block;
+}
+
+.doc-card {
+    border: 1px solid #e4e6ef;
+    border-radius: 0.75rem;
+    padding: 1.5rem 1rem;
+    transition: all 0.25s ease;
+    background: #fff;
+    height: 100%;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.02);
+}
+
+.doc-card:hover {
+    border-color: #0d6efd;
+    box-shadow: 0 0.5rem 1.5rem rgba(13, 110, 253, 0.1);
+    transform: translateY(-3px);
+}
+
+.table-custom th {
+    color: #a1a5b7;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    background: #f9f9f9;
+    border-bottom: 1px dashed #e4e6ef;
+    padding: 1rem;
+}
+
+.table-custom td {
+    padding: 1rem;
+    vertical-align: middle;
+    color: #3f4254;
+    font-weight: 500;
+    border-bottom: 1px dashed #e4e6ef;
+}
+
+.card-premium {
+    border: 0;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #181c32;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.section-title i {
+    margin-right: 0.5rem;
+    color: #0d6efd;
+    background: #f1f5f9;
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.icon-box {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.border-dashed {
+    border-top: 1px dashed #e4e6ef;
+    opacity: 1;
+    margin: 0;
+}
+
+.hover-scale {
+    transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}

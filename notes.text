@@ -1,0 +1,273 @@
+================================================================================
+                           ESUKA - RELEASE NOTES
+================================================================================
+
+================================================================================
+Version 2.1.2 (13 Mei 2026)
+================================================================================
+
+[FITUR BARU]
+------------
+1. Statistik Jenis Pembayaran pada Monitoring Evaluasi:
+   - Penambahan statistik distribusi jenis pembayaran surat kuasa berdasarkan
+     data `sk_pembayaran_surat_kuasa`.
+   - Ringkasan pembayaran menampilkan total pembayaran masuk, estimasi belum
+     bayar, metode dominan, jumlah jenis pembayaran, dan persentase terbayar.
+   - Data jenis pembayaran ikut diperbarui saat filter periode/tanggal pada
+     grafik monitoring digunakan.
+
+2. Tabs Detail Advokat/Non-Advokat:
+   - Halaman detail pengguna kini memiliki 2 tabs: "Detail Informasi" dan
+     "Daftar Surat Kuasa".
+   - Tab "Daftar Surat Kuasa" menampilkan riwayat surat kuasa yang pernah
+     didaftarkan pengguna dalam bentuk server-side Yajra DataTable.
+   - Kolom DataTable mencakup ID Daftar, Tanggal Daftar, dan Tahapan.
+
+[PERBAIKAN UI/UX]
+------------------
+1. Redesign Dashboard Monitoring Evaluasi:
+   - Tampilan dashboard dibuat lebih minimalis, rapi, dan informatif.
+   - Penataan ulang ringkasan, grafik, daftar ranking, status, testimoni,
+     dan panel pembayaran agar lebih mudah dipindai.
+   - Penyesuaian typography agar mengikuti style font bawaan project.
+
+2. Redesign Halaman Detail Advokat/Non-Advokat:
+   - Tampilan detail pengguna dibuat lebih modern dengan kartu profil,
+     status akun, informasi profil, dan metadata akun.
+   - Penyesuaian typography dan cache-buster CSS agar style terbaru lebih
+     konsisten dengan theme project.
+
+[OPTIMASI]
+----------
+1. Optimasi Query Monitoring:
+   - Distribusi status surat kuasa menggunakan conditional aggregate untuk
+     mengurangi jumlah query terpisah.
+   - Statistik jenis pembayaran dihitung melalui Service/Repository agar tidak
+     menjalankan query langsung di Blade.
+
+[FILE YANG DITAMBAHKAN]
+-----------------------
+- public/admin/assets/css/detail-advokat.css
+
+[FILE YANG DIUBAH]
+------------------
+- app/Http/Controllers/MonitoringController.php
+- app/Http/Controllers/Pengguna/AdvokatNonAdvokatController.php
+- app/Repositories/MonitoringRepository.php
+- app/Services/MonitoringService.php
+- public/admin/assets/css/monitoring-dashboard.css
+- resources/views/admin/monitoring/index.blade.php
+- resources/views/admin/pengguna/advokat-non-advokat/detail-advokat-non-advokat.blade.php
+- routes/web.php
+
+================================================================================
+Version 2.1.1 (11 Mei 2026)
+================================================================================
+
+[FITUR BARU]
+------------
+1. Peringatan Pembaruan Profil:
+   - Tombol "Kirim Peringatan" pada halaman detail profil pengguna Advokat/Non-Advokat.
+   - Peringatan hanya muncul ketika profil tidak lengkap atau hanya berisi karakter invalid (misal "-").
+   - Pengiriman email peringatan berbasis asinkron menggunakan sistem antrean (Queue) melalui kelas Mailable `ProfileWarningMail`.
+
+[PERBAIKAN]
+-----------
+1. Perbaikan Bug UrlGenerationException:
+   - Menyelesaikan error "Missing required parameter" pada proses pembuatan URL rute menggunakan Javascript dan helper route() Blade di halaman detail pengguna.
+
+[FILE YANG DIUBAH]
+------------------
+- resources/views/admin/pengguna/advokat-non-advokat/detail-advokat-non-advokat.blade.php
+- app/Services/AdvokatNonAdvokatService.php
+- app/Http/Controllers/Pengguna/AdvokatNonAdvokatController.php
+- app/Mail/ProfileWarningMail.php
+- resources/views/mail/profile-warning.blade.php
+- routes/web.php
+
+================================================================================
+Version 2.1.0 (16 April 2026)
+================================================================================
+
+[FITUR BARU]
+------------
+1. Dashboard Monitoring & Evaluasi:
+   - Halaman dashboard baru untuk monitoring dan evaluasi kinerja aplikasi.
+   - Grafik statistik pendaftaran surat kuasa (harian, bulanan, kuartalan,
+     semester, tahunan) dengan filter rentang tanggal.
+   - Kartu ringkasan: total pendaftaran, disetujui, ditolak, dan dalam proses.
+   - Tabel peringkat Top 10 Advokat berdasarkan jumlah pendaftaran.
+   - Tabel kinerja Panitera (jumlah approval) dan Verifikator.
+   - Grafik distribusi status surat kuasa (pie/donut chart).
+   - Data rata-rata pendaftaran bulanan dan persentase pertumbuhan tahunan.
+   - Daftar testimoni terbaru dari pengguna.
+   - API endpoint terpisah (/chart-data) untuk data grafik secara dinamis.
+
+2. Implementasi Repository Pattern:
+   - Penambahan MonitoringRepository sebagai abstraksi akses data.
+   - Arsitektur Controller → Service → Repository untuk fitur Monitoring.
+
+3. Toggle Visibility Password di Halaman Login:
+   - Tombol ikon mata untuk menampilkan/menyembunyikan password pada form login.
+
+4. Modal Verifikasi Surat Kuasa:
+   - Komponen modal baru (modal-verifikasi) untuk proses verifikasi surat kuasa.
+
+[KEAMANAN]
+----------
+1. Perbaikan Privilege Escalation pada Manajemen Administrator:
+   - Non-Superadmin tidak dapat melihat akun Superadmin di daftar pengguna.
+   - Non-Superadmin tidak dapat mengedit atau menghapus akun Superadmin.
+   - Non-Superadmin tidak dapat memberikan role Superadmin kepada pengguna lain.
+   - Validasi role pada AdministratorRequest dibatasi hanya untuk role yang valid
+     (Superadmin dan Administrator) menggunakan Enum.
+
+2. Perbaikan XSS pada Form Pendaftaran Surat Kuasa:
+   - Penggunaan Js::from() untuk output data JSON yang aman di Blade template.
+
+3. Validasi Email Unik pada Registrasi:
+   - Penambahan validasi keunikan email pada AuthRegisterRequest.
+
+[PERBAIKAN UI/UX]
+------------------
+1. Redesign Dashboard Admin (home-admin):
+   - Desain ulang tampilan dashboard administrator dengan style premium.
+   - Penambahan file CSS khusus (premium-dashboard.css).
+
+2. Redesign Dashboard Pengguna (home-pengguna):
+   - Desain ulang tampilan dashboard pengguna dengan layout yang lebih modern.
+
+3. Redesign Halaman Detail Surat Kuasa:
+   - Overhaul tampilan halaman detail surat kuasa dengan layout baru.
+   - Penambahan file CSS khusus (detail-surat-kuasa.css).
+
+4. Redesign Halaman Pembayaran Surat Kuasa:
+   - Perbaikan tampilan halaman pembayaran dengan layout yang lebih rapi.
+   - Penambahan file CSS khusus (pembayaran-surat-kuasa.css).
+
+5. Redesign Halaman Pejabat Struktural:
+   - Perbaikan tampilan dan layout halaman pengaturan pejabat struktural.
+
+6. Perbaikan Halaman Detail Advokat/Non-Advokat:
+   - Peningkatan tampilan dan layout halaman detail pengguna advokat.
+
+7. Perbaikan Tampilan Halaman Autentikasi:
+   - Tombol login dan Google Sign-In menggunakan rounded-pill style.
+   - Perbaikan layout pada halaman forgot-password dan signup.
+
+8. Penambahan Menu Sidebar:
+   - Menu baru "Monitoring Evaluasi" pada sidebar navigasi admin.
+
+9. Perbaikan Typo Middleware:
+   - Koreksi penamaan ForBiddenForUserMiddleware → ForbiddenForUserMiddleware
+     pada routes/web.php.
+
+[FILE YANG DITAMBAHKAN]
+-----------------------
+- app/Http/Controllers/MonitoringController.php
+- app/Services/MonitoringService.php
+- app/Repositories/MonitoringRepository.php
+- resources/views/admin/monitoring/index.blade.php
+- resources/views/admin/surat-kuasa/component/modal-verifikasi.blade.php
+- public/admin/assets/css/monitoring-dashboard.css
+- public/admin/assets/css/premium-dashboard.css
+- public/admin/assets/css/detail-surat-kuasa.css
+- public/admin/assets/css/pembayaran-surat-kuasa.css
+
+[FILE YANG DIUBAH]
+------------------
+- app/DataTables/AdministratorDataTable.php
+- app/DataTables/AdvokatDataTable.php
+- app/Http/Requests/AuthRegisterRequest.php
+- app/Http/Requests/Pengguna/AdministratorRequest.php
+- app/Services/AdministratorService.php
+- resources/views/admin/home/home-admin.blade.php
+- resources/views/admin/home/home-pengguna.blade.php
+- resources/views/admin/layout/sidebar.blade.php
+- resources/views/admin/pengaturan/aplikasi.blade.php
+- resources/views/admin/pengaturan/pejabat-struktural.blade.php
+- resources/views/admin/pengaturan/pembayaran-pnbp.blade.php
+- resources/views/admin/pengaturan/testimoni.blade.php
+- resources/views/admin/pengguna/advokat-non-advokat/detail-advokat-non-advokat.blade.php
+- resources/views/admin/surat-kuasa/component/modal-pihak-pemberi-kuasa.blade.php
+- resources/views/admin/surat-kuasa/component/modal-pihak-penerima-kuasa.blade.php
+- resources/views/admin/surat-kuasa/data-surat-kuasa.blade.php
+- resources/views/admin/surat-kuasa/detail-surat-kuasa.blade.php
+- resources/views/admin/surat-kuasa/form-daftar-surat-kuasa.blade.php
+- resources/views/admin/surat-kuasa/laporan.blade.php
+- resources/views/admin/surat-kuasa/pembayaran-surat-kuasa.blade.php
+- resources/views/auth/forgot-password.blade.php
+- resources/views/auth/signin.blade.php
+- resources/views/auth/signup.blade.php
+- resources/views/admin/audit-trail/data-audit-trail.blade.php
+- routes/web.php
+- composer.json
+- composer.lock
+
+================================================================================
+Version 2.0.2 (25 Maret 2026)
+================================================================================
+
+[PERBAIKAN]
+------------
+1. Memperbaiki bug "Loading Terus-Menerus" di halaman Laporan Surat Kuasa.
+   - Perbaikan unescaped output {!! !!} pada tabel dan scripts.
+   - Sinkronisasi kolom "Pemohon" dan aktivasi server-side processing.
+   - Tombol Cetak PDF kini berfungsi normal setelah perbaikan script.
+
+2. Optimasi UI Header pada halaman Data Surat Kuasa:
+   - Header kini lebih simetris dengan perataan tengah (align-center).
+   - Grup filter kini diposisikan rapat ke kanan pada tampilan desktop.
+
+3. Refaktorisasi Tampilan Beranda:
+   - Pembaruan pada admin home view dan detail data pendaftaran surat kuasa.
+
+[FITUR BARU]
+------------
+1. Lokalisasi ApexCharts:
+   - Penambahan file lokalisasi bahasa untuk mendukung berbagai bahasa pada grafik.
+
+[FILE YANG DIUBAH]
+------------------
+- resources/views/admin/surat-kuasa/laporan.blade.php
+- app/DataTables/LaporanSuratKuasaDataTable.php
+- resources/views/admin/surat-kuasa/data-surat-kuasa.blade.php
+- resources/views/admin/home.blade.php
+- public/assets/libs/apexcharts/locales/*
+
+================================================================================
+Version 2.0.1 (1 Februari 2026)
+================================================================================
+
+[PERBAIKAN]
+------------
+1. Memperbaiki tampilan tombol dan filter di halaman Data Surat Kuasa pada 
+   mode mobile/responsive
+   - Tombol "Daftar" dan "Hapus Surat Kuasa Ditolak" kini tertata rapi di atas
+   - Filter (Klasifikasi, Tahapan, Status) menyusun secara vertikal di mobile
+   - Layout lebih responsif dengan flex-wrap dan gap yang sesuai
+
+2. Menghapus sensor data NIK dan Alamat pada halaman Detail Surat Kuasa
+   - Data NIK dan Alamat pihak kini ditampilkan tanpa sensor
+
+[FITUR BARU]
+------------
+1. Fitur Prompt Testimoni Otomatis
+   - Pengguna (Advokat) yang sudah mendaftar lebih dari 5 surat kuasa pada 
+     bulan yang sama akan mendapatkan popup permintaan testimoni secara otomatis
+   - Popup hanya muncul jika pengguna BELUM pernah memberikan testimoni
+   - Jika sudah memberikan testimoni, popup tidak akan muncul lagi
+   - Terdapat tombol "Nanti Saja" untuk menutup popup tanpa memberikan testimoni
+
+[FILE YANG DIUBAH]
+------------------
+- resources/views/admin/surat-kuasa/data-surat-kuasa.blade.php
+- resources/views/admin/surat-kuasa/detail-surat-kuasa.blade.php
+- app/Http/Controllers/Suratkuasa/SuratkuasaController.php
+- app/Helpers/HomeHelper.php
+- .gitignore
+
+================================================================================
+Version 2.0.0
+================================================================================
+(Rilis sebelumnya)
