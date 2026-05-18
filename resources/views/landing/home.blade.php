@@ -123,18 +123,7 @@ $serviceFeatures = [
 
             <div class="col-lg-6">
                 <div class="position-relative wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
-                    <img src="{{ asset('assets/images/dashboard.png') }}" class="img-fluid rounded shadow" alt="Dashboard {{ config('app.name') }}">
-                    <div class="bg-white rounded shadow-sm p-3 position-relative mt-3">
-                        <div class="d-flex align-items-center">
-                            <div class="avatar avatar-md-sm bg-soft-success text-success rounded-circle text-center">
-                                <i class="uil uil-clock fs-4"></i>
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-1">Jam layanan</h6>
-                                <p class="text-muted mb-0 small">8 jam kerja, 5 hari kerja.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <img src="{{ asset('assets/images/model-landing.png') }}" class="img-fluid" alt="Dashboard {{ config('app.name') }}">
                 </div>
             </div>
         </div>
@@ -237,7 +226,7 @@ $serviceFeatures = [
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-7 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
-                <img src="{{ asset('assets/images/model.jpg') }}" class="img-fluid rounded shadow" alt="Pelayanan {{ config('app.name') }}">
+                <img src="{{ asset('assets/images/model-1.jpeg') }}" class="img-fluid rounded shadow" alt="Pelayanan {{ config('app.name') }}">
             </div>
             <div class="col-lg-5 wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
                 <div class="section-title">

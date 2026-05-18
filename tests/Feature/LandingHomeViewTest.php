@@ -2,6 +2,11 @@
 
 namespace Tests\Feature;
 
+use App\Models\Pengguna\PaniteraModel;
+use App\Models\Suratkuasa\PendaftaranSuratKuasaModel;
+use App\Models\Suratkuasa\PihakSuratKuasaModel;
+use App\Models\Suratkuasa\RegisterSuratKuasaModel;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Tests\TestCase;
@@ -41,6 +46,62 @@ class LandingHomeViewTest extends TestCase
         $view->assertSee('landing-footer', false);
         $view->assertSee('--esatu-primary: #136c34;', false);
         $view->assertSee('icons/navbar.png', false);
+    }
+
+    public function test_verify_surat_kuasa_view_renders_clean_theme_layout(): void
+    {
+        $infoApp = (object) [
+            'pengadilan_negeri' => 'Pengadilan Negeri Mandailing Natal',
+            'pengadilan_tinggi' => 'Pengadilan Tinggi Medan',
+            'website' => 'https://pn-mandailingnatal.go.id',
+            'email' => 'layanan@example.test',
+            'facebook' => 'https://facebook.example.test',
+            'instagram' => 'https://instagram.example.test',
+            'alamat' => 'Jalan Merdeka',
+            'kabupaten' => 'Mandailing Natal',
+            'provinsi' => 'Sumatera Utara',
+            'kode_pos' => '22976',
+            'kontak' => '061123456',
+        ];
+
+        $pendaftaran = new PendaftaranSuratKuasaModel([
+            'id_daftar' => 'ESATU-2026-001',
+            'tanggal_daftar' => '2026-05-17',
+            'perihal' => 'Perkara Perdata Gugatan',
+            'jenis_surat' => 'Surat Kuasa Khusus',
+            'klasifikasi' => 'Advokat',
+        ]);
+
+        $pendaftaran->setRelation('user', new User(['name' => 'Pemohon Utama']));
+        $pendaftaran->setRelation('pihak', collect([
+            new PihakSuratKuasaModel(['jenis' => 'Pemberi', 'nama' => 'Andi Pemberi']),
+            new PihakSuratKuasaModel(['jenis' => 'Penerima', 'nama' => 'Sari Penerima']),
+        ]));
+
+        $suratKuasa = new RegisterSuratKuasaModel([
+            'tanggal_register' => '2026-05-18',
+            'nomor_surat_kuasa' => 'PNMN/001/SK/2026',
+        ]);
+
+        $suratKuasa->setRelation('pendaftaran', $pendaftaran);
+        $suratKuasa->setRelation('panitera', new PaniteraModel(['nama' => 'Panitera Penguji']));
+        $suratKuasa->setRelation('approval', new User(['name' => 'Petugas Verifikasi']));
+
+        $view = $this->view('landing.verify-surat-kuasa', [
+            'title' => 'Verifikasi Surat Kuasa',
+            'infoApp' => $infoApp,
+            'suratKuasa' => $suratKuasa,
+        ]);
+
+        $view->assertSeeText('Surat Kuasa Terverifikasi');
+        $view->assertSeeText('Laman Verifikasi Resmi');
+        $view->assertSeeText('Sah dan terdaftar');
+        $view->assertSeeText('PNMN/001/SK/2026');
+        $view->assertSeeText('ESATU-2026-001');
+        $view->assertSeeText('Andi Pemberi');
+        $view->assertSeeText('Sari Penerima');
+        $view->assertSee('verify-hero', false);
+        $view->assertSee('rgba(var(--esatu-primary-rgb)', false);
     }
 
     public function test_landing_navbar_disables_about_menu(): void

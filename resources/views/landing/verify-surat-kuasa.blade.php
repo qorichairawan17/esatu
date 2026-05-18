@@ -1,161 +1,272 @@
 @extends('landing.index')
 @section('title', $title)
 @section('content')
+    @php
+        $pendaftaran = $suratKuasa->pendaftaran;
+        $pihak = collect($pendaftaran?->pihak ?? []);
+        $pemberiKuasa = $pihak->where('jenis', 'Pemberi')->pluck('nama')->filter()->join(', ') ?: 'Tidak tersedia';
+        $penerimaKuasa = $pihak->where('jenis', 'Penerima')->pluck('nama')->filter()->join(', ') ?: 'Tidak tersedia';
+        $formatDate = fn ($date): string => filled($date)
+            ? \Carbon\Carbon::parse($date)->isoFormat('dddd, D MMMM Y')
+            : 'Tidak tersedia';
+    @endphp
 
-    <section class="bg-half-170 d-table w-100" style="background: #2F55D4;">
-        <div class="container">
-            <div class="row mt-5 justify-content-center">
-                <div class="col-12">
-                    <div class="title-heading text-center">
-                        <h1 class="fw-bold title-dark" style="color: #FFFFFF;">Verifikasi Surat Kuasa</h1>
-                        <p class="para-desc mx-auto mb-0" style="color: rgba(255, 255, 255, 0.7);">
-                            Detail keabsahan pendaftaran surat kuasa pada sistem aplikasi {{ config('app.name') }}.
+    @push('styles')
+        <style>
+            .verify-hero {
+                background: linear-gradient(180deg, rgba(var(--esatu-primary-rgb), 0.08) 0%, #ffffff 100%);
+                border-bottom: 1px solid rgba(var(--esatu-primary-rgb), 0.12);
+                padding: 120px 0 56px;
+            }
+
+            .verify-page {
+                background: #ffffff;
+            }
+
+            .verify-badge {
+                background: rgba(var(--esatu-primary-rgb), 0.09);
+                border: 1px solid rgba(var(--esatu-primary-rgb), 0.16);
+                color: var(--esatu-primary);
+            }
+
+            .verify-card {
+                border: 1px solid rgba(var(--esatu-primary-rgb), 0.14);
+                border-radius: 8px;
+                box-shadow: 0 18px 40px rgba(32, 41, 66, 0.08);
+            }
+
+            .verify-status-icon {
+                align-items: center;
+                background: rgba(var(--esatu-primary-rgb), 0.1);
+                border-radius: 50%;
+                color: var(--esatu-primary);
+                display: inline-flex;
+                flex-shrink: 0;
+                height: 64px;
+                justify-content: center;
+                width: 64px;
+            }
+
+            .verify-detail {
+                border: 1px solid #e8eef0;
+                border-radius: 8px;
+                height: 100%;
+                padding: 16px;
+            }
+
+            .verify-detail small {
+                color: #718096;
+                display: block;
+                font-size: 0.78rem;
+                font-weight: 600;
+                letter-spacing: 0;
+                margin-bottom: 6px;
+            }
+
+            .verify-detail strong {
+                color: #202942;
+                display: block;
+                line-height: 1.5;
+                overflow-wrap: anywhere;
+            }
+
+            .verify-side-panel {
+                background: rgba(var(--esatu-primary-rgb), 0.05);
+                border: 1px solid rgba(var(--esatu-primary-rgb), 0.14);
+                border-radius: 8px;
+            }
+
+            .verify-party-box {
+                background: #f8fbf9;
+                border: 1px solid rgba(var(--esatu-primary-rgb), 0.14);
+                border-radius: 8px;
+                height: 100%;
+                padding: 18px;
+            }
+
+            @media (max-width: 767.98px) {
+                .verify-hero {
+                    padding: 104px 0 42px;
+                }
+            }
+        </style>
+    @endpush
+
+    <main class="verify-page">
+        <section class="verify-hero">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-7">
+                        <span class="badge rounded-pill verify-badge px-3 py-2 mb-3">
+                            <i class="uil uil-shield-check me-1"></i> Laman Verifikasi Resmi
+                        </span>
+                        <h1 class="fw-bold mb-3">Surat Kuasa Terverifikasi</h1>
+                        <p class="text-muted para-desc mb-0">
+                            Data berikut menunjukkan surat kuasa telah tercatat pada sistem
+                            {{ config('app.name') }} dan dapat digunakan untuk memastikan keabsahan bukti pendaftaran.
                         </p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="position-relative">
-        <div class="shape overflow-hidden" style="color: #FFFFFF;">
-            <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
-            </svg>
-        </div>
-    </div>
-
-    <section class="section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 col-md-12">
-                    <div class="card shadow rounded border-0">
-                        <div class="card-body">
-                            <div class="text-center mb-4">
-                                <i class="uil uil-check-circle text-success" style="font-size: 5rem;"></i>
-                                <h4 class="mt-2">Dokumen Terverifikasi</h4>
-                                <p class="text-muted">
-                                    Pendaftaran surat kuasa ini telah disetujui dan terdaftar secara sah.
-                                </p>
-                            </div>
-
-                            <div class="row border-bottom pb-3 mb-3">
-                                <div class="col-md-6">
-                                    <div class="d-flex mb-4">
-                                        <i class="uil uil-key-skeleton-alt text-primary h4 me-3"></i>
-                                        <div class="flex-1">
-                                            <h6 class="mb-0">ID Pendaftaran</h6>
-                                            <p class="text-muted mb-0">{{ $suratKuasa->pendaftaran->id_daftar }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="d-flex mb-4">
-                                        <i class="uil uil-file text-primary h4 me-3"></i>
-                                        <div class="flex-1">
-                                            <h6 class="mb-0">Nomor Surat Kuasa</h6>
-                                            <p class="text-muted mb-0 fw-bold">{{ $suratKuasa->nomor_surat_kuasa }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="d-flex mb-4">
-                                        <i class="uil uil-calendar-alt text-primary h4 me-3"></i>
-                                        <div class="flex-1">
-                                            <h6 class="mb-0">Tanggal Register</h6>
-                                            <p class="text-muted mb-0">{{ \Carbon\Carbon::parse($suratKuasa->tanggal_register)->isoFormat('dddd, D MMMM Y') }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="d-flex mb-4">
-                                        <i class="uil uil-user-check text-primary h4 me-3"></i>
-                                        <div class="flex-1">
-                                            <h6 class="mb-0">Disahkan oleh Panitera</h6>
-                                            <p class="text-muted mb-0">{{ $suratKuasa->panitera->nama ?? 'N/A' }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="d-flex mb-4">
-                                        <i class="uil uil-user-plus text-primary h4 me-3"></i>
-                                        <div class="flex-1">
-                                            <h6 class="mb-0">Didaftarkan oleh</h6>
-                                            <p class="text-muted mb-0">{{ $suratKuasa->pendaftaran->user->name ?? 'N/A' }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="d-flex mb-4">
-                                        <i class="uil uil-user-check text-primary h4 me-3"></i>
-                                        <div class="flex-1">
-                                            <h6 class="mb-0">Diverifikasi oleh Petugas</h6>
-                                            <p class="text-muted mb-0">{{ $suratKuasa->approval->name ?? 'N/A' }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12 mb-3">
-                                    <h5>Detail Pendaftaran</h5>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="d-flex mb-4">
-                                        <i class="uil uil-info-circle text-primary h4 me-3"></i>
-                                        <div class="flex-1">
-                                            <h6 class="mb-0">Perihal</h6>
-                                            <p class="text-muted mb-0">{{ $suratKuasa->pendaftaran->perihal }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="d-flex mb-4">
-                                        <i class="uil uil-file-alt text-primary h4 me-3"></i>
-                                        <div class="flex-1">
-                                            <h6 class="mb-0">Jenis Surat Kuasa</h6>
-                                            <p class="text-muted mb-0">{{ $suratKuasa->pendaftaran->jenis_surat }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="d-flex mb-4">
-                                        <i class="uil uil-tag-alt text-primary h4 me-3"></i>
-                                        <div class="flex-1">
-                                            <h6 class="mb-0">Klasifikasi</h6>
-                                            <p class="text-muted mb-0">Surat Kuasa {{ $suratKuasa->pendaftaran->klasifikasi }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="d-flex mb-4">
-                                        <i class="uil uil-calendar-alt text-primary h4 me-3"></i>
-                                        <div class="flex-1">
-                                            <h6 class="mb-0">Tanggal Didaftarkan</h6>
-                                            <p class="text-muted mb-0">{{ \Carbon\Carbon::parse($suratKuasa->pendaftaran->tanggal_daftar)->isoFormat('dddd, D MMMM Y') }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 mt-2">
-                                    <div class="d-flex mb-4">
-                                        <i class="uil uil-users-alt text-primary h4 me-3"></i>
-                                        <div class="flex-1">
-                                            <h6 class="mb-0">Para Pihak</h6>
-                                            <p class="text-muted mb-0"><b>Pemberi Kuasa:</b> {{ $suratKuasa->pendaftaran->pihak->where('jenis', 'Pemberi')->pluck('nama')->join(', ') ?: 'N/A' }}</p>
-                                            <p class="text-muted mb-0"><b>Penerima Kuasa:</b> {{ $suratKuasa->pendaftaran->pihak->where('jenis', 'Penerima')->pluck('nama')->join(', ') ?: 'N/A' }}</p>
-                                        </div>
-                                    </div>
+                    <div class="col-lg-5">
+                        <div class="verify-card bg-white p-4">
+                            <div class="d-flex align-items-start">
+                                <span class="verify-status-icon me-3">
+                                    <i class="uil uil-check-circle fs-2"></i>
+                                </span>
+                                <div>
+                                    <span class="badge rounded-pill bg-soft-success text-success mb-2">Sah dan terdaftar</span>
+                                    <h5 class="mb-1">{{ $suratKuasa->nomor_surat_kuasa ?: 'Nomor belum tersedia' }}</h5>
+                                    <p class="text-muted mb-0 small">
+                                        ID Pendaftaran: <span class="fw-semibold text-dark">{{ $pendaftaran->id_daftar ?? 'Tidak tersedia' }}</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="verify-card bg-white p-4 p-lg-5">
+                            <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+                                <div>
+                                    <span class="text-success fw-semibold small">Ringkasan Dokumen</span>
+                                    <h4 class="mb-1">Informasi Surat Kuasa</h4>
+                                    <p class="text-muted mb-0">
+                                        Ringkasan data yang tersimpan pada pendaftaran surat kuasa.
+                                    </p>
+                                </div>
+                                <i class="uil uil-file-check-alt text-success fs-1"></i>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="verify-detail">
+                                        <small>ID Pendaftaran</small>
+                                        <strong>{{ $pendaftaran->id_daftar ?? 'Tidak tersedia' }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="verify-detail">
+                                        <small>Nomor Surat Kuasa</small>
+                                        <strong>{{ $suratKuasa->nomor_surat_kuasa ?: 'Tidak tersedia' }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="verify-detail">
+                                        <small>Tanggal Register</small>
+                                        <strong>{{ $formatDate($suratKuasa->tanggal_register) }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="verify-detail">
+                                        <small>Tanggal Didaftarkan</small>
+                                        <strong>{{ $formatDate($pendaftaran->tanggal_daftar ?? null) }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="verify-detail">
+                                        <small>Perihal</small>
+                                        <strong>{{ $pendaftaran->perihal ?? 'Tidak tersedia' }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="verify-detail">
+                                        <small>Jenis Surat Kuasa</small>
+                                        <strong>{{ $pendaftaran->jenis_surat ?? 'Tidak tersedia' }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="verify-detail">
+                                        <small>Klasifikasi</small>
+                                        <strong>Surat Kuasa {{ $pendaftaran->klasifikasi ?? 'Tidak tersedia' }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="verify-side-panel p-4 h-100">
+                            <span class="text-success fw-semibold small">Validasi Petugas</span>
+                            <h5 class="mb-3">Pengesahan</h5>
+
+                            <div class="mb-4">
+                                <small class="text-muted d-block mb-1">Disahkan oleh Panitera</small>
+                                <strong class="text-dark">{{ $suratKuasa->panitera->nama ?? 'Tidak tersedia' }}</strong>
+                            </div>
+                            <div class="mb-4">
+                                <small class="text-muted d-block mb-1">Diverifikasi oleh Petugas</small>
+                                <strong class="text-dark">{{ $suratKuasa->approval->name ?? 'Tidak tersedia' }}</strong>
+                            </div>
+                            <div class="mb-4">
+                                <small class="text-muted d-block mb-1">Didaftarkan oleh</small>
+                                <strong class="text-dark">{{ $pendaftaran->user->name ?? 'Tidak tersedia' }}</strong>
+                            </div>
+
+                            <div class="alert alert-light border mb-0">
+                                <div class="d-flex">
+                                    <i class="uil uil-info-circle text-success fs-5 me-2"></i>
+                                    <p class="text-muted small mb-0">
+                                        Informasi ini berasal dari barcode atau tautan verifikasi resmi
+                                        {{ config('app.name') }}.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="verify-card bg-white p-4 p-lg-5">
+                            <div class="row align-items-center g-4">
+                                <div class="col-lg-4">
+                                    <span class="text-success fw-semibold small">Para Pihak</span>
+                                    <h4 class="mb-2">Pihak dalam Surat Kuasa</h4>
+                                    <p class="text-muted mb-0">
+                                        Nama pihak yang tercatat dalam pendaftaran surat kuasa ini.
+                                    </p>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="verify-party-box">
+                                                <div class="d-flex align-items-center mb-2">
+                                                    <i class="uil uil-user-square text-success fs-4 me-2"></i>
+                                                    <h6 class="mb-0">Pemberi Kuasa</h6>
+                                                </div>
+                                                <p class="text-muted mb-0">{{ $pemberiKuasa }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="verify-party-box">
+                                                <div class="d-flex align-items-center mb-2">
+                                                    <i class="uil uil-user-check text-success fs-4 me-2"></i>
+                                                    <h6 class="mb-0">Penerima Kuasa</h6>
+                                                </div>
+                                                <p class="text-muted mb-0">{{ $penerimaKuasa }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="d-flex flex-wrap justify-content-center gap-2">
+                            <a href="{{ route('app.home') }}" class="btn btn-pills btn-soft-success">
+                                <i class="uil uil-estate me-1"></i> Beranda
+                            </a>
+                            <a href="{{ route('app.signin') }}" class="btn btn-pills btn-success">
+                                Masuk Aplikasi <i class="uil uil-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 @endsection
