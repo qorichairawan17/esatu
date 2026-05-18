@@ -5,7 +5,7 @@
         $courtName = $infoApp->pengadilan_negeri ?? config('app.author');
         $courtWebsite = $infoApp->website ?? '#';
         $courtEmail = $infoApp->email ?? null;
-        $feedbackEmails = array_values(array_unique(array_filter([$courtEmail, 'media.pnpakam@gmail.com'])));
+        $feedbackEmails = array_values(array_unique(array_filter([$courtEmail])));
         $leaders = [
             [
                 'name' => $pejabatStruktural->ketua ?? null,
@@ -39,9 +39,21 @@
             ['title' => 'Verifikasi & barcode', 'description' => 'Petugas memverifikasi data, lalu bukti barcode dapat dicetak.'],
         ];
         $serviceFeatures = [
-            ['icon' => 'uil uil-file-plus-alt', 'title' => 'Pendaftaran Online', 'description' => 'Pengajuan surat kuasa dapat dilakukan tanpa harus datang dan mengantre di PTSP.'],
-            ['icon' => 'uil uil-qrcode-scan', 'title' => 'Bukti Barcode', 'description' => 'Setiap pendaftaran yang disetujui memiliki bukti barcode untuk memudahkan pengecekan.'],
-            ['icon' => 'uil uil-shield-check', 'title' => 'Verifikasi Petugas', 'description' => 'Data dan pembayaran diperiksa oleh petugas sebelum layanan dinyatakan selesai.'],
+            [
+                'icon' => 'uil uil-file-plus-alt',
+                'title' => 'Pendaftaran Online',
+                'description' => 'Pengajuan surat kuasa dapat dilakukan tanpa harus datang dan mengantre di PTSP.',
+            ],
+            [
+                'icon' => 'uil uil-qrcode-scan',
+                'title' => 'Bukti Barcode',
+                'description' => 'Setiap pendaftaran yang disetujui memiliki bukti barcode untuk memudahkan pengecekan.',
+            ],
+            [
+                'icon' => 'uil uil-shield-check',
+                'title' => 'Verifikasi Petugas',
+                'description' => 'Data dan pembayaran diperiksa oleh petugas sebelum layanan dinyatakan selesai.',
+            ],
         ];
     @endphp
 
@@ -152,7 +164,8 @@
                     <div class="section-title mb-4 pb-2 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
                         <h4 class="title mb-3">Layanan yang Lebih Ringkas</h4>
                         <p class="text-muted para-desc mx-auto mb-0">
-                            {{ config('app.name') }} membantu proses pendaftaran, pembayaran, verifikasi, dan pencetakan bukti surat kuasa dalam satu layanan digital.
+                            {{ config('app.name') }} membantu proses pendaftaran, pembayaran, verifikasi, dan pencetakan bukti surat kuasa dalam satu
+                            layanan digital.
                         </p>
                     </div>
                 </div>
@@ -182,7 +195,8 @@
                         <span class="badge rounded-pill bg-soft-success text-success mb-3 px-3 py-2">Alur Layanan</span>
                         <h4 class="title mb-3">Mudah, Cepat, Biaya Ringan</h4>
                         <p class="text-muted mb-4">
-                            Pendaftaran surat kuasa tidak lagi bergantung pada antrean fisik. Pengguna dapat menyiapkan data, mengunggah dokumen, membayar PNBP, dan memantau verifikasi dari aplikasi.
+                            Pendaftaran surat kuasa tidak lagi bergantung pada antrean fisik. Pengguna dapat menyiapkan data, mengunggah dokumen, membayar
+                            PNBP, dan memantau verifikasi dari aplikasi.
                         </p>
                         <div class="alert alert-light border mb-0">
                             <div class="d-flex">
@@ -204,7 +218,8 @@
                                 <div class="card border-0 shadow-sm rounded h-100">
                                     <div class="card-body p-4">
                                         <div class="d-flex align-items-center mb-3">
-                                            <span class="badge rounded-pill bg-success me-2">{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
+                                            <span
+                                                class="badge rounded-pill bg-success me-2">{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
                                             <h6 class="mb-0">{{ $step['title'] }}</h6>
                                         </div>
                                         <p class="text-muted mb-0">{{ $step['description'] }}</p>
@@ -229,7 +244,8 @@
                         <span class="badge rounded-pill bg-soft-success text-success mb-3 px-3 py-2">Informasi Layanan</span>
                         <h4 class="title mb-3">Terhubung dengan PTSP {{ config('app.author') }}</h4>
                         <p class="text-muted">
-                            Layanan ini dirancang untuk memudahkan advokat maupun non-advokat dalam mendaftarkan surat kuasa. Bukti pendaftaran dapat dicetak setelah data dan pembayaran diverifikasi.
+                            Layanan ini dirancang untuk memudahkan advokat maupun non-advokat dalam mendaftarkan surat kuasa. Bukti pendaftaran dapat
+                            dicetak setelah data dan pembayaran diverifikasi.
                         </p>
                         <ul class="list-unstyled text-muted mb-0">
                             <li class="mb-2">
@@ -268,7 +284,7 @@
             <div class="row g-4">
                 @foreach ($leaders as $leader)
                     @php
-                        $leaderPhoto = filled($leader['photo']) ? asset('storage/'.$leader['photo']) : asset('assets/images/user/user-none.png');
+                        $leaderPhoto = filled($leader['photo']) ? asset('storage/' . $leader['photo']) : asset('assets/images/user/user-none.png');
                     @endphp
                     <div class="col-lg-3 col-md-6 wow animate__animated animate__fadeInUp" data-wow-delay=".{{ $loop->iteration + 1 }}s">
                         <div class="card team team-success text-center border-0 shadow-sm rounded h-100">
@@ -308,12 +324,13 @@
                                 @php
                                     $photoPath = data_get($item, 'user.profile.foto');
                                     $googleAvatar = data_get($item, 'user.avatar');
-                                    $imageSrc = $photoPath ? asset('storage/'.$photoPath) : ($googleAvatar ?: asset('assets/images/client/01.jpg'));
+                                    $imageSrc = $photoPath ? asset('storage/' . $photoPath) : ($googleAvatar ?: asset('assets/images/client/01.jpg'));
                                     $userName = data_get($item, 'user.name', 'Pengguna');
                                 @endphp
                                 <div class="tiny-slide wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
                                     <div class="d-flex client-testi m-1">
-                                        <img src="{{ $imageSrc }}" class="avatar avatar-small client-image rounded shadow" alt="Foto testimoni dari {{ $userName }}">
+                                        <img src="{{ $imageSrc }}" class="avatar avatar-small client-image rounded shadow"
+                                            alt="Foto testimoni dari {{ $userName }}">
                                         <div class="card flex-1 content p-3 shadow-sm rounded position-relative border-0">
                                             <ul class="list-unstyled mb-0">
                                                 @for ($i = 0; $i < min((int) $item->rating, 5); $i++)

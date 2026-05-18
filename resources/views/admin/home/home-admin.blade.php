@@ -145,7 +145,7 @@
                         </div>
 
                         <!-- Audit Trail -->
-                        <div class="premium-panel h-auto border-0" style="background: linear-gradient(to right, #ffffff, #f8fbff); box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+                        <div class="premium-panel h-auto border-0" style="background: #ffffff; box-shadow: 0 4px 20px rgba(23, 32, 51, 0.04);">
                             <div class="premium-panel-body p-4">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <h6 class="fw-bold mb-0 text-dark d-flex align-items-center">
@@ -156,8 +156,8 @@
                                 </div>
 
                                 @if ($lastAuditTrail)
-                                    <div class="d-flex align-items-start p-3 rounded-4 bg-white" style="border: 1px solid rgba(13, 110, 253, 0.1); box-shadow: 0 2px 10px rgba(0,0,0,0.02);">
-                                        <div class="icon-box primary mb-0 me-3" style="width: 48px; height: 48px; flex-shrink: 0; background-color: rgba(13, 110, 253, 0.05);">
+                                    <div class="d-flex align-items-start p-3 rounded-4 bg-white" style="border: 1px solid rgba(41, 170, 89, 0.12); box-shadow: 0 2px 10px rgba(23, 32, 51, 0.03);">
+                                        <div class="icon-box primary mb-0 me-3" style="width: 48px; height: 48px; flex-shrink: 0; background-color: rgba(41, 170, 89, 0.08);">
                                             <i class="uil uil-file-info-alt fs-4"></i>
                                         </div>
                                         <div class="flex-grow-1 align-self-center">
@@ -222,16 +222,16 @@
                         datasets: [{
                                 label: 'Disetujui',
                                 data: @json($chartData),
-                                backgroundColor: 'rgba(54, 162, 235, 0.8)',
-                                hoverBackgroundColor: 'rgba(54, 162, 235, 1)',
+                                backgroundColor: 'rgba(41, 170, 89, 0.82)',
+                                hoverBackgroundColor: 'rgba(41, 170, 89, 1)',
                                 borderRadius: 4,
                                 borderSkipped: false
                             },
                             {
                                 label: 'Ditolak',
                                 data: @json($chartDataDitolak),
-                                backgroundColor: 'rgba(255, 99, 132, 0.8)',
-                                hoverBackgroundColor: 'rgba(255, 99, 132, 1)',
+                                backgroundColor: 'rgba(228, 63, 82, 0.82)',
+                                hoverBackgroundColor: 'rgba(228, 63, 82, 1)',
                                 borderRadius: 4,
                                 borderSkipped: false
                             }
@@ -257,7 +257,7 @@
                                 }
                             },
                             tooltip: {
-                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                backgroundColor: 'rgba(23, 32, 51, 0.92)',
                                 padding: 12,
                                 titleFont: {
                                     family: "'Inter', sans-serif",
@@ -314,7 +314,7 @@
                     },
                     series: @json($statistikDonutChart['series']),
                     labels: @json($statistikDonutChart['labels']),
-                    colors: ['#0d6efd', '#198754', '#ffc107', '#dc3545', '#0dcaf0', '#6f42c1'],
+                    colors: ['#29AA59', '#20C997', '#F1B53D', '#E43F52', '#14B8A6', '#64748B'],
                     legend: {
                         show: true,
                         position: 'bottom',

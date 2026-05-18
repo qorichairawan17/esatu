@@ -4,8 +4,8 @@
             <a href="#" class="logo-icon me-3">
                 <img src="{{ asset('icons/android-icon-192x192.png') }}" height="30" class="small" alt="logo">
                 <span class="big">
-                    <img src="{{ asset('icons/horizontal-e-suka.png') }}" height="50" class="logo-light-mode" alt="logo">
-                    <img src="{{ asset('icons/horizontal-e-suka-white.png') }}" height="50" class="logo-dark-mode" alt="logo">
+                    <img src="{{ asset('icons/navbar.png') }}" height="44" class="logo-light-mode" alt="logo">
+                    <img src="{{ asset('icons/navbar-white.png') }}" height="44" class="logo-dark-mode" alt="logo">
                 </span>
             </a>
             <a id="close-sidebar" class="btn btn-icon btn-soft-light" href="javascript:void(0)">

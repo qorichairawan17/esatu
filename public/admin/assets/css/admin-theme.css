@@ -1,0 +1,446 @@
+:root {
+    --admin-primary: #29aa59;
+    --admin-primary-dark: #168643;
+    --admin-primary-soft: #eaf8f0;
+    --admin-primary-subtle: #f6fbf8;
+    --admin-primary-line: #cfeedd;
+    --admin-teal: #14b8a6;
+    --admin-amber: #f1b53d;
+    --admin-danger: #e43f52;
+    --admin-ink: #172033;
+    --admin-muted: #667085;
+    --admin-line: #e4eee9;
+    --admin-panel: #ffffff;
+    --admin-shadow: 0 12px 30px rgba(23, 32, 51, 0.06);
+}
+
+.admin-theme {
+    background: var(--admin-primary-subtle);
+    color: var(--admin-ink);
+    letter-spacing: 0;
+}
+
+.admin-theme ::selection {
+    background: var(--admin-primary);
+    color: #ffffff;
+}
+
+.admin-theme a {
+    color: var(--admin-primary);
+}
+
+.admin-theme a:hover {
+    color: var(--admin-primary-dark);
+}
+
+.admin-theme .page-wrapper .page-content,
+.admin-theme .page-content.bg-light {
+    background: var(--admin-primary-subtle) !important;
+}
+
+.admin-theme .text-primary {
+    color: var(--admin-primary) !important;
+}
+
+.admin-theme .bg-primary {
+    background-color: var(--admin-primary) !important;
+}
+
+.admin-theme .border-primary {
+    border-color: var(--admin-primary) !important;
+}
+
+.admin-theme .bg-soft-primary {
+    background-color: var(--admin-primary-soft) !important;
+    color: var(--admin-primary-dark) !important;
+}
+
+.admin-theme .badge.bg-primary,
+.admin-theme .badge.bg-soft-primary {
+    border: 1px solid var(--admin-primary-line);
+    border-radius: 8px !important;
+}
+
+.admin-theme .btn-primary,
+.admin-theme .modal-premium .btn-primary,
+.admin-theme .monev-btn.is-primary,
+.admin-theme .btn-primary-premium,
+.admin-theme .swal2-actions .btn-primary {
+    background: var(--admin-primary) !important;
+    border-color: var(--admin-primary) !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 18px rgba(41, 170, 89, 0.2) !important;
+}
+
+.admin-theme .btn-primary:hover,
+.admin-theme .btn-primary:focus,
+.admin-theme .monev-btn.is-primary:hover,
+.admin-theme .btn-primary-premium:hover {
+    background: var(--admin-primary-dark) !important;
+    border-color: var(--admin-primary-dark) !important;
+}
+
+.admin-theme .btn-soft-primary,
+.admin-theme .btn-outline-primary,
+.admin-theme .btn-link-premium {
+    background: var(--admin-primary-soft) !important;
+    border-color: var(--admin-primary-line) !important;
+    color: var(--admin-primary-dark) !important;
+}
+
+.admin-theme .btn-soft-primary:hover,
+.admin-theme .btn-outline-primary:hover,
+.admin-theme .btn-link-premium:hover {
+    background: var(--admin-primary) !important;
+    border-color: var(--admin-primary) !important;
+    color: #ffffff !important;
+}
+
+.admin-theme .btn,
+.admin-theme .form-control,
+.admin-theme .form-select,
+.admin-theme .dropdown-menu,
+.admin-theme .modal-content,
+.admin-theme .card,
+.admin-theme .premium-panel,
+.admin-theme .shortcut-card-premium,
+.admin-theme .monev-panel,
+.admin-theme .monev-stat-card,
+.admin-theme .adv-card,
+.admin-theme .clean-card,
+.admin-theme .method-card,
+.admin-theme .payment-box,
+.admin-theme .account-box {
+    border-radius: 8px !important;
+}
+
+.admin-theme .card,
+.admin-theme .modal-content,
+.admin-theme .dropdown-menu,
+.admin-theme .premium-panel,
+.admin-theme .shortcut-card-premium,
+.admin-theme .monev-panel,
+.admin-theme .monev-stat-card,
+.admin-theme .adv-card,
+.admin-theme .clean-card,
+.admin-theme .payment-box,
+.admin-theme .account-box {
+    background: var(--admin-panel) !important;
+    border: 1px solid var(--admin-line) !important;
+    box-shadow: var(--admin-shadow) !important;
+}
+
+.admin-theme .form-control,
+.admin-theme .form-select,
+.admin-theme .monev-input {
+    border-color: var(--admin-line) !important;
+    color: var(--admin-ink);
+}
+
+.admin-theme .form-control:focus,
+.admin-theme .form-select:focus,
+.admin-theme .modal-premium .form-control:focus,
+.admin-theme .modal-premium .form-select:focus,
+.admin-theme .custom-file-input:focus,
+.admin-theme .monev-input:focus,
+.admin-theme .dataTables_wrapper .dataTables_length select:focus,
+.admin-theme .dataTables_wrapper .dataTables_filter input:focus {
+    border-color: var(--admin-primary) !important;
+    box-shadow: 0 0 0 3px rgba(41, 170, 89, 0.14) !important;
+}
+
+.admin-theme .top-header,
+.admin-theme .header-bar {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-bottom: 1px solid var(--admin-line) !important;
+    box-shadow: 0 8px 24px rgba(23, 32, 51, 0.04) !important;
+}
+
+.admin-theme .top-header .btn-soft-light,
+.admin-theme .sidebar-footer .btn-soft-light {
+    background: var(--admin-primary-soft) !important;
+    border: 1px solid var(--admin-primary-line) !important;
+    color: var(--admin-primary-dark) !important;
+}
+
+.admin-theme .sidebar-wrapper.sidebar-light {
+    background: #ffffff !important;
+    border-right: 1px solid var(--admin-line) !important;
+}
+
+.admin-theme .sidebar-wrapper .sidebar-brand {
+    border-bottom: 1px solid var(--admin-line) !important;
+}
+
+.admin-theme .sidebar-wrapper .sidebar-menu li a {
+    border-radius: 8px !important;
+    color: #465466 !important;
+}
+
+.admin-theme .sidebar-wrapper .sidebar-menu li a:hover,
+.admin-theme .sidebar-wrapper .sidebar-menu li.active > a,
+.admin-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active > a {
+    background: var(--admin-primary-soft) !important;
+    color: var(--admin-primary-dark) !important;
+}
+
+.admin-theme .sidebar-wrapper .sidebar-menu li a i {
+    color: var(--admin-primary) !important;
+}
+
+.admin-theme .sidebar-wrapper .sidebar-menu .sidebar-submenu ul li a:hover,
+.admin-theme .sidebar-wrapper .sidebar-menu .sidebar-submenu ul li.active a {
+    color: var(--admin-primary-dark) !important;
+}
+
+.admin-theme .sidebar-wrapper .sidebar-footer {
+    background: #ffffff !important;
+    border-top: 1px solid var(--admin-line) !important;
+}
+
+.admin-theme .breadcrumb,
+.admin-theme .page-next-level {
+    color: var(--admin-muted) !important;
+}
+
+.admin-theme .breadcrumb .breadcrumb-item.active {
+    color: var(--admin-primary-dark) !important;
+}
+
+.admin-theme .table {
+    color: var(--admin-ink);
+}
+
+.admin-theme .table thead th,
+.admin-theme table.dataTable thead th {
+    background: var(--admin-primary-subtle) !important;
+    border-bottom-color: var(--admin-line) !important;
+    color: #344054 !important;
+}
+
+.admin-theme .table tbody tr:hover,
+.admin-theme table.dataTable tbody tr:hover {
+    background: #f8fcfa !important;
+}
+
+.admin-theme .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.admin-theme tr.shown .dt-expand-btn {
+    background: var(--admin-primary) !important;
+    border-color: var(--admin-primary) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(41, 170, 89, 0.24) !important;
+}
+
+.admin-theme .dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled),
+.admin-theme .dt-expand-btn:hover {
+    background: var(--admin-primary-soft) !important;
+    border-color: var(--admin-primary-line) !important;
+    color: var(--admin-primary-dark) !important;
+}
+
+.admin-theme table.dataTable tbody tr.selected > * {
+    box-shadow: inset 0 0 0 9999px var(--admin-primary-soft) !important;
+}
+
+.admin-theme table.dataTable tbody tr.selected a,
+.admin-theme table.dataTable thead th.sorting_asc::after,
+.admin-theme table.dataTable thead th.sorting_desc::after,
+.admin-theme .dataTables_processing {
+    color: var(--admin-primary) !important;
+}
+
+.admin-theme tr.child-row > td {
+    background: #f8fcfa !important;
+    border-bottom-color: var(--admin-primary) !important;
+}
+
+.admin-theme .premium-dashboard .welcome-banner,
+.admin-theme .monev-command {
+    background: #ffffff !important;
+    border: 1px solid var(--admin-line) !important;
+    box-shadow: var(--admin-shadow) !important;
+}
+
+.admin-theme .premium-dashboard .welcome-banner::after {
+    display: none !important;
+}
+
+.admin-theme .premium-dashboard .welcome-title,
+.admin-theme .monev-command-title,
+.admin-theme .premium-panel-title,
+.admin-theme .monev-panel-title {
+    color: var(--admin-ink) !important;
+    letter-spacing: 0 !important;
+}
+
+.admin-theme .premium-dashboard .welcome-subtitle,
+.admin-theme .monev-command-copy,
+.admin-theme .shortcut-title,
+.admin-theme .item-subtitle,
+.admin-theme .monev-muted {
+    color: var(--admin-muted) !important;
+}
+
+.admin-theme .premium-dashboard .icon-box.primary,
+.admin-theme .premium-dashboard .avatar .text-primary,
+.admin-theme .monev-stat-card.is-primary .monev-stat-icon,
+.admin-theme .monev-rank-badge {
+    background: var(--admin-primary-soft) !important;
+    color: var(--admin-primary) !important;
+}
+
+.admin-theme .premium-dashboard .icon-box.success,
+.admin-theme .monev-stat-card.is-success .monev-stat-icon {
+    background: #e7f8f1 !important;
+    color: var(--admin-teal) !important;
+}
+
+.admin-theme .premium-dashboard .icon-box.warning,
+.admin-theme .monev-stat-card.is-warning .monev-stat-icon {
+    background: #fff7e1 !important;
+    color: var(--admin-amber) !important;
+}
+
+.admin-theme .premium-dashboard .icon-box.danger,
+.admin-theme .monev-stat-card.is-danger .monev-stat-icon {
+    background: #fff0f2 !important;
+    color: var(--admin-danger) !important;
+}
+
+.admin-theme .premium-dashboard .icon-box.info {
+    background: #e9fbf8 !important;
+    color: var(--admin-teal) !important;
+}
+
+.admin-theme .shortcut-card-premium:hover,
+.admin-theme .list-hover-item:hover {
+    border-color: var(--admin-primary-line) !important;
+    box-shadow: 0 12px 26px rgba(41, 170, 89, 0.12) !important;
+    color: var(--admin-primary-dark) !important;
+}
+
+.admin-theme .list-hover-item:hover .item-title,
+.admin-theme .shortcut-card-premium:hover .shortcut-title {
+    color: var(--admin-primary-dark) !important;
+}
+
+.admin-theme .status-badge.success,
+.admin-theme .monev-trend.is-up,
+.admin-theme .monev-soft-badge {
+    background: var(--admin-primary-soft) !important;
+    color: var(--admin-primary-dark) !important;
+    border-color: var(--admin-primary-line) !important;
+}
+
+.admin-theme .status-badge.warning {
+    background: #fff7e1 !important;
+    color: #9a6700 !important;
+    border-color: #fde7a7 !important;
+}
+
+.admin-theme .status-badge.danger,
+.admin-theme .monev-trend.is-down {
+    background: #fff0f2 !important;
+    color: #b42318 !important;
+    border-color: #f8c7ce !important;
+}
+
+.admin-theme .status-badge,
+.admin-theme .btn-premium {
+    letter-spacing: 0 !important;
+}
+
+.admin-theme .monev-dashboard {
+    --monev-blue: var(--admin-primary);
+    --monev-green: var(--admin-primary);
+    --monev-teal: var(--admin-teal);
+    --monev-border: var(--admin-line);
+    --monev-soft: var(--admin-primary-subtle);
+    --monev-ink: var(--admin-ink);
+    --monev-muted: var(--admin-muted);
+}
+
+.admin-theme .monev-meter span,
+.admin-theme .monev-comparison-bar.is-current,
+.admin-theme .monev-payment-track span {
+    background: var(--admin-primary) !important;
+}
+
+.admin-theme .monev-comparison-bar.is-previous {
+    background: var(--admin-teal) !important;
+}
+
+.admin-theme .monev-legend .is-current {
+    background: var(--admin-primary) !important;
+}
+
+.admin-theme .monev-legend .is-previous {
+    background: var(--admin-teal) !important;
+}
+
+.admin-theme .adv-detail-page {
+    --adv-blue: var(--admin-primary);
+    --adv-green: var(--admin-primary);
+    --adv-blue-soft: var(--admin-primary-soft);
+    --adv-border: var(--admin-line);
+    --adv-ink: var(--admin-ink);
+    --adv-muted: var(--admin-muted);
+}
+
+.admin-theme .method-card.selected,
+.admin-theme .method-card:hover,
+.admin-theme .card-payment:hover {
+    border-color: var(--admin-primary) !important;
+    box-shadow: 0 10px 24px rgba(41, 170, 89, 0.14) !important;
+}
+
+.admin-theme .method-card.selected {
+    background-color: var(--admin-primary-soft) !important;
+}
+
+.admin-theme .method-card.selected .method-icon-wrapper,
+.admin-theme .method-card:hover .method-icon-wrapper {
+    background-color: #dff4e8 !important;
+    color: var(--admin-primary) !important;
+}
+
+.admin-theme .info-alert,
+.admin-theme .custom-file-input {
+    background: var(--admin-primary-subtle) !important;
+    border-color: var(--admin-line) !important;
+}
+
+.admin-theme .amount-display {
+    background: none !important;
+    color: var(--admin-primary-dark) !important;
+    letter-spacing: 0 !important;
+    -webkit-text-fill-color: var(--admin-primary-dark) !important;
+}
+
+.admin-theme .rating label::before {
+    color: #b8c4bd !important;
+}
+
+.admin-theme .rating label:hover::before,
+.admin-theme .rating label:hover ~ label::before,
+.admin-theme .rating input:checked ~ label::before,
+.admin-theme #ratingValue {
+    color: var(--admin-primary) !important;
+}
+
+.admin-theme .rating label:hover,
+.admin-theme .rating label:hover ~ label,
+.admin-theme .rating input:checked ~ label {
+    color: var(--admin-primary) !important;
+}
+
+.admin-theme .rating input:focus-visible + label {
+    outline-color: var(--admin-primary) !important;
+}
+
+@media (max-width: 991.98px) {
+    .admin-theme .premium-dashboard .welcome-banner,
+    .admin-theme .monev-command {
+        padding: 24px !important;
+    }
+}

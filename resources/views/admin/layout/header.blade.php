@@ -16,7 +16,8 @@
     <link href="{{ asset('assets/libs/jquery-ui-1.14.1/jquery-ui.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/assets/plugins/DataTables/datatables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/libs/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/css/admin-theme.css') }}?v=1" rel="stylesheet">
     @stack('styles')
 </head>
 
-<body>
+<body class="admin-theme">
