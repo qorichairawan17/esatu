@@ -1,8 +1,8 @@
 <div align="center">
 
-# ⚖️ Elektronik Surat Kuasa (e-SuKa)
+# ⚖️ Elektronik Surat Kuasa (E-SATU)
 
-![e-Suka Landing Page](public/icons/horizontal-e-suka.png)
+![E-SATU Branding](public/icons/navbar.png)
 
 </div>
 
@@ -13,9 +13,7 @@
   <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
 </p>
 
-**e-SuKa** adalah aplikasi web inovatif yang dikembangkan oleh **Pengadilan Negeri Lubuk Pakam** untuk memodernisasi proses pendaftaran surat kuasa. Dengan asas **Mudah, Cepat, dan Biaya Ringan**, aplikasi ini memungkinkan advokat dan masyarakat untuk mendaftarkan surat kuasa secara elektronik dari mana saja dan kapan saja.
-
-🏆 Aplikasi ini telah meraih penghargaan dari **Direktorat Jenderal Badan Peradilan Umum** sebagai salah satu aplikasi terbaik dalam kategori **"Penerapan Aplikasi Pelayanan Publik"** pada tahun 2022.
+**E-SATU** adalah aplikasi web inovatif yang dikembangkan oleh **Pengadilan Negeri Mandailing Natal** untuk memodernisasi proses pendaftaran surat kuasa. Dengan asas **Mudah, Cepat, dan Biaya Ringan**, aplikasi ini memungkinkan advokat dan masyarakat untuk mendaftarkan surat kuasa secara elektronik dari mana saja dan kapan saja.
 
 ---
 
@@ -34,7 +32,7 @@
 
 ### 🌟 Tentang Proyek
 
-Proyek e-SuKa lahir dari kebutuhan untuk mengatasi beban administrasi yang tinggi dalam pelayanan legalisasi pendaftaran surat kuasa di Pengadilan Negeri Lubuk Pakam. Proses manual yang memakan waktu dan mengharuskan kehadiran fisik kini ditransformasikan menjadi alur digital yang efisien.
+Proyek E-SATU lahir dari kebutuhan untuk mengatasi beban administrasi yang tinggi dalam pelayanan legalisasi pendaftaran surat kuasa di Pengadilan Negeri Mandailing Natal. Proses manual yang memakan waktu dan mengharuskan kehadiran fisik kini ditransformasikan menjadi alur digital yang efisien.
 
 Tujuan utama dari aplikasi ini adalah:
 - **Memudahkan** pengguna dalam mendaftarkan surat kuasa.
@@ -48,6 +46,7 @@ Tujuan utama dari aplikasi ini adalah:
 
 - **Pendaftaran Online**: Pengguna dapat mengajukan pendaftaran surat kuasa baru dengan mengisi formulir dan mengunggah dokumen pendukung secara online.
 - **Otentikasi Pengguna**: Sistem login yang aman dengan registrasi mandiri, aktivasi akun melalui email, dan opsi login menggunakan **Google Socialite**.
+- **PWA (Progressive Web App)**: Mendukung instalasi aplikasi di perangkat mobile dan desktop untuk akses yang lebih cepat dan notifikasi pembaruan real-time.
 - **Manajemen Profil Lengkap**: Pengguna dapat melengkapi dan memperbarui data profil, foto, serta mengubah password.
 - **Pembayaran Digital**: Integrasi dengan sistem pembayaran **QRIS** untuk biaya pendaftaran yang transparan dan mudah.
 - **Verifikasi oleh Petugas**: Panel administrasi khusus bagi petugas untuk me-review, memverifikasi, menyetujui, atau menolak pengajuan surat kuasa.
@@ -68,12 +67,12 @@ Proyek ini dibangun menggunakan tumpukan teknologi modern dan andal:
 | **Framework Backend** | [Laravel 12](https://laravel.com/) |
 | **Bahasa Pemrograman** | [PHP 8.3](https://www.php.net/) |
 | **Database** | [MySQL](https://www.mysql.com/) |
-| **CSS Framework** | [Bootstrap](https://getbootstrap.com/) |
+| **CSS Framework** | [Bootstrap](https://getbootstrap.com/) (Tema Hijau Khusus) |
 | **JavaScript** | [jQuery](https://jquery.com/) & AJAX |
 | **Paket Utama** | |
 | &nbsp; &nbsp; ↳ Tabel Data | [Yajra DataTables](https://yajrabox.com/docs/laravel-datatables/master) |
 | &nbsp; &nbsp; ↳ Otentikasi Sosial | [Laravel Socialite](https://laravel.com/docs/12.x/socialite) |
-| &nbsp; &nbsp; ↳ Keamanan Form | [Mews Captcha](https://github.com/mewebstudio/captcha) |
+| &nbsp; &nbsp; ↳ Keamanan Form | [Mews Captcha](https://github.com/mewebstudio/captcha) (Custom Compatibility) |
 | &nbsp; &nbsp; ↳ Cetak PDF | [Barryvdh DomPDF](https://github.com/barryvdh/laravel-dompdf) |
 | &nbsp; &nbsp; ↳ QR Code | [Simple QrCode](https://github.com/SimpleSoftwareIO/simple-qrcode) |
 | &nbsp; &nbsp; ↳ Caching | [Redis (Predis)](https://github.com/predis/predis) |
@@ -94,8 +93,8 @@ Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lingkungan lokal K
 
 1.  **Clone Repository**
     ```bash
-    git clone https://github.com/username/esuka.git
-    cd esuka
+    git clone https://github.com/qorichairawan17/esatu.git
+    cd esatu
     ```
 
 2.  **Install Dependensi PHP**
@@ -165,14 +164,14 @@ Proyek ini adalah perangkat lunak dengan hak milik **(proprietary software)**. P
 
 ### 📄 Lisensi
 
-Hak Cipta © 2021 Pengadilan Negeri Lubuk Pakam & Qori Chairawan. Semua Hak Dilindungi.
+Hak Cipta © 2026 Pengadilan Negeri Mandailing Natal & Qori Chairawan. Semua Hak Dilindungi.
 
 ---
 
 ### 🙏 Ucapan Terima Kasih
 
-- **Direktorat Jenderal Badan Peradilan Umum** - Atas pengakuan dan penghargaan yang diberikan.
-- **Pengadilan Negeri Lubuk Pakam** - Atas inisiasi dan dukungan penuh terhadap proyek ini.
-- **Qori Chairawan** - Selaku Developer Elektronik Surat Kuasa.
+- **Direktorat Jenderal Badan Peradilan Umum** - Atas inisiasi standarisasi aplikasi peradilan.
+- **Pengadilan Negeri Mandailing Natal** - Atas dukungan penuh terhadap pengembangan dan implementasi proyek ini.
+- **Qori Chairawan** - Selaku Developer Utama E-SATU.
 
 ---
