@@ -15,7 +15,7 @@
             <div class="col-md-6">
                 <div class="text-md-end text-center mx-md-2 mt-2 mt-md-0">
                     <p class="mb-0 text-muted">
-                        Developed By
+                        Dikembangkan Oleh
                         <a href="{{ $infoApp->website }}" target="_blank" class="text-primary text-decoration-none fw-medium">
                             {{ $infoApp->pengadilan_negeri }}
                         </a>
