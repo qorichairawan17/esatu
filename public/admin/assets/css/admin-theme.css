@@ -38,6 +38,19 @@
     background: var(--admin-primary-subtle) !important;
 }
 
+.admin-theme #preloader {
+    background: rgba(246, 251, 248, 0.96) !important;
+}
+
+.admin-theme #status .spinner {
+    filter: drop-shadow(0 10px 20px rgba(41, 170, 89, 0.16));
+}
+
+.admin-theme #status .spinner .double-bounce1,
+.admin-theme #status .spinner .double-bounce2 {
+    background-color: var(--admin-primary) !important;
+}
+
 .admin-theme .text-primary {
     color: var(--admin-primary) !important;
 }
@@ -224,6 +237,10 @@
 }
 
 .admin-theme .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.admin-theme .dataTables_wrapper .dataTables_paginate .paginate_button.active,
+.admin-theme .dataTables_wrapper .dataTables_paginate .page-item.active .page-link,
+.admin-theme .dt-container .dt-paging .dt-paging-button.current,
+.admin-theme .dt-container .dt-paging .page-item.active .page-link,
 .admin-theme tr.shown .dt-expand-btn {
     background: var(--admin-primary) !important;
     border-color: var(--admin-primary) !important;
@@ -232,10 +249,30 @@
 }
 
 .admin-theme .dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled),
+.admin-theme .dataTables_wrapper .dataTables_paginate .page-link:hover,
+.admin-theme .dataTables_wrapper .dataTables_paginate .page-link:focus,
+.admin-theme .dt-container .dt-paging .dt-paging-button:hover:not(.current):not(.disabled),
+.admin-theme .dt-container .dt-paging .page-link:hover,
+.admin-theme .dt-container .dt-paging .page-link:focus,
 .admin-theme .dt-expand-btn:hover {
     background: var(--admin-primary-soft) !important;
     border-color: var(--admin-primary-line) !important;
     color: var(--admin-primary-dark) !important;
+}
+
+.admin-theme .dataTables_wrapper .dataTables_paginate .page-link,
+.admin-theme .dt-container .dt-paging .page-link,
+.admin-theme .dt-container .dt-paging .dt-paging-button {
+    border-color: var(--admin-line) !important;
+    color: var(--admin-ink) !important;
+}
+
+.admin-theme .dataTables_wrapper .dataTables_paginate .page-item.disabled .page-link,
+.admin-theme .dt-container .dt-paging .page-item.disabled .page-link,
+.admin-theme .dt-container .dt-paging .dt-paging-button.disabled {
+    background: #ffffff !important;
+    border-color: var(--admin-line) !important;
+    color: #98a2b3 !important;
 }
 
 .admin-theme table.dataTable tbody tr.selected > * {

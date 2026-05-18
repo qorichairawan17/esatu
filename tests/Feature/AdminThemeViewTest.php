@@ -21,8 +21,12 @@ class AdminThemeViewTest extends TestCase
         $css = file_get_contents(public_path('admin/assets/css/admin-theme.css'));
 
         $this->assertStringContainsString('--admin-primary: #29aa59;', $css);
+        $this->assertStringContainsString('.admin-theme #preloader', $css);
+        $this->assertStringContainsString('.admin-theme #status .spinner .double-bounce1', $css);
         $this->assertStringContainsString('.admin-theme .btn-primary', $css);
         $this->assertStringContainsString('.admin-theme .dataTables_wrapper', $css);
+        $this->assertStringContainsString('.admin-theme .dataTables_wrapper .dataTables_paginate .page-item.active .page-link', $css);
+        $this->assertStringContainsString('.admin-theme .dt-container .dt-paging .page-item.active .page-link', $css);
         $this->assertStringContainsString('.admin-theme .premium-dashboard .welcome-banner::after', $css);
         $this->assertStringContainsString('.admin-theme .monev-dashboard', $css);
     }
