@@ -53,6 +53,12 @@
             border-color: #16a34a !important;
             color: #ffffff !important;
         }
+
+        #topnav .navigation-menu>li>span.disabled-menu {
+            color: #a3adba;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
     </style>
     @stack('styles')
 </head>

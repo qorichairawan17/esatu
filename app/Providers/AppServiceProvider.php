@@ -2,13 +2,23 @@
 
 namespace App\Providers;
 
+use App\Services\CaptchaImageManager;
+use App\Services\CompatibleCaptcha;
 use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Contracts\Config\Repository;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Hashing\BcryptHasher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
+use Intervention\Image\Drivers\Gd\Driver as GdDriver;
+use Intervention\Image\Drivers\Imagick\Driver as ImagickDriver;
+use Intervention\Image\ImageManager;
+use Mews\Captcha\Captcha as MewsCaptcha;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,6 +27,25 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        $this->app->singleton(ImageManager::class, function (): CaptchaImageManager {
+            $driver = config('captcha.driver', 'gd') === 'imagick' ? new ImagickDriver : new GdDriver;
+
+            return new CaptchaImageManager($driver);
+        });
+
+        $this->app->bind(MewsCaptcha::class, function (): CompatibleCaptcha {
+            return new CompatibleCaptcha(
+                $this->app->make(Filesystem::class),
+                $this->app->make(Repository::class),
+                $this->app->make(ImageManager::class),
+                $this->app->make('session.store'),
+                $this->app->make(BcryptHasher::class),
+                $this->app->make(Str::class),
+            );
+        });
+
+        $this->app->bind('captcha', fn (): MewsCaptcha => $this->app->make(MewsCaptcha::class));
+
         // Register optimization services in production
         if ($this->app->isProduction()) {
             $this->app['config']['app.debug'] = false;

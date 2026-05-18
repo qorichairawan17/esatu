@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Offline - e-SuKa</title>
+        <title>Mode Offline - E-SATU</title>
         <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
         <style>
             *,
@@ -22,13 +22,8 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: linear-gradient(
-                    135deg,
-                    #0f172a 0%,
-                    #1e293b 50%,
-                    #0f172a 100%
-                );
-                color: #e2e8f0;
+                background: #f6fbf8;
+                color: #1f2937;
                 padding: 1.5rem;
                 overflow: hidden;
             }
@@ -68,8 +63,8 @@
                 border-radius: 50%;
                 background: linear-gradient(
                     135deg,
-                    rgba(47, 85, 212, 0.2),
-                    rgba(99, 102, 241, 0.1)
+                    rgba(41, 170, 89, 0.16),
+                    rgba(22, 163, 74, 0.08)
                 );
                 animation: pulse 2s ease-in-out infinite;
             }
@@ -89,7 +84,7 @@
             .icon-wrapper svg {
                 width: 56px;
                 height: 56px;
-                color: #6366f1;
+                color: #29aa59;
                 position: relative;
                 z-index: 1;
             }
@@ -98,15 +93,15 @@
                 font-size: 1.75rem;
                 font-weight: 700;
                 margin-bottom: 0.75rem;
-                background: linear-gradient(135deg, #818cf8, #6366f1);
+                color: #14532d;
+                background: none;
                 -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
                 background-clip: text;
             }
 
             .subtitle {
                 font-size: 1rem;
-                color: #94a3b8;
+                color: #637083;
                 line-height: 1.6;
                 margin-bottom: 2rem;
             }
@@ -116,11 +111,11 @@
                 align-items: center;
                 gap: 0.5rem;
                 padding: 0.5rem 1rem;
-                background: rgba(99, 102, 241, 0.1);
-                border: 1px solid rgba(99, 102, 241, 0.2);
+                background: rgba(41, 170, 89, 0.1);
+                border: 1px solid rgba(41, 170, 89, 0.2);
                 border-radius: 999px;
                 font-size: 0.8rem;
-                color: #a5b4fc;
+                color: #16834a;
                 margin-bottom: 2rem;
             }
 
@@ -129,7 +124,7 @@
                 align-items: center;
                 gap: 0.5rem;
                 padding: 0.85rem 2rem;
-                background: linear-gradient(135deg, #4f46e5, #6366f1);
+                background: linear-gradient(135deg, #16834a, #29aa59);
                 color: #fff;
                 border: none;
                 border-radius: 12px;
@@ -137,13 +132,13 @@
                 font-weight: 600;
                 cursor: pointer;
                 transition: all 0.3s ease;
-                box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+                box-shadow: 0 4px 15px rgba(41, 170, 89, 0.25);
                 text-decoration: none;
             }
 
             .btn-retry:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+                box-shadow: 0 8px 25px rgba(41, 170, 89, 0.32);
             }
 
             .btn-retry:active {
@@ -158,8 +153,8 @@
             .tips {
                 margin-top: 2.5rem;
                 padding: 1.25rem;
-                background: rgba(255, 255, 255, 0.03);
-                border: 1px solid rgba(255, 255, 255, 0.06);
+                background: #ffffff;
+                border: 1px solid rgba(22, 163, 74, 0.14);
                 border-radius: 12px;
                 text-align: left;
             }
@@ -169,14 +164,14 @@
                 font-weight: 600;
                 text-transform: uppercase;
                 letter-spacing: 0.05em;
-                color: #64748b;
+                color: #16834a;
                 margin-bottom: 0.75rem;
             }
 
             .tips ul {
                 list-style: none;
                 font-size: 0.875rem;
-                color: #94a3b8;
+                color: #637083;
             }
 
             .tips li {
@@ -189,33 +184,7 @@
                 content: "•";
                 position: absolute;
                 left: 0;
-                color: #6366f1;
-            }
-
-            /* Decorative background elements */
-            body::before,
-            body::after {
-                content: "";
-                position: fixed;
-                border-radius: 50%;
-                opacity: 0.05;
-                pointer-events: none;
-            }
-
-            body::before {
-                width: 400px;
-                height: 400px;
-                background: #6366f1;
-                top: -100px;
-                right: -100px;
-            }
-
-            body::after {
-                width: 300px;
-                height: 300px;
-                background: #2f55d4;
-                bottom: -100px;
-                left: -100px;
+                color: #29aa59;
             }
         </style>
     </head>
@@ -253,13 +222,14 @@
                         d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
                     ></path>
                 </svg>
-                e-SuKa &bull; Pengadilan Negeri Lubuk Pakam
+                E-SATU &bull; Pengadilan Negeri Mandailing Natal
             </div>
 
             <h1>Tidak Ada Koneksi Internet</h1>
             <p class="subtitle">
-                Anda sedang dalam mode offline. Periksa koneksi internet Anda
-                dan coba lagi untuk mengakses layanan e-SuKa.
+                Koneksi internet sedang tidak tersedia. Satu Pintu, Satu Klik,
+                Urusan Kuasa Jadi Praktis tetap memerlukan jaringan aktif saat
+                membuka halaman yang belum tersimpan.
             </p>
 
             <a
@@ -283,16 +253,16 @@
                         d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.992 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182"
                     />
                 </svg>
-                Coba Lagi
+                Muat Ulang
             </a>
 
             <div class="tips">
-                <h3>Tips Mengatasi Masalah</h3>
+                <h3>Yang Bisa Dicoba</h3>
                 <ul>
                     <li>Periksa koneksi WiFi atau data seluler Anda</li>
-                    <li>Coba matikan dan nyalakan kembali mode pesawat</li>
-                    <li>Pastikan router WiFi berfungsi dengan baik</li>
-                    <li>Hubungi penyedia layanan internet Anda</li>
+                    <li>Buka kembali halaman setelah jaringan tersambung</li>
+                    <li>Gunakan koneksi stabil saat mengirim formulir</li>
+                    <li>Hubungi petugas layanan jika masalah berulang</li>
                 </ul>
             </div>
         </div>

@@ -1,147 +1,158 @@
 /**
- * Service Worker for e-SuKa PWA
- * Elektronik Surat Kuasa - Pengadilan Negeri Lubuk Pakam
- * Version: 2.0.0
+ * Service Worker for E-SATU PWA
+ * Elektronik Surat Kuasa - Pengadilan Negeri Mandailing Natal
+ * Version: 3.0.1
  */
 
-const CACHE_NAME = "esuka-v2.0.0";
+const CACHE_NAME = "esatu-pwa-v3.0.1";
 const OFFLINE_URL = "/offline.html";
+const STATIC_ASSET_PATTERN =
+    /\.(css|js|png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot|ico)$/i;
+const SENSITIVE_PATH_PREFIXES = [
+    "/admin",
+    "/api",
+    "/auth",
+    "/login",
+    "/logout",
+    "/signin",
+    "/signup",
+    "/forgot-password",
+    "/reset-password",
+    "/profile",
+    "/surat-kuasa",
+    "/sync",
+];
 
-// Assets to pre-cache during installation
 const PRECACHE_ASSETS = [
     OFFLINE_URL,
+    "/manifest.json",
     "/icons/android-icon-192x192.png",
-    "/icons/android-icon-144x144.png",
+    "/icons/android-icon-512x512.png",
+    "/icons/maskable-icon-512x512.png",
+    "/icons/apple-icon-180x180.png",
     "/icons/favicon-96x96.png",
     "/icons/favicon-32x32.png",
     "/icons/favicon-16x16.png",
     "/icons/favicon.ico",
 ];
 
-// Install event - cache essential assets
 self.addEventListener("install", (event) => {
     event.waitUntil(
         caches
             .open(CACHE_NAME)
-            .then((cache) => {
-                console.log("[SW] Pre-caching offline assets");
-                return cache.addAll(PRECACHE_ASSETS);
-            })
+            .then((cache) => cache.addAll(PRECACHE_ASSETS))
             .then(() => self.skipWaiting()),
     );
 });
 
-// Activate event - clean up old caches
 self.addEventListener("activate", (event) => {
     event.waitUntil(
         caches
             .keys()
-            .then((cacheNames) => {
-                return Promise.all(
+            .then((cacheNames) =>
+                Promise.all(
                     cacheNames
                         .filter((cacheName) => cacheName !== CACHE_NAME)
-                        .map((cacheName) => {
-                            console.log("[SW] Deleting old cache:", cacheName);
-                            return caches.delete(cacheName);
-                        }),
-                );
-            })
+                        .map((cacheName) => caches.delete(cacheName)),
+                ),
+            )
             .then(() => self.clients.claim()),
     );
 });
 
-// Helper: check if response is valid for caching
-function isValidResponse(response) {
-    // Don't cache error responses
-    if (!response) return false;
-    // Cache successful same-origin responses
-    if (response.status === 200 && response.type === "basic") return true;
-    // Cache opaque responses (cross-origin without CORS) cautiously
-    if (response.type === "opaque") return true;
-    return false;
+function isHttpRequest(request) {
+    return request.url.startsWith("http://") || request.url.startsWith("https://");
 }
 
-// Fetch event - Network First strategy for navigations, Cache First for static assets
-self.addEventListener("fetch", (event) => {
-    const { request } = event;
+function isSameOrigin(url) {
+    return url.origin === self.location.origin;
+}
 
-    // Skip non-GET requests
-    if (request.method !== "GET") return;
+function isValidCacheResponse(response) {
+    return Boolean(response && response.status === 200 && response.type === "basic");
+}
 
-    // Skip Chrome extension and non-http(s) requests
-    if (!request.url.startsWith("http")) return;
-
-    // Skip API calls and form submissions
-    if (
-        request.url.includes("/api/") ||
-        request.url.includes("/login") ||
-        request.url.includes("/logout")
-    )
-        return;
-
-    // Navigation requests (HTML pages) - Network First
-    if (request.mode === "navigate") {
-        event.respondWith(
-            fetch(request)
-                .then((response) => {
-                    if (isValidResponse(response)) {
-                        var responseToCache = response.clone();
-                        caches.open(CACHE_NAME).then((cache) => {
-                            cache.put(request, responseToCache);
-                        });
-                    }
-                    return response;
-                })
-                .catch(() => {
-                    // Try to serve from cache, fallback to offline page
-                    return caches.match(request).then((cachedResponse) => {
-                        return cachedResponse || caches.match(OFFLINE_URL);
-                    });
-                }),
-        );
-        return;
-    }
-
-    // Static assets (CSS, JS, images, fonts) - Stale While Revalidate
-    if (
+function isStaticAsset(request, url) {
+    return (
         request.destination === "style" ||
         request.destination === "script" ||
         request.destination === "image" ||
         request.destination === "font" ||
-        request.url.match(
-            /\.(css|js|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        )
-    ) {
-        event.respondWith(
-            caches.match(request).then((cachedResponse) => {
-                var fetchPromise = fetch(request)
-                    .then((networkResponse) => {
-                        // Clone FIRST before doing anything else
-                        var responseToCache = networkResponse.clone();
-                        // Only cache valid responses
-                        if (isValidResponse(networkResponse)) {
-                            caches.open(CACHE_NAME).then((cache) => {
-                                try {
-                                    cache.put(request, responseToCache);
-                                } catch (e) {
-                                    console.log("[SW] Cache put failed:", e);
-                                }
-                            });
-                        }
-                        return networkResponse;
-                    })
-                    .catch(() => cachedResponse);
+        STATIC_ASSET_PATTERN.test(url.pathname)
+    );
+}
 
-                return cachedResponse || fetchPromise;
-            }),
-        );
+function isSensitivePath(url) {
+    return SENSITIVE_PATH_PREFIXES.some((pathPrefix) =>
+        url.pathname === pathPrefix || url.pathname.startsWith(`${pathPrefix}/`),
+    );
+}
+
+async function networkFirst(request) {
+    try {
+        const response = await fetch(request);
+
+        if (isValidCacheResponse(response)) {
+            const cache = await caches.open(CACHE_NAME);
+            await cache.put(request, response.clone());
+        }
+
+        return response;
+    } catch (error) {
+        const cachedResponse = await caches.match(request);
+
+        return cachedResponse || caches.match(OFFLINE_URL);
+    }
+}
+
+async function cacheFirstWithRefresh(request) {
+    const cachedResponse = await caches.match(request);
+    const networkResponsePromise = fetch(request)
+        .then(async (response) => {
+            if (isValidCacheResponse(response)) {
+                const cache = await caches.open(CACHE_NAME);
+                await cache.put(request, response.clone());
+            }
+
+            return response;
+        })
+        .catch(() => cachedResponse);
+
+    return cachedResponse || networkResponsePromise;
+}
+
+self.addEventListener("fetch", (event) => {
+    const { request } = event;
+
+    if (request.method !== "GET" || !isHttpRequest(request)) {
         return;
+    }
+
+    const url = new URL(request.url);
+
+    if (!isSameOrigin(url)) {
+        return;
+    }
+
+    if (request.mode === "navigate") {
+        if (isSensitivePath(url)) {
+            event.respondWith(fetch(request).catch(() => caches.match(OFFLINE_URL)));
+
+            return;
+        }
+
+        event.respondWith(networkFirst(request));
+
+        return;
+    }
+
+    if (isStaticAsset(request, url)) {
+        event.respondWith(cacheFirstWithRefresh(request));
     }
 });
 
-// Listen for messages from the app
 self.addEventListener("message", (event) => {
-    if (event.data && event.data.type === "SKIP_WAITING") {
+    if (event.data?.type === "SKIP_WAITING") {
         self.skipWaiting();
     }
 });

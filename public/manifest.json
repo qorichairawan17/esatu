@@ -1,16 +1,22 @@
 {
-    "name": "Elektronik Surat Kuasa (e-SuKa)",
-    "short_name": "e-SuKa",
-    "description": "Layanan Pendaftaran Surat Kuasa Elektronik. Mudah, Cepat, Biaya Ringan",
+    "id": "/",
+    "name": "E-SATU",
+    "short_name": "E-SATU",
+    "description": "Layanan Pendaftaran Surat Kuasa Elektronik. Satu Pintu, Satu Klik, Urusan Kuasa Jadi Praktis.",
+    "version": "1.0.0",
+    "author": "Pengadilan Negeri Mandailing Natal",
+    "keywords": "E-SATU, Elektronik Surat Kuasa, Surat Kuasa, Pengadilan Negeri Mandailing Natal. e-SATU",
+    "developer": "Pengadilan Negeri Mandailing Natal",
     "start_url": "/",
     "scope": "/",
     "display": "standalone",
+    "display_override": ["window-controls-overlay", "standalone", "browser"],
     "orientation": "portrait-primary",
     "background_color": "#ffffff",
-    "theme_color": "#2f55d4",
-    "lang": "id",
+    "theme_color": "#29AA59",
+    "lang": "id-ID",
     "dir": "ltr",
-    "categories": ["government", "utilities"],
+    "categories": ["government", "productivity", "utilities"],
     "icons": [
         {
             "src": "/icons/android-icon-36x36.png",
@@ -46,7 +52,60 @@
             "src": "/icons/android-icon-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/android-icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/maskable-icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Daftar Akun",
+            "short_name": "Daftar",
+            "description": "Buat akun pengguna E-SATU.",
+            "url": "/signup",
+            "icons": [
+                {
+                    "src": "/icons/android-icon-96x96.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Masuk",
+            "short_name": "Masuk",
+            "description": "Masuk ke layanan E-SATU.",
+            "url": "/signin",
+            "icons": [
+                {
+                    "src": "/icons/android-icon-96x96.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Panduan",
+            "short_name": "Panduan",
+            "description": "Buka panduan penggunaan E-SATU.",
+            "url": "/panduan",
+            "icons": [
+                {
+                    "src": "/icons/android-icon-96x96.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
         }
     ]
 }

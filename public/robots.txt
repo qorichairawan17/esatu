@@ -1,10 +1,9 @@
-# Robots.txt for E-SUKA Application
+# Robots.txt for E-SATU Application
 # Allow all search engines to crawl
 
 User-agent: *
 Allow: /
 Allow: /index
-Allow: /index/about
 Allow: /index/contact
 Allow: /index/signin
 Allow: /index/signup
@@ -24,4 +23,4 @@ Disallow: /*.json
 Disallow: /*.log
 
 # Sitemap location
-Sitemap: https://e-suka.pn-lubukpakam.go.id/sitemap.xml
+Sitemap: https://e-satu.pn-mandailingnatal.go.id/sitemap.xml
