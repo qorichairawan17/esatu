@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer footer-light landing-footer">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -6,7 +6,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
                             <a href="#" class="logo-footer">
-                                <img src="{{ asset('icons/horizontal-e-suka-white.png') }}" height="50" alt="">
+                                <img src="{{ asset('icons/navbar.png') }}" height="50" alt="{{ config('app.name') }}">
                             </a>
                             <p class="mt-4">
                                 {{ config('app.description') }}

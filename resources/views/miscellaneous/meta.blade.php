@@ -19,7 +19,7 @@
     <link rel="manifest" href="{{ asset('manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{ asset('icons/ms-icon-144x144.png') }}">
-    <meta name="theme-color" content="#2f55d4">
+    <meta name="theme-color" content="#29AA59">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="e-SuKa">

@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $profile1 = ProfileModel::firstOrCreate([
-            'kontak' => '082366025464',
+            'kontak' => '080000000',
             'nama_depan' => 'Qori',
             'nama_belakang' => 'Chairawan',
         ], [
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $profile2 = ProfileModel::firstOrCreate([
-            'kontak' => '082366025465', // Menggunakan kontak berbeda untuk membedakan profil jika diperlukan
+            'kontak' => '080000000000', // Menggunakan kontak berbeda untuk membedakan profil jika diperlukan
             'nama_depan' => 'Qori',
             'nama_belakang' => 'Chairawan',
         ], [
@@ -71,19 +71,19 @@ class DatabaseSeeder extends Seeder
 
         AplikasiModel::create([
             'pengadilan_tinggi' => 'Pengadilan Tinggi Medan',
-            'pengadilan_negeri' => 'Pengadilan Negeri Lubuk Pakam',
+            'pengadilan_negeri' => 'Pengadilan Negeri Mandailing Natal',
             'kode_dipa' => '400395',
             'kode_surat_kuasa' => '#NOMOR/W2-U4/SK/#BULAN/#TAHUN/PN Lbp',
             'provinsi' => 'Sumatera Utara',
-            'kabupaten' => 'Deli Serdang',
-            'kode_pos' => '20517',
-            'alamat' => 'Jalan Jenderal Sudirman No. 58 Lubuk Pakam',
-            'website' => 'https://pn-lubukpakam.go.id/',
-            'facebook' => 'https://pn-lubukpakam.go.id/',
-            'instagram' => 'https://pn-lubukpakam.go.id/',
-            'youtube' => 'https://pn-lubukpakam.go.id/',
+            'kabupaten' => 'Mandailing Natal',
+            'kode_pos' => '22976',
+            'alamat' => ' Jalan Lintas Sumatera KM. 7, Panyabungan, Mompang Jae, Kec. Panyabungan Utara, Kabupaten Mandailing Natal, Sumatera Utara',
+            'website' => 'https://pn-mandailingnatal.go.id/',
+            'facebook' => 'https://pn-mandailingnatal.go.id/',
+            'instagram' => 'https://pn-mandailingnatal.go.id/',
+            'youtube' => 'https://pn-mandailingnatal.go.id/',
             'kontak' => '08238827272',
-            'email' => 'pnlubukpakam@yahoo.co.id',
+            'email' => 'pnmandailingnatal@yahoo.co.id',
             'maintance' => '0',
         ]);
 

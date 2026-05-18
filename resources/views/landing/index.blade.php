@@ -14,7 +14,46 @@
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" class="theme-opt" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/libs/@mdi/font/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/libs/@iconscout/unicons/css/line.css') }}" type="text/css" rel="stylesheet">
-    <link href="{{ asset('assets/css/style.min.css') }}" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/style-green.min.css') }}" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css">
+    <style>
+        .landing-footer {
+            background: linear-gradient(180deg, #f2fbf6 0%, #ffffff 100%);
+            border-top: 1px solid rgba(22, 163, 74, 0.16);
+            color: #637083;
+        }
+
+        .landing-footer .footer-head {
+            color: #16a34a;
+        }
+
+        .landing-footer .text-foot,
+        .landing-footer p,
+        .landing-footer .footer-bar {
+            color: #637083;
+        }
+
+        .landing-footer .text-foot:hover,
+        .landing-footer .footer-bar a {
+            color: #16a34a !important;
+        }
+
+        .landing-footer .footer-bar {
+            border-top-color: rgba(22, 163, 74, 0.14);
+            background: rgba(22, 163, 74, 0.04);
+        }
+
+        .landing-footer .foot-social-icon li a {
+            color: #16a34a;
+            border-color: rgba(22, 163, 74, 0.24);
+            background-color: #ffffff;
+        }
+
+        .landing-footer .foot-social-icon li a:hover {
+            background-color: #16a34a;
+            border-color: #16a34a !important;
+            color: #ffffff !important;
+        }
+    </style>
     @stack('styles')
 </head>
 
