@@ -4,7 +4,7 @@
         <!-- Left: Toggle + Search -->
         <div class="d-flex align-items-center gap-2">
             <a href="{{ route('panduan.show') }}" class="logo-icon d-lg-none">
-                <img src="{{ asset('icons/android-icon-192x192.png') }}" height="32" class="rounded" alt="logo">
+                <img src="{{ asset('icons/android-icon-192x192.png') }}" height="32" class="rounded" alt="{{ config('app.name') }}">
             </a>
             <a id="close-sidebar" class="btn btn-icon btn-soft-light" href="javascript:void(0)">☰</a>
             <div class="search-bar d-none d-md-block">

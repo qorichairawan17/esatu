@@ -1,13 +1,15 @@
   :root {
-      --panduan-primary: #2F55D4;
-      --panduan-primary-light: #4a6fdf;
-      --panduan-secondary: #f8f9fc;
+      --panduan-primary: #29aa59;
+      --panduan-primary-dark: #198f46;
+      --panduan-primary-light: #35c772;
+      --panduan-primary-soft: #ecfbf2;
+      --panduan-secondary: #f6fbf8;
       --panduan-white: #FFFFFF;
       --panduan-dark: #161c2d;
-      --panduan-muted: #8492a6;
-      --panduan-border: #e9ecef;
-      --panduan-card-shadow: 0 2px 4px rgba(47, 85, 212, 0.08);
-      --panduan-card-hover-shadow: 0 10px 30px rgba(47, 85, 212, 0.12);
+      --panduan-muted: #718096;
+      --panduan-border: #dcefe4;
+      --panduan-card-shadow: 0 8px 28px rgba(41, 170, 89, 0.08);
+      --panduan-card-hover-shadow: 0 16px 42px rgba(41, 170, 89, 0.14);
   }
 
   body {
@@ -22,7 +24,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: var(--panduan-primary);
+      background: rgba(246, 251, 248, 0.96);
       z-index: 9999;
       display: flex;
       align-items: center;
@@ -47,7 +49,7 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background-color: var(--panduan-white);
+      background-color: var(--panduan-primary);
       opacity: 0.6;
       position: absolute;
       top: 0;
@@ -73,20 +75,21 @@
 
   /* Sidebar Redesign */
   .sidebar-wrapper {
-      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
-      border-right: none !important;
-      box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+      background: var(--panduan-white) !important;
+      border-right: 1px solid var(--panduan-border) !important;
+      box-shadow: 8px 0 30px rgba(41, 170, 89, 0.08);
   }
 
   .sidebar-wrapper.sidebar-light {
       background: var(--panduan-white) !important;
       border-right: 1px solid var(--panduan-border) !important;
-      box-shadow: none;
+      box-shadow: 8px 0 30px rgba(41, 170, 89, 0.08);
   }
 
   .sidebar-brand {
       padding: 1.5rem !important;
       border-bottom: 1px solid var(--panduan-border);
+      background: linear-gradient(180deg, #ffffff 0%, #f7fcf9 100%);
   }
 
   .sidebar-menu {
@@ -105,28 +108,77 @@
       gap: 0.75rem;
   }
 
+  .sidebar-menu>li.sidebar>a,
+  .sidebar-menu>li.sidebar-dropdown>a {
+      background: #ffffff !important;
+      border: 1px solid #e6eaf0 !important;
+      color: var(--panduan-dark) !important;
+      box-shadow: 0 8px 18px rgba(22, 28, 45, 0.04);
+  }
+
   .sidebar-menu li>a:hover {
-      background: rgba(47, 85, 212, 0.1) !important;
-      color: var(--panduan-white) !important;
+      background: #f8fafc !important;
+      color: var(--panduan-dark) !important;
+      border-color: #dbe2ea !important;
+      box-shadow: 0 10px 22px rgba(22, 28, 45, 0.06);
   }
 
   .sidebar-submenu ul {
-      background: var(--panduan-secondary) !important;
+      background: #f8fafc !important;
       border-radius: 8px;
       margin: 0.375rem 0 0.375rem 0;
       padding: 0.375rem !important;
   }
 
   .sidebar-submenu ul li a {
+      background: #ffffff !important;
+      border: 1px solid #e6eaf0 !important;
       padding: 0.5rem 0.75rem !important;
       font-size: 0.8125rem;
-      color: var(--panduan-muted) !important;
+      color: #374151 !important;
       border-radius: 6px !important;
   }
 
   .sidebar-submenu ul li a:hover {
-      background: rgba(47, 85, 212, 0.1) !important;
-      color: var(--panduan-primary) !important;
+      background: #f1f5f9 !important;
+      color: var(--panduan-dark) !important;
+      border-color: #dbe2ea !important;
+  }
+
+  .sidebar-menu .sidebar-dropdown.active>a,
+  .sidebar-menu>li.sidebar.active>a,
+  .sidebar-menu>li.sidebar>a.active,
+  .sidebar-menu>li.sidebar-dropdown>a.active {
+      background: #ffffff !important;
+      border-color: #e6eaf0 !important;
+      color: var(--panduan-dark) !important;
+      box-shadow: 0 8px 18px rgba(22, 28, 45, 0.04);
+  }
+
+  .sidebar-menu .sidebar-submenu ul li.active>a,
+  .sidebar-menu .sidebar-submenu ul li>a.active {
+      background: #ffffff !important;
+      border-color: #e6eaf0 !important;
+      color: #374151 !important;
+      box-shadow: none !important;
+  }
+
+  .page-wrapper .sidebar-wrapper #panduan-menu li>a,
+  .page-wrapper .sidebar-wrapper #panduan-menu li:hover>a,
+  .page-wrapper .sidebar-wrapper #panduan-menu li.active>a,
+  .page-wrapper .sidebar-wrapper #panduan-menu li:active>a,
+  .page-wrapper .sidebar-wrapper #panduan-menu li>a.active,
+  .page-wrapper .sidebar-wrapper #panduan-menu .sidebar-dropdown.active>a {
+      color: var(--panduan-dark) !important;
+  }
+
+  .page-wrapper .sidebar-wrapper #panduan-menu .sidebar-dropdown>a::after,
+  .page-wrapper .sidebar-wrapper #panduan-menu .sidebar-dropdown:hover>a::after,
+  .page-wrapper .sidebar-wrapper #panduan-menu .sidebar-dropdown.active>a::after,
+  .page-wrapper .sidebar-wrapper #panduan-menu .sidebar-submenu ul li a::before,
+  .page-wrapper .sidebar-wrapper #panduan-menu .sidebar-submenu ul li:hover>a::before,
+  .page-wrapper .sidebar-wrapper #panduan-menu .sidebar-submenu ul li.active>a::before {
+      color: var(--panduan-dark) !important;
   }
 
   .header-bar {
@@ -153,7 +205,7 @@
   }
 
   .search-bar .form-control {
-      background: var(--panduan-secondary) !important;
+      background: var(--panduan-white) !important;
       border: 1px solid var(--panduan-border) !important;
       border-radius: 6px !important;
       padding: 0.5rem 0.875rem !important;
@@ -166,7 +218,7 @@
   .search-bar .form-control:focus {
       background: var(--panduan-white) !important;
       border-color: var(--panduan-primary) !important;
-      box-shadow: 0 0 0 2px rgba(47, 85, 212, 0.1) !important;
+      box-shadow: 0 0 0 3px rgba(41, 170, 89, 0.1) !important;
   }
 
   .search-bar .form-control::placeholder {
@@ -176,7 +228,7 @@
 
   /* Main Content Area */
   .page-content {
-      background: transparent !important;
+      background: linear-gradient(180deg, #f6fbf8 0%, #ffffff 48%, #f8fbfa 100%) !important;
   }
 
   .layout-specing {
@@ -222,7 +274,7 @@
   }
 
   .card-body .table th {
-      background: var(--panduan-secondary);
+      background: var(--panduan-primary-soft);
       color: var(--panduan-dark);
       font-weight: 600;
       border: none;
@@ -247,8 +299,25 @@
   }
 
   .btn-soft-primary:hover {
-      background: var(--panduan-primary-light) !important;
-      box-shadow: 0 4px 12px rgba(47, 85, 212, 0.35) !important;
+      background: var(--panduan-primary-dark) !important;
+      box-shadow: 0 8px 18px rgba(41, 170, 89, 0.28) !important;
+  }
+
+  .btn-primary,
+  .btn-warning {
+      background: var(--panduan-primary) !important;
+      border-color: var(--panduan-primary) !important;
+      color: var(--panduan-white) !important;
+      box-shadow: 0 8px 18px rgba(41, 170, 89, 0.18) !important;
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-warning:hover,
+  .btn-warning:focus {
+      background: var(--panduan-primary-dark) !important;
+      border-color: var(--panduan-primary-dark) !important;
+      color: var(--panduan-white) !important;
   }
 
   .btn-icon {
@@ -262,9 +331,9 @@
   }
 
   .btn-soft-light {
-      background: var(--panduan-secondary) !important;
+      background: var(--panduan-primary-soft) !important;
       border: 1px solid var(--panduan-border) !important;
-      color: var(--panduan-dark) !important;
+      color: var(--panduan-primary-dark) !important;
   }
 
   .btn-soft-light:hover {
@@ -311,10 +380,11 @@
 
   /* Welcome Section for Home */
   .welcome-section {
-      background: var(--panduan-primary);
+      background: linear-gradient(135deg, var(--panduan-primary) 0%, var(--panduan-primary-light) 100%);
       border-radius: 12px;
       padding: 2.5rem;
       color: var(--panduan-white);
+      box-shadow: 0 18px 45px rgba(41, 170, 89, 0.18);
       margin-bottom: 1.5rem;
   }
 
@@ -360,22 +430,22 @@
   }
 
   .guide-card-icon.purple {
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      background: linear-gradient(135deg, #29aa59 0%, #35c772 100%);
       color: #ffffff;
   }
 
   .guide-card-icon.green {
-      background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+      background: linear-gradient(135deg, #198f46 0%, #29aa59 100%);
       color: #ffffff;
   }
 
   .guide-card-icon.blue {
-      background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+      background: linear-gradient(135deg, #2f855a 0%, #68d391 100%);
       color: #ffffff;
   }
 
   .guide-card-icon.orange {
-      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+      background: linear-gradient(135deg, #4a5568 0%, #718096 100%);
       color: #ffffff;
   }
 
@@ -395,7 +465,7 @@
 
   /* Info Box */
   .info-box {
-      background: var(--panduan-secondary);
+      background: var(--panduan-primary-soft);
       border-radius: 8px;
       padding: 1rem 1.25rem;
       margin-bottom: 0.75rem;
@@ -432,7 +502,7 @@
       font-size: 0.6875rem;
       font-weight: 600;
       letter-spacing: 0.5px;
-      color: var(--panduan-muted);
+      color: var(--panduan-dark);
       text-transform: uppercase;
       padding: 0.5rem 1rem;
       margin-top: 1rem;

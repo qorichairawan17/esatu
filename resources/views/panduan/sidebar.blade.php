@@ -2,8 +2,8 @@
     <div class="sidebar-content" data-simplebar style="height: calc(100% - 80px);">
         <div class="sidebar-brand">
             <a href="{{ route('panduan.show') }}" class="d-flex align-items-center text-decoration-none">
-                <img src="{{ asset('icons/horizontal-e-suka.png') }}" height="45" class="logo-light-mode" alt="Logo">
-                <img src="{{ asset('icons/horizontal-e-suka-white.png') }}" height="45" class="logo-dark-mode" alt="Logo">
+                <img src="{{ asset('icons/navbar.png') }}" height="45" class="logo-light-mode" alt="{{ config('app.name') }}">
+                <img src="{{ asset('icons/navbar-white.png') }}" height="45" class="logo-dark-mode" alt="{{ config('app.name') }}">
             </a>
         </div>
 
@@ -21,7 +21,7 @@
                 <a href="javascript:void(0)">Panduan Akun</a>
                 <div class="sidebar-submenu">
                     <ul>
-                        <li><a href="{{ route('panduan.show', 'akun/daftar-dengan-email') }}">Daftar Dengan Email</a></li>
+                        <li><a href="{{ route('panduan.show', 'akun/daftar-dengan-email') }}" class="text-dark">Daftar Dengan Email</a></li>
                         <li><a href="{{ route('panduan.show', 'akun/daftar-dengan-google') }}">Daftar Dengan Google</a></li>
                         <li><a href="{{ route('panduan.show', 'akun/lupa-password') }}">Lupa Password</a></li>
                         <li><a href="{{ route('panduan.show', 'akun/menghapus-akun') }}">Menghapus Akun</a></li>
