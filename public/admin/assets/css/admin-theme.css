@@ -438,6 +438,142 @@
     outline-color: var(--admin-primary) !important;
 }
 
+.admin-theme .profile-page .layout-specing {
+    padding-bottom: 1.5rem;
+}
+
+.admin-theme .profile-card,
+.admin-theme .profile-panel,
+.admin-theme .profile-side-card {
+    background: #ffffff;
+    border: 1px solid var(--admin-line);
+    border-radius: 8px;
+    box-shadow: var(--admin-shadow);
+}
+
+.admin-theme .profile-avatar {
+    border: 4px solid #ffffff;
+    box-shadow: 0 12px 24px rgba(23, 32, 51, 0.1);
+    height: 108px;
+    object-fit: cover;
+    width: 108px;
+}
+
+.admin-theme .profile-status-banner,
+.admin-theme .profile-notice {
+    border: 1px solid var(--admin-line);
+    border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(23, 32, 51, 0.04);
+}
+
+.admin-theme .profile-status-banner.is-complete {
+    background: var(--admin-primary-soft);
+    border-color: var(--admin-primary-line);
+    color: var(--admin-primary-dark);
+}
+
+.admin-theme .profile-status-banner.is-incomplete {
+    background: #fff7e1;
+    border-color: #fde7a7;
+    color: #8a5a00;
+}
+
+.admin-theme .profile-notice {
+    background: #ffffff;
+}
+
+.admin-theme .profile-notice-icon,
+.admin-theme .profile-card-icon {
+    align-items: center;
+    background: var(--admin-primary-soft);
+    border-radius: 8px;
+    color: var(--admin-primary);
+    display: inline-flex;
+    flex: 0 0 auto;
+    height: 38px;
+    justify-content: center;
+    width: 38px;
+}
+
+.admin-theme .profile-meta-list {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.admin-theme .profile-meta-item {
+    align-items: center;
+    background: var(--admin-primary-subtle);
+    border: 1px solid var(--admin-line);
+    border-radius: 8px;
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.75rem;
+}
+
+.admin-theme .profile-panel-header {
+    border-bottom: 1px solid var(--admin-line);
+}
+
+.admin-theme .profile-tabs .nav-link {
+    background: #ffffff;
+    border: 1px solid var(--admin-line);
+    border-radius: 8px;
+    color: var(--admin-muted);
+    font-weight: 700;
+}
+
+.admin-theme .profile-tabs .nav-link.active {
+    background: var(--admin-primary);
+    border-color: var(--admin-primary);
+    color: #ffffff;
+}
+
+.admin-theme .profile-form-section {
+    background: #ffffff;
+    border: 1px solid var(--admin-line);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.admin-theme .profile-form-section-title {
+    color: var(--admin-ink);
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.admin-theme .profile-page .form-label {
+    color: #344054;
+    font-size: 0.86rem;
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+}
+
+.admin-theme .profile-page .form-control,
+.admin-theme .profile-page .form-select {
+    min-height: 44px;
+}
+
+.admin-theme .profile-page textarea.form-control {
+    min-height: 118px;
+}
+
+.admin-theme .profile-action-row {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: flex-end;
+}
+
+.admin-theme .profile-contact-list li + li {
+    margin-top: 0.55rem;
+}
+
+.admin-theme .profile-danger-zone {
+    border-top: 1px solid var(--admin-line);
+}
+
 @media (max-width: 991.98px) {
     .admin-theme .premium-dashboard .welcome-banner,
     .admin-theme .monev-command {
