@@ -99,7 +99,7 @@
                                             <div class="d-flex align-items-center">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar avatar-md rounded-circle d-flex align-items-center justify-content-center border"
-                                                        style="width: 48px; height: 48px; background: rgba(41, 170, 89, 0.08); border-color: rgba(41, 170, 89, 0.16) !important;">
+                                                        style="width: 48px; height: 48px; background: rgba(19, 108, 52, 0.08); border-color: rgba(19, 108, 52, 0.16) !important;">
                                                         <i class="ti ti-file-description fs-4 text-primary"></i>
                                                     </div>
                                                 </div>
@@ -262,8 +262,8 @@
                     datasets: [{
                         label: 'Disetujui',
                         data: @json($chartData),
-                        backgroundColor: 'rgba(41, 170, 89, 0.85)',
-                        borderColor: '#29AA59',
+                        backgroundColor: 'rgba(19, 108, 52, 0.85)',
+                        borderColor: '#136C34',
                         borderWidth: 0,
                         borderRadius: 6,
                         barPercentage: 0.55

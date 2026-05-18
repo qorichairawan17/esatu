@@ -1,7 +1,5 @@
 <div align="center">
 
-# ⚖️ Elektronik Surat Kuasa (E-SATU)
-
 ![E-SATU Branding](public/icons/navbar.png)
 
 </div>
@@ -13,7 +11,7 @@
   <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
 </p>
 
-**E-SATU** adalah aplikasi web inovatif yang dikembangkan oleh **Pengadilan Negeri Mandailing Natal** untuk memodernisasi proses pendaftaran surat kuasa. Dengan asas **Mudah, Cepat, dan Biaya Ringan**, aplikasi ini memungkinkan advokat dan masyarakat untuk mendaftarkan surat kuasa secara elektronik dari mana saja dan kapan saja.
+**E-SATU** adalah aplikasi web inovatif yang dikembangkan oleh **Pengadilan Negeri Mandailing Natal** untuk memodernisasi proses pendaftaran surat kuasa. Dengan asas **Satu Pintu, Satu Klik, Urusan Kuasa Jadi Praktis.**, aplikasi ini memungkinkan advokat dan masyarakat untuk mendaftarkan surat kuasa secara elektronik dari mana saja dan kapan saja.
 
 ---
 
@@ -32,7 +30,7 @@
 
 ### 🌟 Tentang Proyek
 
-Proyek E-SATU lahir dari kebutuhan untuk mengatasi beban administrasi yang tinggi dalam pelayanan legalisasi pendaftaran surat kuasa di Pengadilan Negeri Mandailing Natal. Proses manual yang memakan waktu dan mengharuskan kehadiran fisik kini ditransformasikan menjadi alur digital yang efisien.
+Proyek E-SATU hadir sebagai solusi untuk meningkatkan efektivitas pelayanan legalisasi pendaftaran surat kuasa di Pengadilan Negeri Mandailing Natal. Proses yang sebelumnya dilakukan secara manual, memakan waktu, dan mengharuskan kehadiran fisik kini telah ditransformasikan menjadi layanan digital yang lebih cepat, praktis, dan efisien.
 
 Tujuan utama dari aplikasi ini adalah:
 - **Memudahkan** pengguna dalam mendaftarkan surat kuasa.
@@ -158,20 +156,11 @@ Aplikasi sekarang seharusnya sudah bisa diakses di `http://127.0.0.1:8000`.
 
 ### 🤝 Kontribusi & Penggunaan
 
-Proyek ini adalah perangkat lunak dengan hak milik **(proprietary software)**. Penggunaan, modifikasi, dan distribusi kode sumber hanya diizinkan dengan persetujuan tertulis dari pemilik hak cipta. Proyek ini tidak menerima kontribusi eksternal.
+Proyek ini adalah perangkat lunak dengan hak milik **(proprietary software)**. Penggunaan, modifikasi, dan distribusi kode sumber hanya diizinkan dengan persetujuan tertulis dari pemilik hak cipta.
 
 ---
 
 ### 📄 Lisensi
 
-Hak Cipta © 2026 Pengadilan Negeri Mandailing Natal & Qori Chairawan. Semua Hak Dilindungi.
-
----
-
-### 🙏 Ucapan Terima Kasih
-
-- **Direktorat Jenderal Badan Peradilan Umum** - Atas inisiasi standarisasi aplikasi peradilan.
-- **Pengadilan Negeri Mandailing Natal** - Atas dukungan penuh terhadap pengembangan dan implementasi proyek ini.
-- **Qori Chairawan** - Selaku Developer Utama E-SATU.
-
+Hak Cipta © 2026 Pengadilan Negeri Mandailing Natal
 ---

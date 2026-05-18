@@ -13,6 +13,53 @@
     <link href="{{ asset('assets/css/style-green.min.css') }}" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/libs/sweetalert2/dist/sweetalert2.min.css') }}">
     <style>
+        :root {
+            --esatu-primary: #136c34;
+            --esatu-primary-dark: #0f5528;
+            --esatu-primary-rgb: 19, 108, 52;
+        }
+
+        ::selection {
+            background: rgba(var(--esatu-primary-rgb), 0.9);
+            color: #ffffff;
+        }
+
+        .btn-success,
+        .btn-primary {
+            background-color: var(--esatu-primary) !important;
+            border-color: var(--esatu-primary) !important;
+            color: #ffffff !important;
+            box-shadow: 0 8px 18px rgba(var(--esatu-primary-rgb), 0.18) !important;
+        }
+
+        .btn-success:hover,
+        .btn-success:focus,
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: var(--esatu-primary-dark) !important;
+            border-color: var(--esatu-primary-dark) !important;
+            color: #ffffff !important;
+        }
+
+        .btn-soft-success,
+        .bg-soft-success {
+            background-color: rgba(var(--esatu-primary-rgb), 0.1) !important;
+            border-color: rgba(var(--esatu-primary-rgb), 0.1) !important;
+            color: var(--esatu-primary) !important;
+        }
+
+        .btn-soft-success:hover,
+        .btn-soft-success:focus {
+            background-color: var(--esatu-primary) !important;
+            border-color: var(--esatu-primary) !important;
+            color: #ffffff !important;
+        }
+
+        .text-success,
+        .text-primary {
+            color: var(--esatu-primary) !important;
+        }
+
         .auth-body {
             background: #f6fbf8;
             min-height: 100vh;
@@ -26,7 +73,7 @@
 
         .auth-card {
             overflow: hidden;
-            border: 1px solid rgba(22, 163, 74, 0.14);
+            border: 1px solid rgba(19, 108, 52, 0.14);
             border-radius: 8px;
             background: #ffffff;
             box-shadow: 0 24px 70px rgba(33, 47, 64, 0.12);
@@ -34,7 +81,7 @@
 
         .auth-hero {
             min-height: 720px;
-            background: linear-gradient(180deg, rgba(22, 163, 74, 0.13) 0%, rgba(22, 163, 74, 0.04) 100%);
+            background: linear-gradient(180deg, rgba(19, 108, 52, 0.13) 0%, rgba(19, 108, 52, 0.04) 100%);
         }
 
         .auth-hero-inner,
@@ -51,10 +98,10 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            border: 1px solid rgba(22, 163, 74, 0.18);
+            border: 1px solid rgba(19, 108, 52, 0.18);
             border-radius: 999px;
-            background: rgba(22, 163, 74, 0.08);
-            color: #16a34a;
+            background: rgba(19, 108, 52, 0.08);
+            color: #136c34;
             font-weight: 700;
             letter-spacing: 0.02em;
             padding: 8px 14px;
@@ -70,11 +117,11 @@
             aspect-ratio: 16 / 10;
             object-fit: cover;
             border-radius: 8px;
-            box-shadow: 0 18px 45px rgba(22, 163, 74, 0.16);
+            box-shadow: 0 18px 45px rgba(19, 108, 52, 0.16);
         }
 
         .auth-info-card {
-            border: 1px solid rgba(22, 163, 74, 0.12);
+            border: 1px solid rgba(19, 108, 52, 0.12);
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.82);
             padding: 18px;
@@ -87,8 +134,8 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: rgba(22, 163, 74, 0.1);
-            color: #16a34a;
+            background: rgba(19, 108, 52, 0.1);
+            color: #136c34;
             flex: 0 0 44px;
         }
 
@@ -109,22 +156,22 @@
         }
 
         .auth-form-card .form-control:focus {
-            border-color: #16a34a;
-            box-shadow: 0 0 0 0.2rem rgba(22, 163, 74, 0.1);
+            border-color: #136c34;
+            box-shadow: 0 0 0 0.2rem rgba(19, 108, 52, 0.1);
         }
 
         .auth-form-card .form-check-input:checked {
-            background-color: #16a34a;
-            border-color: #16a34a;
+            background-color: #136c34;
+            border-color: #136c34;
         }
 
         .auth-form-card .form-icon .icons {
             top: 15px;
-            color: #16a34a;
+            color: #136c34;
         }
 
         .auth-muted-link {
-            color: #16a34a;
+            color: #136c34;
             font-weight: 700;
         }
 
@@ -146,7 +193,7 @@
         }
 
         .auth-captcha {
-            border: 1px dashed rgba(22, 163, 74, 0.28);
+            border: 1px dashed rgba(19, 108, 52, 0.28);
             border-radius: 8px;
             background: #f7fcf9;
             padding: 12px;

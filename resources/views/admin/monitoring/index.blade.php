@@ -485,8 +485,8 @@
             const monthLabels = @json($months);
             const registrationCanvas = document.getElementById('registrationChart');
             const numberFormatter = new Intl.NumberFormat('id-ID');
-            const statusColors = ['#29AA59', '#E43F52', '#F1B53D'];
-            const paymentColors = ['#29AA59', '#14B8A6', '#F1B53D', '#64748B', '#20C997', '#168643'];
+            const statusColors = ['#136C34', '#E43F52', '#F1B53D'];
+            const paymentColors = ['#136C34', '#14B8A6', '#F1B53D', '#64748B', '#20C997', '#0f5528'];
             let registrationChart = null;
             let statusDonutChart = null;
             let paymentTypeChart = null;
@@ -671,8 +671,8 @@
                         datasets: [{
                             label: @json('Pendaftaran ' . $growth['current_year']),
                             data: @json($growth['monthly_current']),
-                            backgroundColor: 'rgba(41, 170, 89, 0.82)',
-                            hoverBackgroundColor: 'rgba(41, 170, 89, 1)',
+                            backgroundColor: 'rgba(19, 108, 52, 0.82)',
+                            hoverBackgroundColor: 'rgba(19, 108, 52, 1)',
                             borderRadius: 5,
                             borderSkipped: false,
                             maxBarThickness: 34,

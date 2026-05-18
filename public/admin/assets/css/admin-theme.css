@@ -1,6 +1,6 @@
 :root {
-    --admin-primary: #29aa59;
-    --admin-primary-dark: #168643;
+    --admin-primary: #136c34;
+    --admin-primary-dark: #0f5528;
     --admin-primary-soft: #eaf8f0;
     --admin-primary-subtle: #f6fbf8;
     --admin-primary-line: #cfeedd;
@@ -43,7 +43,7 @@
 }
 
 .admin-theme #status .spinner {
-    filter: drop-shadow(0 10px 20px rgba(41, 170, 89, 0.16));
+    filter: drop-shadow(0 10px 20px rgba(19, 108, 52, 0.16));
 }
 
 .admin-theme #status .spinner .double-bounce1,
@@ -82,7 +82,7 @@
     background: var(--admin-primary) !important;
     border-color: var(--admin-primary) !important;
     color: #ffffff !important;
-    box-shadow: 0 8px 18px rgba(41, 170, 89, 0.2) !important;
+    box-shadow: 0 8px 18px rgba(19, 108, 52, 0.2) !important;
 }
 
 .admin-theme .btn-primary:hover,
@@ -159,7 +159,7 @@
 .admin-theme .dataTables_wrapper .dataTables_length select:focus,
 .admin-theme .dataTables_wrapper .dataTables_filter input:focus {
     border-color: var(--admin-primary) !important;
-    box-shadow: 0 0 0 3px rgba(41, 170, 89, 0.14) !important;
+    box-shadow: 0 0 0 3px rgba(19, 108, 52, 0.14) !important;
 }
 
 .admin-theme .top-header,
@@ -245,7 +245,7 @@
     background: var(--admin-primary) !important;
     border-color: var(--admin-primary) !important;
     color: #ffffff !important;
-    box-shadow: 0 2px 8px rgba(41, 170, 89, 0.24) !important;
+    box-shadow: 0 2px 8px rgba(19, 108, 52, 0.24) !important;
 }
 
 .admin-theme .dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled),
@@ -352,7 +352,7 @@
 .admin-theme .shortcut-card-premium:hover,
 .admin-theme .list-hover-item:hover {
     border-color: var(--admin-primary-line) !important;
-    box-shadow: 0 12px 26px rgba(41, 170, 89, 0.12) !important;
+    box-shadow: 0 12px 26px rgba(19, 108, 52, 0.12) !important;
     color: var(--admin-primary-dark) !important;
 }
 
@@ -428,7 +428,7 @@
 .admin-theme .method-card:hover,
 .admin-theme .card-payment:hover {
     border-color: var(--admin-primary) !important;
-    box-shadow: 0 10px 24px rgba(41, 170, 89, 0.14) !important;
+    box-shadow: 0 10px 24px rgba(19, 108, 52, 0.14) !important;
 }
 
 .admin-theme .method-card.selected {

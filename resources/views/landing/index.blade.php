@@ -16,14 +16,64 @@
     <link href="{{ asset('assets/libs/@iconscout/unicons/css/line.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('assets/css/style-green.min.css') }}" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css">
     <style>
+        :root {
+            --esatu-primary: #136c34;
+            --esatu-primary-dark: #0f5528;
+            --esatu-primary-rgb: 19, 108, 52;
+        }
+
+        ::selection {
+            background: rgba(var(--esatu-primary-rgb), 0.9);
+            color: #ffffff;
+        }
+
+        .text-success,
+        .text-primary,
+        .auth-muted-link,
+        #topnav .navigation-menu>li:hover>a,
+        #topnav .navigation-menu>li.active>a {
+            color: var(--esatu-primary) !important;
+        }
+
+        .btn-success,
+        .btn-primary {
+            background-color: var(--esatu-primary) !important;
+            border-color: var(--esatu-primary) !important;
+            color: #ffffff !important;
+            box-shadow: 0 8px 18px rgba(var(--esatu-primary-rgb), 0.18) !important;
+        }
+
+        .btn-success:hover,
+        .btn-success:focus,
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: var(--esatu-primary-dark) !important;
+            border-color: var(--esatu-primary-dark) !important;
+            color: #ffffff !important;
+        }
+
+        .btn-soft-success,
+        .bg-soft-success {
+            background-color: rgba(var(--esatu-primary-rgb), 0.1) !important;
+            border-color: rgba(var(--esatu-primary-rgb), 0.1) !important;
+            color: var(--esatu-primary) !important;
+        }
+
+        .btn-soft-success:hover,
+        .btn-soft-success:focus {
+            background-color: var(--esatu-primary) !important;
+            border-color: var(--esatu-primary) !important;
+            color: #ffffff !important;
+        }
+
         .landing-footer {
             background: linear-gradient(180deg, #f2fbf6 0%, #ffffff 100%);
-            border-top: 1px solid rgba(22, 163, 74, 0.16);
+            border-top: 1px solid rgba(19, 108, 52, 0.16);
             color: #637083;
         }
 
         .landing-footer .footer-head {
-            color: #16a34a;
+            color: #136c34;
         }
 
         .landing-footer .text-foot,
@@ -34,23 +84,23 @@
 
         .landing-footer .text-foot:hover,
         .landing-footer .footer-bar a {
-            color: #16a34a !important;
+            color: #136c34 !important;
         }
 
         .landing-footer .footer-bar {
-            border-top-color: rgba(22, 163, 74, 0.14);
-            background: rgba(22, 163, 74, 0.04);
+            border-top-color: rgba(19, 108, 52, 0.14);
+            background: rgba(19, 108, 52, 0.04);
         }
 
         .landing-footer .foot-social-icon li a {
-            color: #16a34a;
-            border-color: rgba(22, 163, 74, 0.24);
+            color: #136c34;
+            border-color: rgba(19, 108, 52, 0.24);
             background-color: #ffffff;
         }
 
         .landing-footer .foot-social-icon li a:hover {
-            background-color: #16a34a;
-            border-color: #16a34a !important;
+            background-color: #136c34;
+            border-color: #136c34 !important;
             color: #ffffff !important;
         }
 

@@ -34,11 +34,6 @@
         <div id="navigation">
             <ul class="navigation-menu" style="float: left;">
                 <li><a href="{{ route('app.home') }}" class="sub-menu-item active">Beranda</a></li>
-                <!-- <li>
-                    <span class="sub-menu-item has-submenu parent-parent-menu-item disabled-menu" aria-disabled="true">
-                        Tentang
-                    </span>
-                </li> -->
                 <li><a href="{{ route('app.contact') }}" class="has-submenu parent-parent-menu-item">Kontak</a></li>
                 <li><a href="{{ route('panduan.show') }}" class="has-submenu parent-parent-menu-item">Panduan</a></li>
                 <li class="d-lg-none">

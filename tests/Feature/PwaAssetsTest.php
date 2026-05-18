@@ -26,7 +26,7 @@ class PwaAssetsTest extends TestCase
         $this->assertSame('/', $manifest['start_url']);
         $this->assertSame('/', $manifest['scope']);
         $this->assertSame('standalone', $manifest['display']);
-        $this->assertSame('#29AA59', $manifest['theme_color']);
+        $this->assertSame('#136C34', $manifest['theme_color']);
         $this->assertSame('id-ID', $manifest['lang']);
         $this->assertContains('/icons/android-icon-512x512.png', array_column($manifest['icons'], 'src'));
         $this->assertContains('/icons/maskable-icon-512x512.png', array_column($manifest['icons'], 'src'));
@@ -38,7 +38,7 @@ class PwaAssetsTest extends TestCase
         $view = $this->view('miscellaneous.meta', ['title' => 'Beranda']);
 
         $view->assertSee('href="'.asset('manifest.json').'"', false);
-        $view->assertSee('name="theme-color" content="#29AA59"', false);
+        $view->assertSee('name="theme-color" content="#136C34"', false);
         $view->assertSee('name="application-name" content="E-SATU"', false);
         $view->assertSee('icons/android-icon-512x512.png', false);
     }
@@ -47,7 +47,7 @@ class PwaAssetsTest extends TestCase
     {
         $serviceWorker = file_get_contents(public_path('sw.js'));
 
-        $this->assertStringContainsString('esatu-pwa-v3.0.1', $serviceWorker);
+        $this->assertStringContainsString('esatu-pwa-v3.0.2', $serviceWorker);
         $this->assertStringContainsString('"/signin"', $serviceWorker);
         $this->assertStringContainsString('"/signup"', $serviceWorker);
         $this->assertStringContainsString('"/surat-kuasa"', $serviceWorker);
@@ -62,6 +62,6 @@ class PwaAssetsTest extends TestCase
         $this->assertStringContainsString('Mode Offline - E-SATU', $offlinePage);
         $this->assertStringContainsString('Pengadilan Negeri Mandailing Natal', $offlinePage);
         $this->assertStringContainsString('Satu Pintu, Satu Klik', $offlinePage);
-        $this->assertStringContainsString('#29aa59', $offlinePage);
+        $this->assertStringContainsString('#136c34', $offlinePage);
     }
 }

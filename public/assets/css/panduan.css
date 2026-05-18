@@ -1,15 +1,15 @@
   :root {
-      --panduan-primary: #29aa59;
-      --panduan-primary-dark: #198f46;
-      --panduan-primary-light: #35c772;
+      --panduan-primary: #136c34;
+      --panduan-primary-dark: #0f5528;
+      --panduan-primary-light: #1f8f48;
       --panduan-primary-soft: #ecfbf2;
       --panduan-secondary: #f6fbf8;
       --panduan-white: #FFFFFF;
       --panduan-dark: #161c2d;
       --panduan-muted: #718096;
       --panduan-border: #dcefe4;
-      --panduan-card-shadow: 0 8px 28px rgba(41, 170, 89, 0.08);
-      --panduan-card-hover-shadow: 0 16px 42px rgba(41, 170, 89, 0.14);
+      --panduan-card-shadow: 0 8px 28px rgba(19, 108, 52, 0.08);
+      --panduan-card-hover-shadow: 0 16px 42px rgba(19, 108, 52, 0.14);
   }
 
   body {
@@ -77,13 +77,13 @@
   .sidebar-wrapper {
       background: var(--panduan-white) !important;
       border-right: 1px solid var(--panduan-border) !important;
-      box-shadow: 8px 0 30px rgba(41, 170, 89, 0.08);
+      box-shadow: 8px 0 30px rgba(19, 108, 52, 0.08);
   }
 
   .sidebar-wrapper.sidebar-light {
       background: var(--panduan-white) !important;
       border-right: 1px solid var(--panduan-border) !important;
-      box-shadow: 8px 0 30px rgba(41, 170, 89, 0.08);
+      box-shadow: 8px 0 30px rgba(19, 108, 52, 0.08);
   }
 
   .sidebar-brand {
@@ -218,7 +218,7 @@
   .search-bar .form-control:focus {
       background: var(--panduan-white) !important;
       border-color: var(--panduan-primary) !important;
-      box-shadow: 0 0 0 3px rgba(41, 170, 89, 0.1) !important;
+      box-shadow: 0 0 0 3px rgba(19, 108, 52, 0.1) !important;
   }
 
   .search-bar .form-control::placeholder {
@@ -300,7 +300,7 @@
 
   .btn-soft-primary:hover {
       background: var(--panduan-primary-dark) !important;
-      box-shadow: 0 8px 18px rgba(41, 170, 89, 0.28) !important;
+      box-shadow: 0 8px 18px rgba(19, 108, 52, 0.28) !important;
   }
 
   .btn-primary,
@@ -308,7 +308,7 @@
       background: var(--panduan-primary) !important;
       border-color: var(--panduan-primary) !important;
       color: var(--panduan-white) !important;
-      box-shadow: 0 8px 18px rgba(41, 170, 89, 0.18) !important;
+      box-shadow: 0 8px 18px rgba(19, 108, 52, 0.18) !important;
   }
 
   .btn-primary:hover,
@@ -384,7 +384,7 @@
       border-radius: 12px;
       padding: 2.5rem;
       color: var(--panduan-white);
-      box-shadow: 0 18px 45px rgba(41, 170, 89, 0.18);
+      box-shadow: 0 18px 45px rgba(19, 108, 52, 0.18);
       margin-bottom: 1.5rem;
   }
 
@@ -430,12 +430,12 @@
   }
 
   .guide-card-icon.purple {
-      background: linear-gradient(135deg, #29aa59 0%, #35c772 100%);
+      background: linear-gradient(135deg, #136c34 0%, #1f8f48 100%);
       color: #ffffff;
   }
 
   .guide-card-icon.green {
-      background: linear-gradient(135deg, #198f46 0%, #29aa59 100%);
+      background: linear-gradient(135deg, #0f5528 0%, #136c34 100%);
       color: #ffffff;
   }
 

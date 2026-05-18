@@ -619,7 +619,7 @@
                     text: 'Anda masih bisa login menggunakan email dan password.',
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonColor: '#29AA59',
+                    confirmButtonColor: '#136C34',
                     cancelButtonColor: '#667085',
                     confirmButtonText: 'Ya, putuskan',
                     cancelButtonText: 'Batal'

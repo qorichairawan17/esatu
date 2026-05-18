@@ -13,7 +13,7 @@
     "display_override": ["window-controls-overlay", "standalone", "browser"],
     "orientation": "portrait-primary",
     "background_color": "#ffffff",
-    "theme_color": "#29AA59",
+    "theme_color": "#136C34",
     "lang": "id-ID",
     "dir": "ltr",
     "categories": ["government", "productivity", "utilities"],

@@ -70,7 +70,7 @@
                 <div class="info-box">
                     <div class="info-box-content">
                         <h6>Rilis Panduan</h6>
-                        <p>{{ \Carbon\Carbon::parse('2025-12-25')->isoFormat('dddd, D MMMM Y') }}</p>
+                        <p>{{ \Carbon\Carbon::parse('2026-05-18')->isoFormat('dddd, D MMMM Y') }}</p>
                     </div>
                 </div>
             </div>

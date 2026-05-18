@@ -156,8 +156,8 @@
                                 </div>
 
                                 @if ($lastAuditTrail)
-                                    <div class="d-flex align-items-start p-3 rounded-4 bg-white" style="border: 1px solid rgba(41, 170, 89, 0.12); box-shadow: 0 2px 10px rgba(23, 32, 51, 0.03);">
-                                        <div class="icon-box primary mb-0 me-3" style="width: 48px; height: 48px; flex-shrink: 0; background-color: rgba(41, 170, 89, 0.08);">
+                                    <div class="d-flex align-items-start p-3 rounded-4 bg-white" style="border: 1px solid rgba(19, 108, 52, 0.12); box-shadow: 0 2px 10px rgba(23, 32, 51, 0.03);">
+                                        <div class="icon-box primary mb-0 me-3" style="width: 48px; height: 48px; flex-shrink: 0; background-color: rgba(19, 108, 52, 0.08);">
                                             <i class="uil uil-file-info-alt fs-4"></i>
                                         </div>
                                         <div class="flex-grow-1 align-self-center">
@@ -222,8 +222,8 @@
                         datasets: [{
                                 label: 'Disetujui',
                                 data: @json($chartData),
-                                backgroundColor: 'rgba(41, 170, 89, 0.82)',
-                                hoverBackgroundColor: 'rgba(41, 170, 89, 1)',
+                                backgroundColor: 'rgba(19, 108, 52, 0.82)',
+                                hoverBackgroundColor: 'rgba(19, 108, 52, 1)',
                                 borderRadius: 4,
                                 borderSkipped: false
                             },
@@ -314,7 +314,7 @@
                     },
                     series: @json($statistikDonutChart['series']),
                     labels: @json($statistikDonutChart['labels']),
-                    colors: ['#29AA59', '#20C997', '#F1B53D', '#E43F52', '#14B8A6', '#64748B'],
+                    colors: ['#136C34', '#20C997', '#F1B53D', '#E43F52', '#14B8A6', '#64748B'],
                     legend: {
                         show: true,
                         position: 'bottom',

@@ -20,7 +20,7 @@ class AdminThemeViewTest extends TestCase
     {
         $css = file_get_contents(public_path('admin/assets/css/admin-theme.css'));
 
-        $this->assertStringContainsString('--admin-primary: #29aa59;', $css);
+        $this->assertStringContainsString('--admin-primary: #136c34;', $css);
         $this->assertStringContainsString('.admin-theme #preloader', $css);
         $this->assertStringContainsString('.admin-theme #status .spinner .double-bounce1', $css);
         $this->assertStringContainsString('.admin-theme .btn-primary', $css);
@@ -49,10 +49,10 @@ class AdminThemeViewTest extends TestCase
         $userDashboard = file_get_contents(resource_path('views/admin/home/home-pengguna.blade.php'));
         $monitoring = file_get_contents(resource_path('views/admin/monitoring/index.blade.php'));
 
-        $this->assertStringContainsString('rgba(41, 170, 89, 0.82)', $adminDashboard);
-        $this->assertStringContainsString("'#29AA59'", $adminDashboard);
-        $this->assertStringContainsString('rgba(41, 170, 89, 0.85)', $userDashboard);
-        $this->assertStringContainsString("const statusColors = ['#29AA59'", $monitoring);
-        $this->assertStringContainsString('rgba(41, 170, 89, 0.82)', $monitoring);
+        $this->assertStringContainsString('rgba(19, 108, 52, 0.82)', $adminDashboard);
+        $this->assertStringContainsString("'#136C34'", $adminDashboard);
+        $this->assertStringContainsString('rgba(19, 108, 52, 0.85)', $userDashboard);
+        $this->assertStringContainsString("const statusColors = ['#136C34'", $monitoring);
+        $this->assertStringContainsString('rgba(19, 108, 52, 0.82)', $monitoring);
     }
 }

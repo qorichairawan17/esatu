@@ -10,7 +10,7 @@ class PanduanThemeViewTest extends TestCase
     {
         $css = file_get_contents(public_path('assets/css/panduan.css'));
 
-        $this->assertStringContainsString('--panduan-primary: #29aa59;', $css);
+        $this->assertStringContainsString('--panduan-primary: #136c34;', $css);
         $this->assertStringContainsString('--panduan-primary-soft: #ecfbf2;', $css);
         $this->assertStringContainsString('.sidebar-menu>li.sidebar>a,', $css);
         $this->assertStringContainsString('background: #ffffff !important;', $css);
@@ -20,11 +20,11 @@ class PanduanThemeViewTest extends TestCase
         $this->assertStringContainsString('.page-wrapper .sidebar-wrapper #panduan-menu li.active>a,', $css);
         $this->assertStringContainsString('.page-wrapper .sidebar-wrapper #panduan-menu .sidebar-dropdown.active>a::after,', $css);
         $this->assertStringContainsString('color: var(--panduan-dark);', $css);
-        $this->assertStringNotContainsString('background: rgba(41, 170, 89, 0.72) !important;', $css);
-        $this->assertStringNotContainsString('background: rgba(41, 170, 89, 0.64) !important;', $css);
+        $this->assertStringNotContainsString('background: rgba(19, 108, 52, 0.72) !important;', $css);
+        $this->assertStringNotContainsString('background: rgba(19, 108, 52, 0.64) !important;', $css);
         $this->assertStringContainsString('.btn-primary,', $css);
         $this->assertStringContainsString('.btn-warning {', $css);
-        $this->assertStringContainsString('rgba(41, 170, 89, 0.14)', $css);
+        $this->assertStringContainsString('rgba(19, 108, 52, 0.14)', $css);
         $this->assertStringNotContainsString('--panduan-primary: #2F55D4;', $css);
     }
 

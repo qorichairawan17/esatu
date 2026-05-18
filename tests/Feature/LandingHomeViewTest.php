@@ -35,10 +35,11 @@ class LandingHomeViewTest extends TestCase
 
         $view->assertSeeText('Pendaftaran Surat Kuasa Digital');
         $view->assertSeeText('Layanan yang Lebih Ringkas');
-        $view->assertSeeText('Mudah, Cepat, Biaya Ringan');
+        $view->assertSeeText('Satu Pintu, Satu Klik, Urusan Kuasa Jadi Praktis.');
         $view->assertSeeText('Rp10.000');
         $view->assertSeeText('layanan@example.test');
         $view->assertSee('landing-footer', false);
+        $view->assertSee('--esatu-primary: #136c34;', false);
         $view->assertSee('icons/navbar.png', false);
     }
 
@@ -46,9 +47,9 @@ class LandingHomeViewTest extends TestCase
     {
         $view = $this->view('landing.navbar');
 
-        $view->assertSeeText('Tentang');
-        $view->assertSee('aria-disabled="true"', false);
-        $view->assertSee('disabled-menu', false);
+        $view->assertDontSeeText('Tentang');
+        $view->assertDontSee('aria-disabled="true"', false);
+        $view->assertDontSee('disabled-menu', false);
         $view->assertDontSee('href="'.route('app.about').'"', false);
     }
 

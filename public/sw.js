@@ -4,7 +4,7 @@
  * Version: 3.0.1
  */
 
-const CACHE_NAME = "esatu-pwa-v3.0.1";
+const CACHE_NAME = "esatu-pwa-v3.0.2";
 const OFFLINE_URL = "/offline.html";
 const STATIC_ASSET_PATTERN =
     /\.(css|js|png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot|ico)$/i;
@@ -61,7 +61,9 @@ self.addEventListener("activate", (event) => {
 });
 
 function isHttpRequest(request) {
-    return request.url.startsWith("http://") || request.url.startsWith("https://");
+    return (
+        request.url.startsWith("http://") || request.url.startsWith("https://")
+    );
 }
 
 function isSameOrigin(url) {
@@ -69,7 +71,9 @@ function isSameOrigin(url) {
 }
 
 function isValidCacheResponse(response) {
-    return Boolean(response && response.status === 200 && response.type === "basic");
+    return Boolean(
+        response && response.status === 200 && response.type === "basic",
+    );
 }
 
 function isStaticAsset(request, url) {
@@ -83,8 +87,10 @@ function isStaticAsset(request, url) {
 }
 
 function isSensitivePath(url) {
-    return SENSITIVE_PATH_PREFIXES.some((pathPrefix) =>
-        url.pathname === pathPrefix || url.pathname.startsWith(`${pathPrefix}/`),
+    return SENSITIVE_PATH_PREFIXES.some(
+        (pathPrefix) =>
+            url.pathname === pathPrefix ||
+            url.pathname.startsWith(`${pathPrefix}/`),
     );
 }
 
@@ -136,7 +142,9 @@ self.addEventListener("fetch", (event) => {
 
     if (request.mode === "navigate") {
         if (isSensitivePath(url)) {
-            event.respondWith(fetch(request).catch(() => caches.match(OFFLINE_URL)));
+            event.respondWith(
+                fetch(request).catch(() => caches.match(OFFLINE_URL)),
+            );
 
             return;
         }

@@ -16,6 +16,7 @@ class AuthPagesViewTest extends TestCase
 
         $view->assertSee('assets/css/style-green.min.css', false);
         $view->assertSee('class="auth-body"', false);
+        $view->assertSee('--esatu-primary: #136c34;', false);
         $view->assertSee('id="login-form"', false);
         $view->assertSee('id="captcha-img"', false);
         $view->assertSeeText('Selamat Datang');
@@ -32,6 +33,7 @@ class AuthPagesViewTest extends TestCase
 
         $view->assertSee('assets/css/style-green.min.css', false);
         $view->assertSee('class="auth-body"', false);
+        $view->assertSee('--esatu-primary: #136c34;', false);
         $view->assertSee('id="register-form"', false);
         $view->assertSee('id="privacy_policy"', false);
         $view->assertSeeText('Buat Akun Baru');
@@ -48,6 +50,7 @@ class AuthPagesViewTest extends TestCase
 
         $view->assertSee('assets/css/style-green.min.css', false);
         $view->assertSee('class="auth-body"', false);
+        $view->assertSee('--esatu-primary: #136c34;', false);
         $view->assertSee('id="send-link-form"', false);
         $view->assertSeeText('Reset Akses Akun');
         $view->assertSeeText('Tautan reset akan dikirim ke email yang terdaftar pada akun Kamu.');
