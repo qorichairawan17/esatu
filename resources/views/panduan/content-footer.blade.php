@@ -4,11 +4,11 @@
             <div class="col-md-6">
                 <div class="text-md-start text-center mx-md-2">
                     <p class="mb-0 text-muted d-flex align-items-center justify-content-center justify-content-md-start gap-1">
-                        <span>© 2021 -</span>
+                        <span>© 2026 -</span>
                         <script>
                             document.write(new Date().getFullYear())
                         </script>
-                        <span class="fw-semibold text-dark">{{ config('app.name') }}</span>
+                        <span class="fw-semibold text-dark">{{ config('app.name') }} Versi {{ config('app.version') }}</span>
                     </p>
                 </div>
             </div>

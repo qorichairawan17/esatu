@@ -1,11 +1,20 @@
 /* ===================================
-   E-SUKA Error Page - Clean & Modern Design
-   Primary Color: #2F55D4
+   E-SATU Error Page - Clean & Modern Design
+   Primary Color: #136c34
    =================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 /* Keyframe Animations */
+:root {
+    --error-primary: #136c34;
+    --error-primary-dark: #0f5528;
+    --error-primary-rgb: 19, 108, 52;
+    --error-soft: #f8fbf9;
+    --error-text: #202942;
+    --error-muted: #637083;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -49,7 +58,7 @@
 /* Main Wrapper */
 .error-page-wrapper {
     min-height: 100vh;
-    background: #ffffff;
+    background: linear-gradient(180deg, #f2fbf6 0%, #ffffff 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,8 +77,8 @@
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 80%, rgba(47, 85, 212, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(47, 85, 212, 0.03) 0%, transparent 50%);
+        radial-gradient(circle at 20% 80%, rgba(var(--error-primary-rgb), 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(var(--error-primary-rgb), 0.03) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -82,11 +91,11 @@
     width: 100%;
     position: relative;
     animation: fadeIn 0.6s ease-out;
-    border: 1px solid rgba(47, 85, 212, 0.08);
+    border: 1px solid rgba(var(--error-primary-rgb), 0.12);
     box-shadow: 
-        0 4px 6px -1px rgba(47, 85, 212, 0.04),
-        0 10px 15px -3px rgba(47, 85, 212, 0.06),
-        0 20px 25px -5px rgba(47, 85, 212, 0.04);
+        0 4px 6px -1px rgba(var(--error-primary-rgb), 0.04),
+        0 10px 15px -3px rgba(var(--error-primary-rgb), 0.06),
+        0 20px 25px -5px rgba(var(--error-primary-rgb), 0.04);
 }
 
 /* Logo */
@@ -101,14 +110,14 @@
 .error-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #2F55D4 0%, #4169E1 100%);
+    background: linear-gradient(135deg, var(--error-primary) 0%, var(--error-primary-dark) 100%);
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.75rem;
     animation: gentleFloat 3s ease-in-out infinite, scaleIn 0.5s ease-out 0.2s both;
-    box-shadow: 0 10px 30px rgba(47, 85, 212, 0.25);
+    box-shadow: 0 10px 30px rgba(var(--error-primary-rgb), 0.25);
 }
 
 .error-icon i {
@@ -120,9 +129,9 @@
 .error-code {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2F55D4;
+    color: var(--error-primary);
     margin-bottom: 0.75rem;
-    letter-spacing: -0.5px;
+    letter-spacing: 0;
     animation: fadeIn 0.5s ease-out 0.3s both;
 }
 
@@ -130,7 +139,7 @@
 .error-message {
     font-size: 1rem;
     font-weight: 400;
-    color: #64748b;
+    color: var(--error-muted);
     margin-bottom: 2.5rem;
     line-height: 1.7;
     max-width: 360px;
@@ -171,15 +180,15 @@
 
 /* Primary Button */
 .btn-primary-gradient {
-    background: #2F55D4;
+    background: var(--error-primary);
     color: #ffffff;
-    box-shadow: 0 4px 14px rgba(47, 85, 212, 0.35);
+    box-shadow: 0 4px 14px rgba(var(--error-primary-rgb), 0.35);
 }
 
 .btn-primary-gradient:hover {
-    background: #2448B8;
+    background: var(--error-primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(47, 85, 212, 0.4);
+    box-shadow: 0 8px 20px rgba(var(--error-primary-rgb), 0.4);
     color: #ffffff;
 }
 
@@ -190,14 +199,14 @@
 /* Outline Button */
 .btn-outline-custom {
     background: transparent;
-    color: #2F55D4;
-    border: 1.5px solid rgba(47, 85, 212, 0.3);
+    color: var(--error-primary);
+    border: 1.5px solid rgba(var(--error-primary-rgb), 0.3);
 }
 
 .btn-outline-custom:hover {
-    background: rgba(47, 85, 212, 0.06);
-    border-color: #2F55D4;
-    color: #2F55D4;
+    background: rgba(var(--error-primary-rgb), 0.06);
+    border-color: var(--error-primary);
+    color: var(--error-primary);
     transform: translateY(-2px);
 }
 
@@ -220,7 +229,7 @@
 .decoration-circle {
     position: absolute;
     border-radius: 50%;
-    background: rgba(47, 85, 212, 0.04);
+    background: rgba(var(--error-primary-rgb), 0.04);
 }
 
 .decoration-circle-1 {
@@ -241,7 +250,7 @@
 .error-divider {
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, #2F55D4, #4169E1);
+    background: linear-gradient(90deg, var(--error-primary), var(--error-primary-dark));
     border-radius: 2px;
     margin: 0 auto 1.5rem;
 }

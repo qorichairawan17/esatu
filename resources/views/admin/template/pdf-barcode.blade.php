@@ -76,17 +76,17 @@
             <td style="text-align: center;">
                 {{-- Menggunakan public_path() lebih andal untuk gambar di PDF --}}
                 @php
-                    $logoPath = public_path('storage/' . ($infoApp->logo ?? ''));
-                    $logoExists = !empty($infoApp->logo) && file_exists($logoPath);
+                $logoPath = public_path('storage/' . ($infoApp->logo ?? ''));
+                $logoExists = !empty($infoApp->logo) && file_exists($logoPath);
                 @endphp
                 @if ($logoExists)
-                    <img class="img-logo" src="{{ $logoPath }}" alt="Logo e-Suka">
+                <img class="img-logo" src="{{ $logoPath }}" alt="Logo E-SATU">
                 @else
-                    <div style="width: 60px; height: 60px; background-color: #ddd; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-                        <span style="font-size: 10px; color: #666;">Logo</span>
-                    </div>
+                <div style="width: 60px; height: 60px; background-color: #ddd; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                    <span style="font-size: 10px; color: #666;">Logo</span>
+                </div>
                 @endif
-                {{-- <img class="img-barcode" src="{{ public_path('icons/horizontal-e-suka.png') }}" alt="Logo e-Suka"> --}}
+                {{-- <img class="img-barcode" src="{{ public_path('icons/horizontal-E-SATU.png') }}" alt="Logo E-SATU"> --}}
             </td>
             <td style="text-align:center;">
                 <h2 style="text-transform:uppercase; margin:0;">{{ $infoApp->pengadilan_negeri }}</h2>
@@ -147,7 +147,7 @@
                     "Cetak lembar ini dan gabungkan dengan Surat Kuasa yang didaftarkan !."
                 </p>
                 <p style="font-size: 10px; margin:0;">
-                    Dicetak : {{ \Carbon\Carbon::now()->isoFormat('D MMMM Y HH:mm:ss') }} | <i>Developed by : {{ $infoApp->pengadilan_negeri }}</i>
+                    Dicetak : {{ \Carbon\Carbon::now()->isoFormat('D MMMM Y HH:mm:ss') }} | <i>Dikembangkan Oleh : {{ $infoApp->pengadilan_negeri }}</i>
                 </p>
             </td>
         </tr>

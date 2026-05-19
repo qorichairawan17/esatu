@@ -16,7 +16,7 @@
                     <div class="card shadow">
                         <div class="card-header d-flex flex-wrap align-items-center justify-content-between bg-soft-primary">
                             <h6 class="card-title mb-0 text-dark">{{ $pageTitle }}</h6>
-                            <a href="{{ route('panitera.index') }}" class="btn btn-sm btn-danger btn-pills">
+                            <a href="{{ route('panitera.index') }}" class="btn btn-sm btn-danger btn-pills text-white">
                                 <i class="fa-solid fa-arrow-left"></i>
                                 Kembali
                             </a>
@@ -101,9 +101,9 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <button type="submit" class="btn btn-sm btn-primary btn-pills" id="submit-button">Simpan</button>
                                 <button type="reset" class="btn btn-sm btn-warning btn-pills">Reset</button>
+                                <a href="{{ route('panitera.index') }}" class="btn btn-sm btn-danger btn-pills text-white">Batal</a>
                             </form>
                         </div>
                     </div>

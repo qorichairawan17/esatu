@@ -27,7 +27,7 @@
                                     </p>
                                 </div>
                                 <div class="d-flex align-items-center gap-2">
-                                    <a class="btn btn-danger btn-sm rounded-pill px-3 shadow-sm d-flex align-items-center border" href="{{ route('surat-kuasa.index') }}">
+                                    <a class="btn btn-pills btn-danger text-white btn-sm px-3 shadow-sm d-flex align-items-center border" href="{{ route('surat-kuasa.index') }}">
                                         <i class="uil uil-arrow-left me-1"></i> Kembali
                                     </a>
                                 </div>
@@ -122,9 +122,13 @@
                                                     <span class="info-label">Perihal</span>
                                                     <span class="info-value">{{ $suratKuasa->perihal }}</span>
                                                 </div>
-                                                <div>
+                                                <div class="mb-3">
                                                     <span class="info-label">Jenis Surat</span>
                                                     <span class="info-value">{{ $suratKuasa->jenis_surat }}</span>
+                                                </div>
+                                                <div>
+                                                    <span class="info-label">Diajukan</span>
+                                                    <span class="info-value">{{ $suratKuasa->created_at->isoFormat('D MMMM Y HH:mm:ss') }}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -238,27 +242,27 @@
 
                                             <!-- Block: Widget Barcode -->
                                             @if ($suratKuasa->status == \App\Enum\StatusSuratKuasaEnum::Disetujui->value && $suratKuasa->register->uuid != null)
-                                                <div class="card border-0 shadow-sm mb-4 rounded-4 overflow-hidden position-relative"
-                                                    style="background: linear-gradient(135deg, #198754 0%, #20c997 100%);">
-                                                    <div class="position-absolute end-0 bottom-0 opacity-10" style="transform: translate(10%, 20%);">
-                                                        <i class="uil uil-qrcode-scan" style="font-size: 8rem;"></i>
+                                                <div class="barcode-widget mb-4">
+                                                    <div class="barcode-widget__pattern" aria-hidden="true">
+                                                        <i class="uil uil-qrcode-scan"></i>
                                                     </div>
-                                                    <div class="card-body p-4 position-relative z-index-1">
-                                                        <div class="d-flex align-items-start mb-4">
-                                                            <div class="bg-white text-success rounded-3 p-2 me-3 shadow-sm flex-shrink-0 d-flex align-items-center justify-content-center"
-                                                                style="width: 48px; height: 48px;">
-                                                                <i class="uil uil-qrcode-scan fs-3"></i>
-                                                            </div>
+                                                    <div class="barcode-widget__content">
+                                                        <div class="barcode-widget__header">
+                                                            <span class="barcode-widget__icon" aria-hidden="true">
+                                                                <i class="uil uil-qrcode-scan"></i>
+                                                            </span>
                                                             <div>
-                                                                <h5 class="fw-bold mb-1 text-white">Dokumen Tervalidasi</h5>
-                                                                <p class="mb-0 text-white opacity-75 fs-6" style="line-height: 1.4;">
+                                                                <span class="barcode-widget__eyebrow">Barcode resmi</span>
+                                                                <h5>Dokumen Tervalidasi</h5>
+                                                                <p>
                                                                     Surat kuasa ini sah dan dilengkapi e-barcode sebagai bukti legalitas.
                                                                 </p>
                                                             </div>
                                                         </div>
                                                         <a href="{{ route('surat-kuasa.barcode', ['id' => Crypt::encrypt($suratKuasa->id)]) }}" target="_blank"
-                                                            class="btn btn-light text-success fw-bold w-100 rounded-pill shadow-sm d-flex justify-content-center align-items-center mb-1 transition-all hover-scale">
-                                                            <i class="uil uil-import me-2 fs-5"></i> Unduh Barcode
+                                                            class="barcode-widget__button text-white" style="text-align: justify;">
+                                                            <i class="uil uil-import"></i>
+                                                            <span>Unduh Barcode</span>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -475,7 +479,7 @@
                         <div class="bg-light px-4 py-3 px-md-5 py-md-4 border-top">
                             <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
                                 <div>
-                                    <a href="{{ route('surat-kuasa.index') }}" class="btn btn-danger btn-sm rounded-pill shadow-sm">
+                                    <a href="{{ route('surat-kuasa.index') }}" class="btn btn-danger text-white btn-sm rounded-pill shadow-sm">
                                         <i class="uil uil-arrow-left me-1"></i> Kembali ke Daftar
                                     </a>
                                 </div>
@@ -485,7 +489,7 @@
                                     @if (Auth::user()->role == \App\Enum\RoleEnum::User->value)
                                         @if ($suratKuasa->tahapan == \App\Enum\TahapanSuratKuasaEnum::PerbaikanData->value)
                                             <a href="{{ route('surat-kuasa.form', ['param' => 'edit', 'klasifikasi' => $suratKuasa->klasifikasi, 'id' => Crypt::encrypt($suratKuasa->id)]) }}"
-                                                class="btn btn-warning btn-sm rounded-pill px-4 shadow-sm">
+                                                class="btn btn-warning btn-sm rounded-pill px-4 shadow-sm text-dark">
                                                 <i class="uil uil-edit me-1"></i> Perbaiki Data
                                             </a>
                                         @endif

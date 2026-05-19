@@ -113,7 +113,7 @@
                                 </div>
 
                                 <div class="mt-3 border-top pt-3">
-                                    <a href="{{ route('surat-kuasa.index') }}" class="btn btn-danger btn-pills btn-sm">
+                                    <a href="{{ route('surat-kuasa.index') }}" class="btn btn-danger btn-pills btn-sm text-white">
                                         <i class="ti ti-arrow-left"></i> Kembali
                                     </a>
                                     <button type="submit" id="btn-submit-pendaftaran" class="btn btn-success btn-pills btn-sm">

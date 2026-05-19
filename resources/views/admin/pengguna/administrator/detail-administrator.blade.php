@@ -14,7 +14,7 @@
                 <div class="row mt-4">
                     <div class="col-12 mb-4 d-flex justify-content-between align-items-center">
                         <h5 class="mb-0 text-dark fw-bold">{{ $detailTitle }}</h5>
-                        <a href="{{ route('administrator.index') }}" class="btn btn-sm btn-danger px-3 shadow-sm rounded-pill">
+                        <a href="{{ route('administrator.index') }}" class="btn btn-sm text-white btn-danger px-3 shadow-sm rounded-pill">
                             <i class="uil uil-arrow-left me-1"></i> Kembali
                         </a>
                     </div>

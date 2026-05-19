@@ -2,7 +2,7 @@
 
 ## Ringkasan Optimasi
 
-Proyek e-Suka telah dioptimasi dengan berbagai peningkatan performa untuk memastikan aplikasi berjalan dengan lebih cepat, efisien, dan aman.
+Proyek E-SATU telah dioptimasi dengan berbagai peningkatan performa untuk memastikan aplikasi berjalan dengan lebih cepat, efisien, dan aman.
 
 ---
 
@@ -235,7 +235,7 @@ Untuk panduan optimasi yang lebih detail, lihat:
 
 ## 🎉 Hasil
 
-Dengan semua optimasi ini, aplikasi e-Suka akan:
+Dengan semua optimasi ini, aplikasi E-SATU akan:
 - ⚡ Berjalan lebih cepat
 - 💪 Lebih efisien dalam penggunaan resources
 - 🔒 Lebih aman dengan security headers

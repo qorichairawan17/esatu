@@ -7,7 +7,8 @@
                 <input type="hidden" name="id" value="{{ Crypt::encrypt($suratKuasa->id) }}">
                 <div class="modal-header border-bottom">
                     <h5 class="modal-title" id="setujui-surat-kuasa-title">Setujui Surat Kuasa ID :
-                        {{ $suratKuasa->id_daftar }}</h5>
+                        {{ $suratKuasa->id_daftar }}
+                    </h5>
                     <button type="button" class="btn btn-icon btn-close" data-bs-dismiss="modal" id="close-modal"><i class="uil uil-times fs-4 text-dark"></i></button>
                 </div>
                 <div class="modal-body">
@@ -29,7 +30,7 @@
                         <select class="form-select" id="panitera_id" name="panitera_id" required>
                             <option value="" selected disabled>--- Pilih Panitera ---</option>
                             @foreach ($panitera as $row)
-                                <option value="{{ $row->id }}">{{ $row->nama }}</option>
+                            <option value="{{ $row->id }}">{{ $row->nama }}</option>
                             @endforeach
                         </select>
                         <div class="invalid-feedback" id="panitera_id-error"></div>
@@ -53,7 +54,8 @@
                 <input type="hidden" name="id" value="{{ Crypt::encrypt($suratKuasa->id) }}">
                 <div class="modal-header border-bottom">
                     <h5 class="modal-title" id="tolak-surat-kuasa-title">Tolak Surat Kuasa ID :
-                        {{ $suratKuasa->id_daftar }}</h5>
+                        {{ $suratKuasa->id_daftar }}
+                    </h5>
                     <button type="button" class="btn btn-icon btn-close" data-bs-dismiss="modal" id="close-modal"><i class="uil uil-times fs-4 text-dark"></i></button>
                 </div>
                 <div class="modal-body">
@@ -75,7 +77,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" id="btn-reject" class="btn btn-danger btn-sm">Tolak
+                    <button type="submit" id="btn-reject" class="btn btn-danger text-white btn-sm">Tolak
                         Pendaftaran</button>
                 </div>
             </form>

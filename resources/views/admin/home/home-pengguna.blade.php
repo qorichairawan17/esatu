@@ -19,7 +19,9 @@
                 <div class="welcome-banner mt-3">
                     <div class="welcome-content">
                         <div class="d-flex align-items-center mb-2">
-                            <span class="badge rounded-pill bg-primary align-middle me-2 py-1 px-3" style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;">E-SUKA DASHBOARD</span>
+                            <span class="badge rounded-pill bg-primary align-middle me-2 py-1 px-3" style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;">{{ config('app.name') }}
+                                DASHBOARD
+                            </span>
                         </div>
                         <h4 class="welcome-title">Selamat datang kembali, {{ Auth::user()->name }} 👋</h4>
                         <p class="welcome-subtitle">Akses semua layanan dan informasi pendaftaran Surat Kuasa dengan mudah melalui pintasan yang tersedia di bawah ini.</p>
@@ -185,7 +187,7 @@
 
                         <div class="mb-2">
                             <label for="pesan" class="form-label fw-bold">Pesan Testimoni <span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="pesan" name="pesan" rows="4" placeholder="Ceritakan kepuasan dan pengalaman kamu menggunakan e-SuKa..." required style="resize: none;">{{ optional($testimoniUser)->testimoni }}</textarea>
+                            <textarea class="form-control" id="pesan" name="pesan" rows="4" placeholder="Ceritakan kepuasan dan pengalaman kamu menggunakan {{ config('app.name') }} ..."></textarea>
                             <div class="invalid-feedback">Isi pesan testimoni wajib diisi.</div>
                         </div>
                     </div>
@@ -367,7 +369,7 @@
                                 const modal = bootstrap.Modal.getInstance(modalEl);
                                 if (modal) modal.hide();
                                 else document.querySelector('#testimoniModal .btn-close').click();
-                                
+
                                 document.getElementById('formTestimoni').reset();
                                 document.getElementById('formTestimoni').classList.remove('was-validated');
 
@@ -382,7 +384,9 @@
                                         title: 'Berhasil!',
                                         text: data.message,
                                         icon: 'success',
-                                        customClass: { confirmButton: 'btn btn-primary px-4' },
+                                        customClass: {
+                                            confirmButton: 'btn btn-primary px-4'
+                                        },
                                         buttonsStyling: false
                                     }).then(() => {
                                         // Pastikan lagi bersih
@@ -397,7 +401,9 @@
                                     title: 'Gagal!',
                                     text: data.message || 'Terjadi kesalahan.',
                                     icon: 'error',
-                                    customClass: { confirmButton: 'btn btn-danger px-4' },
+                                    customClass: {
+                                        confirmButton: 'btn btn-danger px-4'
+                                    },
                                     buttonsStyling: false
                                 });
                             }
@@ -407,7 +413,9 @@
                                 title: 'Error!',
                                 text: 'Tidak dapat terhubung ke server.',
                                 icon: 'error',
-                                customClass: { confirmButton: 'btn btn-danger px-4' },
+                                customClass: {
+                                    confirmButton: 'btn btn-danger px-4'
+                                },
                                 buttonsStyling: false
                             });
                         }).finally(() => {

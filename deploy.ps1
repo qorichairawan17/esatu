@@ -1,8 +1,8 @@
-# e-Suka Deployment & Optimization Script (Windows)
+# E-SATU Deployment & Optimization Script (Windows)
 # Author: System Optimizer
 # Description: Automate deployment and optimization process for Windows
 
-Write-Host "🚀 e-Suka Deployment & Optimization Script" -ForegroundColor Cyan
+Write-Host "🚀 E-SATU Deployment & Optimization Script" -ForegroundColor Cyan
 Write-Host "==========================================" -ForegroundColor Cyan
 Write-Host ""
 

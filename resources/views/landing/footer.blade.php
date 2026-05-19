@@ -88,7 +88,7 @@
                 <p class="mb-0">© 2021 -
                     <script>
                         document.write(new Date().getFullYear())
-                    </script> {{ config('app.name') }}. Developed by
+                    </script> {{ config('app.name') }}. Dikembangkan Oleh
                     <a href="{{ $infoApp->website }}" target="_blank" class="text-reset">{{ $infoApp->pengadilan_negeri }}</a>
                 </p>
             </div>

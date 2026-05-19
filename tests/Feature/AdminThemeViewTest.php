@@ -40,7 +40,7 @@ class AdminThemeViewTest extends TestCase
         $this->assertStringContainsString('icons/navbar-white.png', $sidebar);
         $this->assertStringContainsString('icons/navbar.png', $topHeader);
         $this->assertStringContainsString('icons/navbar-white.png', $topHeader);
-        $this->assertStringNotContainsString('horizontal-e-suka', $topHeader);
+        $this->assertStringNotContainsString('horizontal-E-SATU', $topHeader);
     }
 
     public function test_admin_dashboard_charts_use_green_theme_colors(): void
@@ -54,5 +54,21 @@ class AdminThemeViewTest extends TestCase
         $this->assertStringContainsString('rgba(19, 108, 52, 0.85)', $userDashboard);
         $this->assertStringContainsString("const statusColors = ['#136C34'", $monitoring);
         $this->assertStringContainsString('rgba(19, 108, 52, 0.82)', $monitoring);
+    }
+
+    public function test_surat_kuasa_detail_barcode_widget_uses_dedicated_styles(): void
+    {
+        $view = file_get_contents(resource_path('views/admin/surat-kuasa/detail-surat-kuasa.blade.php'));
+        $css = file_get_contents(public_path('admin/assets/css/detail-surat-kuasa.css'));
+
+        $this->assertStringContainsString('class="barcode-widget mb-4"', $view);
+        $this->assertStringContainsString('class="barcode-widget__button"', $view);
+        $this->assertStringNotContainsString('linear-gradient(135deg, #198754 0%, #20c997 100%)', $view);
+
+        $this->assertStringContainsString('.barcode-widget', $css);
+        $this->assertStringContainsString('var(--admin-primary, #136c34)', $css);
+        $this->assertStringContainsString('var(--admin-primary-dark, #0f5528)', $css);
+        $this->assertStringContainsString('.barcode-widget__pattern', $css);
+        $this->assertStringContainsString('.barcode-widget__button:hover', $css);
     }
 }

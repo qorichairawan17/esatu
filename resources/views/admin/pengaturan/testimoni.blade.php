@@ -60,7 +60,7 @@
                                 <label class="form-check-label" for="publish">Publikasikan Testimoni</label>
                             </div>
                             <div class="d-flex justify-content-end">
-                                <button type="button" class="btn btn-sm btn-danger btn-pills me-2" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-sm text-white btn-danger btn-pills me-2" data-bs-dismiss="modal">Batal</button>
                                 <button type="submit" id="btn-update-testimoni" class="btn btn-sm btn-primary btn-pills">Simpan</button>
                             </div>
                         </form>

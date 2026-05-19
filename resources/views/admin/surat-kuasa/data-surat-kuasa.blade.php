@@ -24,7 +24,7 @@
                                                 Daftar Advokat
                                             </a>
                                             <a href="{{ route('surat-kuasa.form', ['param' => 'add', 'klasifikasi' => App\Enum\SuratKuasaEnum::NonAdvokat->value]) }}"
-                                                class="btn btn-sm btn-warning rounded-pill">
+                                                class="btn btn-sm btn-warning rounded-pill text-dark">
                                                 Daftar Non Advokat
                                             </a>
                                         </div>
@@ -120,7 +120,8 @@
 
                             <div class="mb-2">
                                 <label for="pesan" class="form-label fw-bold">Pesan Testimoni <span class="text-danger">*</span></label>
-                                <textarea class="form-control" id="pesan" name="pesan" rows="4" placeholder="Ceritakan kepuasan dan pengalaman kamu menggunakan e-SuKa..." required style="resize: none;">{{ optional($testimoniUser)->testimoni }}</textarea>
+                                <textarea class="form-control" id="pesan" name="pesan" rows="4" placeholder="Ceritakan kepuasan dan pengalaman kamu menggunakan {{ config('app.name') }}..." required
+                                    style="resize: none;">{{ optional($testimoniUser)->testimoni }}</textarea>
                                 <div class="invalid-feedback">Isi pesan testimoni wajib diisi.</div>
                             </div>
                         </div>

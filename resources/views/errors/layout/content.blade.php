@@ -8,10 +8,10 @@
 
         <div class="text-center">
             {{-- Logo --}}
-            <img src="{{ asset('icons/horizontal-e-suka.png') }}" class="error-logo" alt="E-Suka Logo">
+            <img src="{{ asset('icons/navbar.png') }}" class="error-logo" alt="{{ config('app.name') }} Logo">
 
             {{-- Error Code --}}
-            <h1 class="error-code text-danger">Error {{ $code }}</h1>
+            <h1 class="error-code">Error {{ $code }}</h1>
 
             {{-- Error Message --}}
             <p class="error-message">

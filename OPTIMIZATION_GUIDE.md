@@ -1,4 +1,4 @@
-# 🚀 Panduan Optimasi e-Suka
+# 🚀 Panduan Optimasi E-SATU
 
 ## Optimasi yang Telah Diterapkan
 

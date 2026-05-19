@@ -15,7 +15,7 @@
                     <div class="card shadow">
                         <div class="card-header d-flex flex-wrap align-items-center justify-content-between bg-soft-primary">
                             <h6 class="card-title mb-0 text-dark">{{ $pageTitle }}</h6>
-                            <a href="{{ route('advokat.index') }}" class="btn btn-sm btn-danger btn-pills">Kembali</a>
+                            <a href="{{ route('advokat.index') }}" class="btn btn-sm text-white btn-danger btn-pills">Kembali</a>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('advokat.store') }}" method="POST" id="advokat-form" enctype="multipart/form-data">
@@ -84,6 +84,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-sm btn-pills" id="submit-button">Simpan</button>
                                 <button type="reset" class="btn btn-warning btn-sm btn-pills">Reset</button>
+                                <a href="{{ route('advokat.index') }}" class="btn btn-danger btn-sm btn-pills text-white">Kembali</a>
                             </form>
                         </div>
                     </div>

@@ -22,7 +22,7 @@
                                     <p class="text-muted mb-0">ID: <span class="fw-semibold text-dark">{{ $suratKuasa->id_daftar }}</span> &bull; A.n <span
                                             class="fw-semibold text-dark">{{ $suratKuasa->pemohon }}</span></p>
                                 </div>
-                                <a href="{{ route('surat-kuasa.detail', ['id' => Crypt::encrypt($suratKuasa->id)]) }}" class="btn btn-danger rounded-pill px-4 fw-medium shadow-sm">
+                                <a href="{{ route('surat-kuasa.detail', ['id' => Crypt::encrypt($suratKuasa->id)]) }}" class="btn btn-danger btn-sm rounded-pill fw-medium shadow-sm text-white">
                                     <i class="uil uil-arrow-left me-1"></i> Kembali
                                 </a>
                             </div>

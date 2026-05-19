@@ -182,7 +182,7 @@
                                                 <button type="submit" class="btn btn-success rounded-pill">
                                                     Kirim Tautan Reset <i class="uil uil-arrow-right"></i>
                                                 </button>
-                                                <a href="{{ route('app.signin') }}" class="btn btn-soft-success rounded-pill">
+                                                <a href="{{ route('app.signin') }}" class="btn btn-soft-danger rounded-pill">
                                                     Kembali ke Login
                                                 </a>
                                             </div>

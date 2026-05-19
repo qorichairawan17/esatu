@@ -102,6 +102,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-sm" id="submit-button">Simpan</button>
                                 <button type="reset" class="btn btn-warning btn-sm">Reset</button>
+                                <a href="{{ route('administrator.index') }}" class="btn btn-danger btn-sm text-white">Batal</a>
                             </form>
                         </div>
                     </div>

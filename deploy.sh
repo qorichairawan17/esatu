@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# e-Suka Deployment & Optimization Script
+# E-SATU Deployment & Optimization Script
 # Author: System Optimizer
 # Description: Automate deployment and optimization process
 
 set -e
 
-echo "🚀 e-Suka Deployment & Optimization Script"
+echo "🚀 E-SATU Deployment & Optimization Script"
 echo "=========================================="
 echo ""
 

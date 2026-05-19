@@ -48,6 +48,6 @@ class PanduanThemeViewTest extends TestCase
 
         $view->assertSee('icons/navbar.png', false);
         $view->assertSee('icons/navbar-white.png', false);
-        $view->assertDontSee('horizontal-e-suka', false);
+        $view->assertDontSee('horizontal-E-SATU', false);
     }
 }
