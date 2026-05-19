@@ -85,7 +85,7 @@
     <div class="footer-py-30 footer-bar">
         <div class="container text-center">
             <div class="text-sm-start">
-                <p class="mb-0">© 2021 -
+                <p class="mb-0">© 2026 -
                     <script>
                         document.write(new Date().getFullYear())
                     </script> {{ config('app.name') }}. Dikembangkan Oleh

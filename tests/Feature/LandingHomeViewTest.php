@@ -101,7 +101,11 @@ class LandingHomeViewTest extends TestCase
         $view->assertSeeText('Andi Pemberi');
         $view->assertSeeText('Sari Penerima');
         $view->assertSee('verify-hero', false);
-        $view->assertSee('rgba(var(--esatu-primary-rgb)', false);
+        $view->assertSee('assets/css/verify-surat-kuasa.css', false);
+
+        $stylesheet = file_get_contents(public_path('assets/css/verify-surat-kuasa.css'));
+
+        $this->assertStringContainsString('rgba(var(--esatu-primary-rgb)', $stylesheet);
     }
 
     public function test_landing_navbar_disables_about_menu(): void

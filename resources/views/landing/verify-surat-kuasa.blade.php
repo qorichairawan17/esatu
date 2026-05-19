@@ -6,93 +6,14 @@
         $pihak = collect($pendaftaran?->pihak ?? []);
         $pemberiKuasa = $pihak->where('jenis', 'Pemberi')->pluck('nama')->filter()->join(', ') ?: 'Tidak tersedia';
         $penerimaKuasa = $pihak->where('jenis', 'Penerima')->pluck('nama')->filter()->join(', ') ?: 'Tidak tersedia';
-        $formatDate = fn ($date): string => filled($date)
-            ? \Carbon\Carbon::parse($date)->isoFormat('dddd, D MMMM Y')
-            : 'Tidak tersedia';
+        $formatDate = fn($date): string => filled($date) ? \Carbon\Carbon::parse($date)->isoFormat('dddd, D MMMM Y') : 'Tidak tersedia';
     @endphp
 
     @push('styles')
-        <style>
-            .verify-hero {
-                background: linear-gradient(180deg, rgba(var(--esatu-primary-rgb), 0.08) 0%, #ffffff 100%);
-                border-bottom: 1px solid rgba(var(--esatu-primary-rgb), 0.12);
-                padding: 120px 0 56px;
-            }
-
-            .verify-page {
-                background: #ffffff;
-            }
-
-            .verify-badge {
-                background: rgba(var(--esatu-primary-rgb), 0.09);
-                border: 1px solid rgba(var(--esatu-primary-rgb), 0.16);
-                color: var(--esatu-primary);
-            }
-
-            .verify-card {
-                border: 1px solid rgba(var(--esatu-primary-rgb), 0.14);
-                border-radius: 8px;
-                box-shadow: 0 18px 40px rgba(32, 41, 66, 0.08);
-            }
-
-            .verify-status-icon {
-                align-items: center;
-                background: rgba(var(--esatu-primary-rgb), 0.1);
-                border-radius: 50%;
-                color: var(--esatu-primary);
-                display: inline-flex;
-                flex-shrink: 0;
-                height: 64px;
-                justify-content: center;
-                width: 64px;
-            }
-
-            .verify-detail {
-                border: 1px solid #e8eef0;
-                border-radius: 8px;
-                height: 100%;
-                padding: 16px;
-            }
-
-            .verify-detail small {
-                color: #718096;
-                display: block;
-                font-size: 0.78rem;
-                font-weight: 600;
-                letter-spacing: 0;
-                margin-bottom: 6px;
-            }
-
-            .verify-detail strong {
-                color: #202942;
-                display: block;
-                line-height: 1.5;
-                overflow-wrap: anywhere;
-            }
-
-            .verify-side-panel {
-                background: rgba(var(--esatu-primary-rgb), 0.05);
-                border: 1px solid rgba(var(--esatu-primary-rgb), 0.14);
-                border-radius: 8px;
-            }
-
-            .verify-party-box {
-                background: #f8fbf9;
-                border: 1px solid rgba(var(--esatu-primary-rgb), 0.14);
-                border-radius: 8px;
-                height: 100%;
-                padding: 18px;
-            }
-
-            @media (max-width: 767.98px) {
-                .verify-hero {
-                    padding: 104px 0 42px;
-                }
-            }
-        </style>
+        <link href="{{ asset('assets/css/verify-surat-kuasa.css') }}" rel="stylesheet" type="text/css">
     @endpush
 
-    <main class="verify-page">
+    <main class="verify-page pt-5">
         <section class="verify-hero">
             <div class="container">
                 <div class="row align-items-center g-4">
