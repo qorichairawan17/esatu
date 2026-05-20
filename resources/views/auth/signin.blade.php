@@ -17,8 +17,7 @@
                     <div class="col-lg-6 d-none d-lg-flex auth-hero">
                         <div class="auth-hero-inner d-flex flex-column justify-content-between w-100">
                             <div>
-                                <img onclick="window.location='{{ route('app.home') }}'" src="{{ asset('icons/navbar.png') }}" class="auth-logo mb-5"
-                                    alt="{{ config('app.name') }}">
+                                <img onclick="window.location='{{ route('app.home') }}'" src="{{ asset('icons/navbar.png') }}" class="auth-logo mb-5" alt="{{ config('app.name') }}">
                                 <span class="auth-badge mb-4">
                                     <i class="uil uil-shield-check"></i>
                                     Akses layanan digital
@@ -89,9 +88,8 @@
                                                 </label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="mail" class="fea icon-sm icons"></i>
-                                                    <input type="email" class="form-control @error('email') is-invalid @enderror ps-5"
-                                                        placeholder="nama@email.com" id="email" name="email" required
-                                                        value="{{ old('email') }}" autocomplete="email">
+                                                    <input type="email" class="form-control @error('email') is-invalid @enderror ps-5" placeholder="nama@email.com" id="email" name="email"
+                                                        required value="{{ old('email') }}" autocomplete="email">
                                                     <div class="invalid-feedback mt-2" id="emailError"></div>
                                                 </div>
                                             </div>
@@ -104,13 +102,10 @@
                                                 </label>
                                                 <div class="form-icon position-relative">
                                                     <i data-feather="lock" class="fea icon-sm icons"></i>
-                                                    <input type="password" class="form-control @error('password') is-invalid @enderror ps-5 pe-5"
-                                                        placeholder="Masukkan password" id="password" name="password" required
-                                                        value="{{ old('password') }}" autocomplete="current-password">
-                                                    <span class="position-absolute" style="right: 16px; top: 12px; cursor: pointer; z-index: 10;"
-                                                        onclick="togglePassword()">
-                                                        <i class="mdi mdi-eye-outline" id="togglePasswordIcon"
-                                                            style="font-size: 1.2rem; color: #8a98aa;"></i>
+                                                    <input type="password" class="form-control @error('password') is-invalid @enderror ps-5 pe-5" placeholder="Masukkan password" id="password"
+                                                        name="password" required value="{{ old('password') }}" autocomplete="current-password">
+                                                    <span class="position-absolute" style="right: 16px; top: 12px; cursor: pointer; z-index: 10;" onclick="togglePassword()">
+                                                        <i class="mdi mdi-eye-outline" id="togglePasswordIcon" style="font-size: 1.2rem; color: #8a98aa;"></i>
                                                     </span>
                                                     <div class="invalid-feedback mt-2" id="passwordError"></div>
                                                 </div>
@@ -121,22 +116,19 @@
                                             <div class="auth-captcha mb-3">
                                                 <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap">
                                                     <div>
-                                                        <label class="form-label mb-1" for="captcha">Kode Captcha <span
-                                                                class="text-danger">*</span></label>
+                                                        <label class="form-label mb-1" for="captcha">Kode Captcha <span class="text-danger">*</span></label>
                                                         <p class="text-muted small mb-0">Klik gambar untuk memuat ulang.</p>
                                                     </div>
-                                                    <img title="Klik Untuk Refresh" class="img-fluid" src="{{ captcha_src('flat') }}" alt="captcha"
-                                                        id="captcha-img" style="cursor: pointer;">
+                                                    <img title="Klik Untuk Refresh" class="img-fluid" src="{{ captcha_src('flat') }}" alt="captcha" id="captcha-img" style="cursor: pointer;">
                                                 </div>
-                                                <input class="form-control @error('captcha') is-invalid @enderror mt-3" type="text"
-                                                    name="captcha" id="captcha" placeholder="Masukkan kode captcha" required>
+                                                <input class="form-control @error('captcha') is-invalid @enderror mt-3" type="text" name="captcha" id="captcha"
+                                                    placeholder="Masukkan kode captcha" required>
                                                 <div class="invalid-feedback mt-2" id="captchaError"></div>
                                             </div>
                                         </div>
 
                                         <div class="col-lg-12">
                                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                                <span class="text-muted small">Akun lama? login untuk aktivasi ulang.</span>
                                                 <a href="{{ route('auth.forgot-password') }}" class="auth-muted-link">Lupa password?</a>
                                             </div>
                                             <div class="d-grid">
@@ -149,8 +141,7 @@
                                         <div class="col-lg-12 mt-4">
                                             <div class="auth-divider">atau masuk dengan</div>
                                             <div class="d-grid mt-3">
-                                                <a href="{{ route('google.redirect', ['action' => 'login']) }}"
-                                                    class="btn btn-outline-danger rounded-pill">
+                                                <a href="{{ route('google.redirect', ['action' => 'login']) }}" class="btn btn-outline-danger rounded-pill">
                                                     <i class="mdi mdi-google text-danger"></i> Google
                                                 </a>
                                             </div>
