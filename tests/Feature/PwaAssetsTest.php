@@ -13,13 +13,13 @@ class PwaAssetsTest extends TestCase
         $this->assertSame('E-SATU', $manifest['name']);
         $this->assertSame('E-SATU', $manifest['short_name']);
         $this->assertSame(
-            'Layanan Pendaftaran Surat Kuasa Elektronik. Satu Pintu, Satu Klik, Urusan Kuasa Jadi Praktis.',
+            'Layanan Pendaftaran Surat Kuasa Digital. Satu Pintu, Satu Klik, Urusan Kuasa Jadi Praktis.',
             $manifest['description'],
         );
         $this->assertSame('1.0.0', $manifest['version']);
         $this->assertSame('Pengadilan Negeri Mandailing Natal', $manifest['author']);
         $this->assertSame(
-            'E-SATU, Elektronik Surat Kuasa, Surat Kuasa, Pengadilan Negeri Mandailing Natal. e-SATU',
+            'E-SATU, Digital Surat Kuasa, Surat Kuasa, Pengadilan Negeri Mandailing Natal. e-SATU',
             $manifest['keywords'],
         );
         $this->assertSame('Pengadilan Negeri Mandailing Natal', $manifest['developer']);

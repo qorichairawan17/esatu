@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
 </p>
 
-**E-SATU** adalah aplikasi web inovatif yang dikembangkan oleh **Pengadilan Negeri Mandailing Natal** untuk memodernisasi proses pendaftaran surat kuasa. Dengan asas **Satu Pintu, Satu Klik, Urusan Kuasa Jadi Praktis.**, aplikasi ini memungkinkan advokat dan masyarakat untuk mendaftarkan surat kuasa secara elektronik dari mana saja dan kapan saja.
+**E-SATU** adalah aplikasi web inovatif yang dikembangkan oleh **Pengadilan Negeri Mandailing Natal** untuk memodernisasi proses pendaftaran surat kuasa. Dengan asas **Satu Pintu, Satu Klik, Urusan Kuasa Jadi Praktis.**, aplikasi ini memungkinkan advokat dan masyarakat untuk mendaftarkan surat kuasa secara Digital dari mana saja dan kapan saja.
 
 ---
 
@@ -49,7 +49,7 @@ Tujuan utama dari aplikasi ini adalah:
 - **Pembayaran Digital**: Integrasi dengan sistem pembayaran **QRIS** untuk biaya pendaftaran yang transparan dan mudah.
 - **Verifikasi oleh Petugas**: Panel administrasi khusus bagi petugas untuk me-review, memverifikasi, menyetujui, atau menolak pengajuan surat kuasa.
 - **Notifikasi Status**: Pengguna mendapatkan informasi real-time mengenai status pengajuan mereka (Menunggu, Disetujui, Ditolak).
-- **Cetak Barcode**: Setelah disetujui, sistem akan menghasilkan barcode pendaftaran elektronik yang sah untuk digunakan.
+- **Cetak Barcode**: Setelah disetujui, sistem akan menghasilkan barcode pendaftaran Digital yang sah untuk digunakan.
 - **Audit Trail**: Pencatatan setiap aktivitas penting pengguna untuk keamanan dan jejak audit.
 - **Testimoni Pengguna**: Fitur bagi pengguna untuk memberikan ulasan dan rating terhadap layanan.
 - **Manajemen Konten Dinamis**: Halaman depan yang informatif dengan data pejabat struktural dan informasi aplikasi yang dapat dikelola oleh admin.
@@ -144,7 +144,7 @@ Aplikasi sekarang seharusnya sudah bisa diakses di `http://127.0.0.1:8000`.
 5.  **Ajukan Surat Kuasa**: Mengisi detail surat kuasa dan mengunggah dokumen yang diperlukan.
 6.  **Lakukan Pembayaran**: Membayar biaya pendaftaran melalui QRIS dan mengunggah bukti bayar.
 7.  **Tunggu Verifikasi**: Menunggu petugas memverifikasi data dan pembayaran.
-8.  **Unduh Barcode**: Jika disetujui, unduh barcode pendaftaran elektronik. Jika ditolak, perbaiki data sesuai catatan dari petugas.
+8.  **Unduh Barcode**: Jika disetujui, unduh barcode pendaftaran Digital. Jika ditolak, perbaiki data sesuai catatan dari petugas.
 
 #### 👮 Alur Admin/Petugas
 1.  **Login**: Masuk ke panel administrator.

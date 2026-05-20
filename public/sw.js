@@ -1,10 +1,10 @@
 /**
  * Service Worker for E-SATU PWA
- * Elektronik Surat Kuasa - Pengadilan Negeri Mandailing Natal
+ * Digital Surat Kuasa - Pengadilan Negeri Mandailing Natal
  * Version: 3.0.1
  */
 
-const CACHE_NAME = "esatu-pwa-v3.0.2";
+const CACHE_NAME = "esatu-pwa-v3.0.3";
 const OFFLINE_URL = "/offline.html";
 const STATIC_ASSET_PATTERN =
     /\.(css|js|png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot|ico)$/i;

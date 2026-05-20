@@ -238,7 +238,7 @@
                         <ul class="list-unstyled text-muted mb-0">
                             <li class="mb-2">
                                 <i class="uil uil-check-circle text-success h5 me-2 align-middle"></i>
-                                Pendaftaran surat kuasa secara elektronik
+                                Pendaftaran surat kuasa secara Digital
                             </li>
                             <li class="mb-2">
                                 <i class="uil uil-check-circle text-success h5 me-2 align-middle"></i>

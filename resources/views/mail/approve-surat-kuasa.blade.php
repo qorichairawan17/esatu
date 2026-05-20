@@ -25,7 +25,7 @@
                 </tr>
                 <tr>
                     <td style="padding: 15px 24px 15px;text-align: justify;">
-                        Kamu dapat mengunduh barcode pendaftaran elektronik yang terlampir pada email ini. Silakan
+                        Kamu dapat mengunduh barcode pendaftaran Digital yang terlampir pada email ini. Silakan
                         gunakan barcode tersebut untuk keperluan lebih lanjut.
                     </td>
                 </tr>

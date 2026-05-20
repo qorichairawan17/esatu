@@ -101,7 +101,7 @@
     <table class="table-barcode" cellpadding="5" style="margin-top: 10px;">
         <tr>
             <td colspan="2">
-                <h3 class="bukti-text">Bukti Pendaftaran Surat Kuasa Elektronik</h3>
+                <h3 class="bukti-text">Bukti Pendaftaran Surat Kuasa Digital</h3>
             </td>
         </tr>
         <tr>

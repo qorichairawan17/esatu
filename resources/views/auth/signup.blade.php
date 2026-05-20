@@ -26,7 +26,7 @@
                                     Daftar untuk mulai mengajukan surat kuasa
                                 </h1>
                                 <p class="auth-copy mb-4">
-                                    Buat akun pengguna, lengkapi data diri, lalu ajukan surat kuasa secara elektronik melalui layanan {{ config('app.name') }}.
+                                    Buat akun pengguna, lengkapi data diri, lalu ajukan surat kuasa secara Digital melalui layanan {{ config('app.name') }}.
                                 </p>
                             </div>
 
@@ -201,7 +201,7 @@
                 <div class="modal-body">
                     <h5>1. Pendahuluan</h5>
                     <p class="text-muted" style="text-align: justify;">
-                        Kebijakan Privasi ini menjelaskan bagaimana {{ config('app.author') }} melalui aplikasi Elektronik Surat Kuasa mengelola Data Pribadi pengguna. Kami berkomitmen untuk menjaga
+                        Kebijakan Privasi ini menjelaskan bagaimana {{ config('app.author') }} melalui aplikasi Digital Surat Kuasa mengelola Data Pribadi pengguna. Kami berkomitmen untuk menjaga
                         kerahasiaan dan keamanan Data Pribadi sesuai UU No. 27 Tahun 2022 tentang Perlindungan Data Pribadi. Dengan menggunakan aplikasi ini, pengguna dianggap telah membaca, memahami,
                         dan menyetujui Kebijakan Privasi ini.
                     </p>
@@ -228,7 +228,7 @@
                     <h5>4. Keamanan Data</h5>
                     <p class="text-muted" style="text-align: justify;">
                         Kami menerapkan langkah keamanan yang wajar untuk melindungi informasi pribadi Kamu dari akses, penggunaan, atau pengungkapan yang tidak sah. Namun, tidak ada metode transmisi
-                        melalui internet atau metode penyimpanan elektronik yang 100% aman.
+                        melalui internet atau metode penyimpanan Digital yang 100% aman.
                     </p>
 
                     <h5>5. Hak Pengguna</h5>
